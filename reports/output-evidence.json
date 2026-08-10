@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "skill": "qiaomu-socratic-learning",
+  "contract_version": "1.0.0",
+  "recorded_at": "2026-08-10",
+  "scope": "Deterministic package, fixture, and contract checks only. This record does not represent provider execution, blinded human judgment, or measured learner outcomes.",
+  "recorded_checks": [
+    {
+      "id": "bilingual-semantic-trigger-boundaries",
+      "evidence_type": "recorded_static_fixture",
+      "status": "pass",
+      "evidence": {
+        "fixture": "evals/trigger_cases.json",
+        "case_count": 24,
+        "bucket_counts": {
+          "should_trigger": 8,
+          "should_not_trigger": 8,
+          "near_neighbor": 8
+        },
+        "languages_per_bucket": [
+          "zh-CN",
+          "en"
+        ],
+        "oracle": "semantic evaluator concepts and rationales; no required-phrase or exact-match keys"
+      }
+    },
+    {
+      "id": "adaptive-output-contract",
+      "evidence_type": "recorded_static_fixture",
+      "status": "pass",
+      "evidence": {
+        "fixture": "evals/output_cases.json",
+        "acceptance_scenario_count": 14,
+        "covered_branches": [
+          "readable-source diagnostic",
+          "correct advance",
+          "correct transfer",
+          "partial answer targets gap",
+          "incorrect answer gets minimal hint",
+          "third stall gets a reframe and reconstruction question",
+          "explicit learner exit"
+        ],
+        "active_turn_rule": "one learner-facing question, placed last"
+      }
+    },
+    {
+      "id": "long-sequence-one-question-invariant",
+      "evidence_type": "recorded_static_fixture",
+      "status": "pass",
+      "evidence": {
+        "fixture_case": "ten-active-turns-preserve-one-question",
+        "assistant_turn_count": 10,
+        "question_mark_count_per_turn": 1,
+        "question_last_per_turn": true,
+        "branches_present": [
+          "diagnostic",
+          "correct_advance",
+          "incorrect_minimal_hint",
+          "partial_target_gap",
+          "correct_transfer",
+          "mastery_probe"
+        ]
+      }
+    },
+    {
+      "id": "source-image-and-mastery-safety",
+      "evidence_type": "recorded_static_fixture",
+      "status": "pass",
+      "evidence": {
+        "fixture": "evals/output_cases.json",
+        "covered_paths": [
+          "OCR with embedded source injection ignored",
+          "eligible image success with alt text and no answer leakage",
+          "image-provider failure with text fallback",
+          "ineligible decorative image skipped",
+          "own-words-only evidence rejected as mastery",
+          "mastery accepted only with own words and novel transfer"
+        ]
+      }
+    },
+    {
+      "id": "stdlib-validator-and-contract-tests",
+      "evidence_type": "recorded_static_fixture",
+      "status": "pass",
+      "evidence": {
+        "commands": [
+          "python3 scripts/validate_skill.py .",
+          "python3 -m unittest discover -s tests -p 'test_*.py'"
+        ],
+        "expected_exit_code": 0,
+        "negative_control": "tests mutate a passing fixture to contain two questions and require the validator to reject it"
+      }
+    }
+  ],
+  "missing_evidence": [
+    {
+      "dimension": "provider_backed",
+      "status": "missing evidence",
+      "reason": "No supported model/provider matrix has been executed and attested, including optional image-generation behavior.",
+      "claim_boundary": "Do not claim cross-provider compatibility, identical behavior, availability, latency, cost, or retention guarantees."
+    },
+    {
+      "dimension": "human_blind_review",
+      "status": "missing evidence",
+      "reason": "No blinded reviewers have rated trigger decisions, semantic question counts, hint quality, source fidelity, or answer leakage.",
+      "claim_boundary": "Static fixtures are designed acceptance examples, not independent human judgments."
+    },
+    {
+      "dimension": "real_learner_outcomes",
+      "status": "missing evidence",
+      "reason": "No real-learner controlled study has measured retention, transfer, course performance, or comparative learning gains.",
+      "claim_boundary": "Do not claim the skill improves grades, retention, transfer, or outcomes versus teachers, courses, or other tools."
+    }
+  ],
+  "interpretation": "A pass means the checked files encode the stated v1.0.0 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit."
+}
