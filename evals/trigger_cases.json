@@ -1,0 +1,526 @@
+{
+  "schema_version": "1.0",
+  "skill": "qiaomu-socratic-learning",
+  "contract_version": "1.0.0",
+  "recommended_threshold": 0.34,
+  "description_required_concepts": [
+    "learning_goal",
+    "question_led_method",
+    "adaptive_turn_taking",
+    "learner_reasoning",
+    "source_grounding"
+  ],
+  "positive_concepts": {
+    "learning_goal": [
+      "learn",
+      "learning",
+      "understand",
+      "review",
+      "tutor me",
+      "coach me",
+      "teach me",
+      "学习",
+      "学会",
+      "理解",
+      "复习",
+      "教我",
+      "带我学"
+    ],
+    "question_led_method": [
+      "Socratic",
+      "question-led",
+      "question me",
+      "ask me",
+      "asking one question",
+      "one question at a time",
+      "diagnostic question",
+      "probe my",
+      "back-and-forth",
+      "as a dialogue",
+      "苏格拉底",
+      "一问一答",
+      "逐步问我",
+      "每次问我",
+      "只追问一个",
+      "问题诊断",
+      "提问带我",
+      "逐问"
+    ],
+    "adaptive_turn_taking": [
+      "adapt",
+      "adapting",
+      "each answer",
+      "based on my answer",
+      "based on my replies",
+      "build from my replies",
+      "wait for my answer",
+      "small hints",
+      "等我回答",
+      "根据我的回答",
+      "根据我的答复",
+      "根据每次回答",
+      "边问边引导",
+      "不会时先给一点提示",
+      "调整难度"
+    ],
+    "learner_reasoning": [
+      "discover",
+      "derive",
+      "reconstruct",
+      "let me do the explaining",
+      "own words",
+      "apply it",
+      "transfer",
+      "what I think",
+      "自己推导",
+      "自己重建",
+      "自己说",
+      "重建",
+      "迁移",
+      "推出来"
+    ],
+    "source_grounding": [
+      "source",
+      "attached chapter",
+      "attached text",
+      "material",
+      "text",
+      "page",
+      "screenshot",
+      "PDF",
+      "notes",
+      "材料",
+      "教材",
+      "文字",
+      "网页",
+      "截图",
+      "笔记",
+      "题目"
+    ]
+  },
+  "negative_patterns": [
+    "final answers only",
+    "solve questions",
+    "Anki-ready CSV",
+    "write a short history",
+    "mock job interview",
+    "score me at the end",
+    "选择题和答案",
+    "润色这段",
+    "修正错别字"
+  ],
+  "should_trigger": [
+    {
+      "text": "请用苏格拉底式提问带我真正理解贝叶斯定理。一次只问我一个问题，等我回答后再继续。",
+      "family": "trigger-zh-socratic-bayes"
+    },
+    {
+      "text": "我贴一段经济学材料。不要先总结，请先用一个关于材料内容的问题诊断我理解到哪，再根据我的回答教我。",
+      "family": "trigger-zh-source-diagnostic"
+    },
+    {
+      "text": "别直接告诉我动量守恒为什么成立。像导师一样逐步问我，让我自己把因果链重建出来。",
+      "family": "trigger-zh-reconstruct-physics"
+    },
+    {
+      "text": "我们用对话复习 TCP 拥塞控制：你每轮根据我的回答只追问一个最关键的问题，直到我能迁移到新场景。",
+      "family": "trigger-zh-dialogue-review"
+    },
+    {
+      "text": "Help me discover how JavaScript closures work by asking one question at a time and adapting to each answer.",
+      "family": "trigger-en-closures"
+    },
+    {
+      "text": "Use the attached chapter as our source. Start with a diagnostic question about its argument, then coach me through it without lecturing.",
+      "family": "trigger-en-source-first"
+    },
+    {
+      "text": "Tutor me on natural selection as a back-and-forth. Probe my causal model, give only small hints when I am wrong, and let me do the explaining.",
+      "family": "trigger-en-causal-model"
+    },
+    {
+      "text": "Question me through opportunity cost until I can explain it in my own words and apply it to a case I have not seen.",
+      "family": "trigger-en-transfer-goal"
+    },
+    {
+      "text": "我不想背梯度下降公式。你每次问我一个关键点，让我自己推导出来。",
+      "family": "near-zh-guided-derivation"
+    },
+    {
+      "text": "和我一问一答复习光合作用；根据我的回答决定下一步，不会时先给一点提示。",
+      "family": "near-zh-adaptive-review"
+    },
+    {
+      "text": "Do not give me the formula for compound interest. Ask what I think happens each period and build from my replies.",
+      "family": "near-en-adaptive-derive"
+    },
+    {
+      "text": "Review photosynthesis with me as a dialogue: use each answer to choose one next question, and make me explain the mechanism myself.",
+      "family": "near-en-dialogue-review"
+    }
+  ],
+  "should_not_trigger": [
+    {
+      "text": "直接告诉我这道微积分题的答案和完整步骤，不要问我问题。",
+      "family": "no-trigger-zh-direct-answer"
+    },
+    {
+      "text": "把这篇机器学习论文总结成五个要点。",
+      "family": "no-trigger-zh-summary"
+    },
+    {
+      "text": "根据这章内容生成 20 道选择题和答案，方便我稍后打印。",
+      "family": "no-trigger-zh-quiz-artifact"
+    },
+    {
+      "text": "帮我润色这段课程笔记，保持原意并修正错别字。",
+      "family": "no-trigger-zh-copyedit"
+    },
+    {
+      "text": "Explain gradient descent in plain English with one worked example.",
+      "family": "no-trigger-en-explanation"
+    },
+    {
+      "text": "Solve questions 1 through 8 and give me the final answers only.",
+      "family": "no-trigger-en-homework"
+    },
+    {
+      "text": "Write a short history of the Socratic method and list three famous Socratic questions.",
+      "family": "no-trigger-en-socratic-description"
+    },
+    {
+      "text": "Turn these biology notes into an Anki-ready CSV of flashcards.",
+      "family": "no-trigger-en-flashcards"
+    }
+  ],
+  "near_neighbor": [
+    {
+      "text": "教我理解递归。",
+      "family": "near-zh-generic-teach"
+    },
+    {
+      "text": "给我列十个能启发思考的哲学问题，我自己慢慢看。",
+      "family": "near-zh-static-question-set"
+    },
+    {
+      "text": "Teach me recursion.",
+      "family": "near-en-generic-tutor"
+    },
+    {
+      "text": "Run a mock job interview and ask one behavioral question at a time, then score me at the end.",
+      "family": "near-en-interview-simulation"
+    }
+  ],
+  "evaluation_method": "Judge the learner's intent semantically. Do not require literal trigger phrases or keyword matches.",
+  "buckets": {
+    "should_trigger": "The learner explicitly or unmistakably requests interactive, question-led learning.",
+    "should_not_trigger": "The learner requests an answer, explanation, transformation, artifact, or assessment without question-led learning.",
+    "near_neighbor": "The request resembles tutoring or questioning; activation still depends on clear interactive question-led learning intent."
+  },
+  "cases": [
+    {
+      "id": "trigger-zh-socratic-bayes",
+      "language": "zh-CN",
+      "bucket": "should_trigger",
+      "user_prompt": "请用苏格拉底式提问带我真正理解贝叶斯定理。一次只问我一个问题，等我回答后再继续。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "explicit guided discovery",
+        "interactive turn taking",
+        "one question at a time"
+      ],
+      "rationale": "The learner explicitly chooses a question-led dialogue rather than a direct explanation."
+    },
+    {
+      "id": "trigger-zh-source-diagnostic",
+      "language": "zh-CN",
+      "bucket": "should_trigger",
+      "user_prompt": "我贴一段经济学材料。不要先总结，请先用一个关于材料内容的问题诊断我理解到哪，再根据我的回答教我。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "source-grounded learning",
+        "diagnostic first question",
+        "adaptive dialogue"
+      ],
+      "rationale": "The learner clearly requests source-grounded diagnosis and adaptive questioning."
+    },
+    {
+      "id": "trigger-zh-reconstruct-physics",
+      "language": "zh-CN",
+      "bucket": "should_trigger",
+      "user_prompt": "别直接告诉我动量守恒为什么成立。像导师一样逐步问我，让我自己把因果链重建出来。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "withhold direct answer",
+        "question-led reconstruction",
+        "conceptual learning goal"
+      ],
+      "rationale": "The requested teaching method is an interactive reconstruction through questions."
+    },
+    {
+      "id": "trigger-zh-dialogue-review",
+      "language": "zh-CN",
+      "bucket": "should_trigger",
+      "user_prompt": "我们用对话复习 TCP 拥塞控制：你每轮根据我的回答只追问一个最关键的问题，直到我能迁移到新场景。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "adaptive review",
+        "single-question turns",
+        "transfer-based mastery"
+      ],
+      "rationale": "The interaction, adaptation rule, and learning endpoint are all explicit."
+    },
+    {
+      "id": "trigger-en-closures",
+      "language": "en",
+      "bucket": "should_trigger",
+      "user_prompt": "Help me discover how JavaScript closures work by asking one question at a time and adapting to each answer.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "guided discovery",
+        "one question per turn",
+        "adaptive tutoring"
+      ],
+      "rationale": "The request unambiguously asks for interactive question-led learning."
+    },
+    {
+      "id": "trigger-en-source-first",
+      "language": "en",
+      "bucket": "should_trigger",
+      "user_prompt": "Use the attached chapter as our source. Start with a diagnostic question about its argument, then coach me through it without lecturing.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "source-grounded diagnosis",
+        "learner-led reasoning",
+        "interactive coaching"
+      ],
+      "rationale": "A source-first diagnostic dialogue is explicitly requested."
+    },
+    {
+      "id": "trigger-en-causal-model",
+      "language": "en",
+      "bucket": "should_trigger",
+      "user_prompt": "Tutor me on natural selection as a back-and-forth. Probe my causal model, give only small hints when I am wrong, and let me do the explaining.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "back-and-forth tutoring",
+        "diagnostic probing",
+        "minimal hints"
+      ],
+      "rationale": "The learner asks to reason through the concept in an adaptive dialogue."
+    },
+    {
+      "id": "trigger-en-transfer-goal",
+      "language": "en",
+      "bucket": "should_trigger",
+      "user_prompt": "Question me through opportunity cost until I can explain it in my own words and apply it to a case I have not seen.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "question-led learning",
+        "own-words explanation",
+        "novel transfer"
+      ],
+      "rationale": "The learner requests a dialogue with explicit mastery evidence."
+    },
+    {
+      "id": "no-trigger-zh-direct-answer",
+      "language": "zh-CN",
+      "bucket": "should_not_trigger",
+      "user_prompt": "直接告诉我这道微积分题的答案和完整步骤，不要问我问题。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "direct answer requested",
+        "questions explicitly refused"
+      ],
+      "rationale": "The requested mode directly conflicts with question-led learning."
+    },
+    {
+      "id": "no-trigger-zh-summary",
+      "language": "zh-CN",
+      "bucket": "should_not_trigger",
+      "user_prompt": "把这篇机器学习论文总结成五个要点。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "content transformation",
+        "no interactive learning intent"
+      ],
+      "rationale": "This is a summarization request, not a learning dialogue."
+    },
+    {
+      "id": "no-trigger-zh-quiz-artifact",
+      "language": "zh-CN",
+      "bucket": "should_not_trigger",
+      "user_prompt": "根据这章内容生成 20 道选择题和答案，方便我稍后打印。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "offline quiz artifact",
+        "answer key requested",
+        "no live turn taking"
+      ],
+      "rationale": "Generating a quiz artifact is not an interactive tutoring session."
+    },
+    {
+      "id": "no-trigger-zh-copyedit",
+      "language": "zh-CN",
+      "bucket": "should_not_trigger",
+      "user_prompt": "帮我润色这段课程笔记，保持原意并修正错别字。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "editing task",
+        "no tutoring dialogue"
+      ],
+      "rationale": "The task is copyediting even though the content is educational."
+    },
+    {
+      "id": "no-trigger-en-explanation",
+      "language": "en",
+      "bucket": "should_not_trigger",
+      "user_prompt": "Explain gradient descent in plain English with one worked example.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "direct explanation",
+        "worked example requested",
+        "no interactive method"
+      ],
+      "rationale": "The learner asks for an explanation, not question-led discovery."
+    },
+    {
+      "id": "no-trigger-en-homework",
+      "language": "en",
+      "bucket": "should_not_trigger",
+      "user_prompt": "Solve questions 1 through 8 and give me the final answers only.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "answer completion",
+        "no teaching interaction"
+      ],
+      "rationale": "This requests completed answers rather than an interactive learning process."
+    },
+    {
+      "id": "no-trigger-en-socratic-description",
+      "language": "en",
+      "bucket": "should_not_trigger",
+      "user_prompt": "Write a short history of the Socratic method and list three famous Socratic questions.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "topic mentions Socratic method",
+        "informational writing request",
+        "no live tutoring intent"
+      ],
+      "rationale": "Mentioning the method as subject matter must not trigger the tutoring behavior."
+    },
+    {
+      "id": "no-trigger-en-flashcards",
+      "language": "en",
+      "bucket": "should_not_trigger",
+      "user_prompt": "Turn these biology notes into an Anki-ready CSV of flashcards.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "study artifact generation",
+        "no live dialogue"
+      ],
+      "rationale": "Creating study material is adjacent to learning but is not interactive question-led tutoring."
+    },
+    {
+      "id": "near-zh-generic-teach",
+      "language": "zh-CN",
+      "bucket": "near_neighbor",
+      "user_prompt": "教我理解递归。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "learning goal present",
+        "interaction mode unspecified"
+      ],
+      "rationale": "A generic teaching request does not clearly choose question-led interaction."
+    },
+    {
+      "id": "near-zh-guided-derivation",
+      "language": "zh-CN",
+      "bucket": "near_neighbor",
+      "user_prompt": "我不想背梯度下降公式。你每次问我一个关键点，让我自己推导出来。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "explicit single-step questioning",
+        "learner reconstruction",
+        "interactive learning intent"
+      ],
+      "rationale": "It does not name the Socratic method, but the desired behavior is unmistakably question-led learning."
+    },
+    {
+      "id": "near-zh-static-question-set",
+      "language": "zh-CN",
+      "bucket": "near_neighbor",
+      "user_prompt": "给我列十个能启发思考的哲学问题，我自己慢慢看。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "questions requested as artifact",
+        "no turn-by-turn adaptation"
+      ],
+      "rationale": "The output contains questions but is not an interactive learning dialogue."
+    },
+    {
+      "id": "near-zh-adaptive-review",
+      "language": "zh-CN",
+      "bucket": "near_neighbor",
+      "user_prompt": "和我一问一答复习光合作用；根据我的回答决定下一步，不会时先给一点提示。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "live question-answer review",
+        "adaptive branching",
+        "hint before explanation"
+      ],
+      "rationale": "The request clearly defines interactive and adaptive question-led learning."
+    },
+    {
+      "id": "near-en-generic-tutor",
+      "language": "en",
+      "bucket": "near_neighbor",
+      "user_prompt": "Teach me recursion.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "learning goal present",
+        "teaching mode unspecified"
+      ],
+      "rationale": "Tutoring alone is not sufficient evidence for the specialized question-led mode."
+    },
+    {
+      "id": "near-en-adaptive-derive",
+      "language": "en",
+      "bucket": "near_neighbor",
+      "user_prompt": "Do not give me the formula for compound interest. Ask what I think happens each period and build from my replies.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "learner reasoning elicited",
+        "adaptive dialogue",
+        "direct answer withheld"
+      ],
+      "rationale": "The user describes question-led guided discovery without relying on a named method."
+    },
+    {
+      "id": "near-en-interview-simulation",
+      "language": "en",
+      "bucket": "near_neighbor",
+      "user_prompt": "Run a mock job interview and ask one behavioral question at a time, then score me at the end.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "interactive questioning",
+        "assessment simulation",
+        "no concept-learning goal"
+      ],
+      "rationale": "One-at-a-time questions alone do not qualify when the purpose is interview simulation rather than learning."
+    },
+    {
+      "id": "near-en-dialogue-review",
+      "language": "en",
+      "bucket": "near_neighbor",
+      "user_prompt": "Review photosynthesis with me as a dialogue: use each answer to choose one next question, and make me explain the mechanism myself.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "interactive review",
+        "one adaptive question",
+        "own-words reconstruction"
+      ],
+      "rationale": "This is clearly question-led learning even without the word Socratic."
+    }
+  ]
+}

@@ -1,0 +1,2307 @@
+{
+  "ok": true,
+  "complete": true,
+  "researched_at": "2026-08-10",
+  "queries": [
+    "Socratic tutoring agent",
+    "active recall learning coach",
+    "one question at a time tutoring",
+    "story based concept learning"
+  ],
+  "metric_semantics": {
+    "skills_sh_installs": "ecosystem install telemetry; not ratings or correctness",
+    "skillsmp_repo_stars": "GitHub repository stars; not installs, ratings, or skill-specific quality",
+    "cross_catalog_score": "not calculated; metrics remain separate"
+  },
+  "query_runs": [
+    {
+      "query": "Socratic tutoring agent",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 14,
+      "skillsmp_candidates": 10
+    },
+    {
+      "query": "active recall learning coach",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 16,
+      "skillsmp_candidates": 8
+    },
+    {
+      "query": "one question at a time tutoring",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 19,
+      "skillsmp_candidates": 8
+    },
+    {
+      "query": "story based concept learning",
+      "skills_sh": "ok",
+      "skillsmp": "ok",
+      "skills_sh_candidates": 13,
+      "skillsmp_candidates": 9
+    }
+  ],
+  "candidate_family_count": 97,
+  "candidates": [
+    {
+      "family_key": "wondelai/skills:lean-ux",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "wondelai/skills",
+        "skill_name": "lean-ux",
+        "family_key": "wondelai/skills:lean-ux",
+        "skills_sh_installs": 3700,
+        "skills_sh_installs_display": "3.7K",
+        "skills_sh_url": "https://skills.sh/wondelai/skills/lean-ux"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "everyinc/compound-engineering-plugin:coding-tutor",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "everyinc/compound-engineering-plugin",
+        "skill_name": "coding-tutor",
+        "family_key": "everyinc/compound-engineering-plugin:coding-tutor",
+        "skills_sh_installs": 2500,
+        "skills_sh_installs_display": "2.5K",
+        "skills_sh_url": "https://skills.sh/everyinc/compound-engineering-plugin/coding-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "revenuecat/ai-toolkit:rc-one-time-products",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "revenuecat/ai-toolkit",
+        "skill_name": "rc-one-time-products",
+        "family_key": "revenuecat/ai-toolkit:rc-one-time-products",
+        "skills_sh_installs": 206,
+        "skills_sh_installs_display": "206",
+        "skills_sh_url": "https://skills.sh/revenuecat/ai-toolkit/rc-one-time-products"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "guia-matthieu/clawfu-skills:one-on-ones",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "guia-matthieu/clawfu-skills",
+        "skill_name": "one-on-ones",
+        "family_key": "guia-matthieu/clawfu-skills:one-on-ones",
+        "skills_sh_installs": 190,
+        "skills_sh_installs_display": "190",
+        "skills_sh_url": "https://skills.sh/guia-matthieu/clawfu-skills/one-on-ones"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "metabase/agent-skills:metabase-learning",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "metabase/agent-skills",
+        "skill_name": "metabase-learning",
+        "family_key": "metabase/agent-skills:metabase-learning",
+        "skills_sh_installs": 187,
+        "skills_sh_installs_display": "187",
+        "skills_sh_url": "https://skills.sh/metabase/agent-skills/metabase-learning"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "sunnypatneedi/claude-starter-kit:learning-coach",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "sunnypatneedi/claude-starter-kit",
+        "skill_name": "learning-coach",
+        "family_key": "sunnypatneedi/claude-starter-kit:learning-coach",
+        "skills_sh_installs": 115,
+        "skills_sh_installs_display": "115",
+        "skills_sh_url": "https://skills.sh/sunnypatneedi/claude-starter-kit/learning-coach"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "sales-skills/sales:sales-coaching",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "sales-skills/sales",
+        "skill_name": "sales-coaching",
+        "family_key": "sales-skills/sales:sales-coaching",
+        "skills_sh_installs": 87,
+        "skills_sh_installs_display": "87",
+        "skills_sh_url": "https://skills.sh/sales-skills/sales/sales-coaching"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nealcaren/social-data-analysis:lecture-designer",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "nealcaren/social-data-analysis",
+        "skill_name": "lecture-designer",
+        "family_key": "nealcaren/social-data-analysis:lecture-designer",
+        "skills_sh_installs": 81,
+        "skills_sh_installs_display": "81",
+        "skills_sh_url": "https://skills.sh/nealcaren/social-data-analysis/lecture-designer"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "therealharpaljadeja/monskills:concepts",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "therealharpaljadeja/monskills",
+        "skill_name": "concepts",
+        "family_key": "therealharpaljadeja/monskills:concepts",
+        "skills_sh_installs": 76,
+        "skills_sh_installs_display": "76",
+        "skills_sh_url": "https://skills.sh/therealharpaljadeja/monskills/concepts"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "flc1125/skills:study",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "flc1125/skills",
+        "skill_name": "study",
+        "family_key": "flc1125/skills:study",
+        "skills_sh_installs": 74,
+        "skills_sh_installs_display": "74",
+        "skills_sh_url": "https://skills.sh/flc1125/skills/study"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "dengineproblem/agents-monorepo:active-learning-system",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "dengineproblem/agents-monorepo",
+        "skill_name": "active-learning-system",
+        "family_key": "dengineproblem/agents-monorepo:active-learning-system",
+        "skills_sh_installs": 66,
+        "skills_sh_installs_display": "66",
+        "skills_sh_url": "https://skills.sh/dengineproblem/agents-monorepo/active-learning-system"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "eng0ai/eng0-template-skills:stripe-one-time-payment",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "eng0ai/eng0-template-skills",
+        "skill_name": "stripe-one-time-payment",
+        "family_key": "eng0ai/eng0-template-skills:stripe-one-time-payment",
+        "skills_sh_installs": 49,
+        "skills_sh_installs_display": "49",
+        "skills_sh_url": "https://skills.sh/eng0ai/eng0-template-skills/stripe-one-time-payment"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "garethmanning/education-agent-skills:retrieve-first-gate",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "garethmanning/education-agent-skills",
+        "skill_name": "retrieve-first-gate",
+        "family_key": "garethmanning/education-agent-skills:retrieve-first-gate",
+        "skills_sh_installs": 49,
+        "skills_sh_installs_display": "49",
+        "skills_sh_url": "https://skills.sh/garethmanning/education-agent-skills/retrieve-first-gate"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "blazewicz/claude-flashcards:flashcard-creator",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "blazewicz/claude-flashcards",
+        "skill_name": "flashcard-creator",
+        "family_key": "blazewicz/claude-flashcards:flashcard-creator",
+        "skills_sh_installs": 42,
+        "skills_sh_installs_display": "42",
+        "skills_sh_url": "https://skills.sh/blazewicz/claude-flashcards/flashcard-creator"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "mathews-tom/praxis-skills:concept-to-video",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "mathews-tom/praxis-skills",
+        "skill_name": "concept-to-video",
+        "family_key": "mathews-tom/praxis-skills:concept-to-video",
+        "skills_sh_installs": 37,
+        "skills_sh_installs_display": "37",
+        "skills_sh_url": "https://skills.sh/mathews-tom/praxis-skills/concept-to-video"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "melodic-software/claude-code-plugins:interview-skills",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "melodic-software/claude-code-plugins",
+        "skill_name": "interview-skills",
+        "family_key": "melodic-software/claude-code-plugins:interview-skills",
+        "skills_sh_installs": 37,
+        "skills_sh_installs_display": "37",
+        "skills_sh_url": "https://skills.sh/melodic-software/claude-code-plugins/interview-skills"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "joellewis/skill-library:learning-accelerator",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "joellewis/skill-library",
+        "skill_name": "learning-accelerator",
+        "family_key": "joellewis/skill-library:learning-accelerator",
+        "skills_sh_installs": 35,
+        "skills_sh_installs_display": "35",
+        "skills_sh_url": "https://skills.sh/joellewis/skill-library/learning-accelerator"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "oldwinter/skills:conducting-user-interviews",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "oldwinter/skills",
+        "skill_name": "conducting-user-interviews",
+        "family_key": "oldwinter/skills:conducting-user-interviews",
+        "skills_sh_installs": 34,
+        "skills_sh_installs_display": "34",
+        "skills_sh_url": "https://skills.sh/oldwinter/skills/conducting-user-interviews"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "thecraighewitt/skills:one-on-ones",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "thecraighewitt/skills",
+        "skill_name": "one-on-ones",
+        "family_key": "thecraighewitt/skills:one-on-ones",
+        "skills_sh_installs": 29,
+        "skills_sh_installs_display": "29",
+        "skills_sh_url": "https://skills.sh/thecraighewitt/skills/one-on-ones"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "zengliangyi/chatcrystal:chatcrystal-debug-recall",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "zengliangyi/chatcrystal",
+        "skill_name": "chatcrystal-debug-recall",
+        "family_key": "zengliangyi/chatcrystal:chatcrystal-debug-recall",
+        "skills_sh_installs": 29,
+        "skills_sh_installs_display": "29",
+        "skills_sh_url": "https://skills.sh/zengliangyi/chatcrystal/chatcrystal-debug-recall"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "theneoai/awesome-skills:khan-academy",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "theneoai/awesome-skills",
+        "skill_name": "khan-academy",
+        "family_key": "theneoai/awesome-skills:khan-academy",
+        "skills_sh_installs": 18,
+        "skills_sh_installs_display": "18",
+        "skills_sh_url": "https://skills.sh/theneoai/awesome-skills/khan-academy"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "davidweiss2-fp/dw-agent-skills:dw-grilling-skill",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "davidweiss2-fp/dw-agent-skills",
+        "skill_name": "dw-grilling-skill",
+        "family_key": "davidweiss2-fp/dw-agent-skills:dw-grilling-skill",
+        "skills_sh_installs": 17,
+        "skills_sh_installs_display": "17",
+        "skills_sh_url": "https://skills.sh/davidweiss2-fp/dw-agent-skills/dw-grilling-skill"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "dividendsolo/skills:quiz-me",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "dividendsolo/skills",
+        "skill_name": "quiz-me",
+        "family_key": "dividendsolo/skills:quiz-me",
+        "skills_sh_installs": 17,
+        "skills_sh_installs_display": "17",
+        "skills_sh_url": "https://skills.sh/dividendsolo/skills/quiz-me"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "krishagel/geoffrey:presentation-master",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "krishagel/geoffrey",
+        "skill_name": "presentation-master",
+        "family_key": "krishagel/geoffrey:presentation-master",
+        "skills_sh_installs": 16,
+        "skills_sh_installs_display": "16",
+        "skills_sh_url": "https://skills.sh/krishagel/geoffrey/presentation-master"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "onireimu/knows:socratic",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "onireimu/knows",
+        "skill_name": "socratic",
+        "family_key": "onireimu/knows:socratic",
+        "skills_sh_installs": 16,
+        "skills_sh_installs_display": "16",
+        "skills_sh_url": "https://skills.sh/onireimu/knows/socratic"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "4444j99/a-i--skills:socratic-tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "4444j99/a-i--skills",
+        "skill_name": "socratic-tutor",
+        "family_key": "4444j99/a-i--skills:socratic-tutor",
+        "skills_sh_installs": 15,
+        "skills_sh_installs_display": "15",
+        "skills_sh_url": "https://skills.sh/4444j99/a-i--skills/socratic-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "dhanesh/agent-skills:feynman-walkthrough",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "dhanesh/agent-skills",
+        "skill_name": "feynman-walkthrough",
+        "family_key": "dhanesh/agent-skills:feynman-walkthrough",
+        "skills_sh_installs": 15,
+        "skills_sh_installs_display": "15",
+        "skills_sh_url": "https://skills.sh/dhanesh/agent-skills/feynman-walkthrough"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "jwa91/agentskills:interactive-learner",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "jwa91/agentskills",
+        "skill_name": "interactive-learner",
+        "family_key": "jwa91/agentskills:interactive-learner",
+        "skills_sh_installs": 15,
+        "skills_sh_installs_display": "15",
+        "skills_sh_url": "https://skills.sh/jwa91/agentskills/interactive-learner"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "sebastianelvis/hammer:teach",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "sebastianelvis/hammer",
+        "skill_name": "teach",
+        "family_key": "sebastianelvis/hammer:teach",
+        "skills_sh_installs": 15,
+        "skills_sh_installs_display": "15",
+        "skills_sh_url": "https://skills.sh/sebastianelvis/hammer/teach"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "tamdogood/skills:async-learning-teacher",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "tamdogood/skills",
+        "skill_name": "async-learning-teacher",
+        "family_key": "tamdogood/skills:async-learning-teacher",
+        "skills_sh_installs": 15,
+        "skills_sh_installs_display": "15",
+        "skills_sh_url": "https://skills.sh/tamdogood/skills/async-learning-teacher"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "trvs-lab/eudic-to-anki-skills:eudic-to-anki",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "trvs-lab/eudic-to-anki-skills",
+        "skill_name": "eudic-to-anki",
+        "family_key": "trvs-lab/eudic-to-anki-skills:eudic-to-anki",
+        "skills_sh_installs": 15,
+        "skills_sh_installs_display": "15",
+        "skills_sh_url": "https://skills.sh/trvs-lab/eudic-to-anki-skills/eudic-to-anki"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "patrick-fu/awesome-skills:faster-learning-coach",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "patrick-fu/awesome-skills",
+        "skill_name": "faster-learning-coach",
+        "family_key": "patrick-fu/awesome-skills:faster-learning-coach",
+        "skills_sh_installs": 14,
+        "skills_sh_installs_display": "14",
+        "skills_sh_url": "https://skills.sh/patrick-fu/awesome-skills/faster-learning-coach"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "monsterhxw/dotfiles:tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "monsterhxw/dotfiles",
+        "skill_name": "tutor",
+        "family_key": "monsterhxw/dotfiles:tutor",
+        "skills_sh_installs": 13,
+        "skills_sh_installs_display": "13",
+        "skills_sh_url": "https://skills.sh/monsterhxw/dotfiles/tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "andresnator/agents-orchestrator:english-tutor",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "andresnator/agents-orchestrator",
+        "skill_name": "english-tutor",
+        "family_key": "andresnator/agents-orchestrator:english-tutor",
+        "skills_sh_installs": 10,
+        "skills_sh_installs_display": "10",
+        "skills_sh_url": "https://skills.sh/andresnator/agents-orchestrator/english-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "vishalsachdev/claude-skills:course-generator",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "vishalsachdev/claude-skills",
+        "skill_name": "course-generator",
+        "family_key": "vishalsachdev/claude-skills:course-generator",
+        "skills_sh_installs": 10,
+        "skills_sh_installs_display": "10",
+        "skills_sh_url": "https://skills.sh/vishalsachdev/claude-skills/course-generator"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "robabby/claude-skills:recall",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "robabby/claude-skills",
+        "skill_name": "recall",
+        "family_key": "robabby/claude-skills:recall",
+        "skills_sh_installs": 9,
+        "skills_sh_installs_display": "9",
+        "skills_sh_url": "https://skills.sh/robabby/claude-skills/recall"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "bighardperson/computer-science-skills-collection:open-lesson",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "bighardperson/computer-science-skills-collection",
+        "skill_name": "open-lesson",
+        "family_key": "bighardperson/computer-science-skills-collection:open-lesson",
+        "skills_sh_installs": 8,
+        "skills_sh_installs_display": "8",
+        "skills_sh_url": "https://skills.sh/bighardperson/computer-science-skills-collection/open-lesson"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "markphelps/agent-plugins:vault-concepts",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "markphelps/agent-plugins",
+        "skill_name": "vault-concepts",
+        "family_key": "markphelps/agent-plugins:vault-concepts",
+        "skills_sh_installs": 8,
+        "skills_sh_installs_display": "8",
+        "skills_sh_url": "https://skills.sh/markphelps/agent-plugins/vault-concepts"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "udecode/plate:coding-tutor",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "udecode/plate",
+        "skill_name": "coding-tutor",
+        "family_key": "udecode/plate:coding-tutor",
+        "skills_sh_installs": 8,
+        "skills_sh_installs_display": "8",
+        "skills_sh_url": "https://skills.sh/udecode/plate/coding-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "ievenight/learning-coach:learning-coach",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "ievenight/learning-coach",
+        "skill_name": "learning-coach",
+        "family_key": "ievenight/learning-coach:learning-coach",
+        "skills_sh_installs": 7,
+        "skills_sh_installs_display": "7",
+        "skills_sh_url": "https://skills.sh/ievenight/learning-coach/learning-coach"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "a1exmozz/skills:devflow",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "a1exmozz/skills",
+        "skill_name": "devflow",
+        "family_key": "a1exmozz/skills:devflow",
+        "skills_sh_installs": 6,
+        "skills_sh_installs_display": "6",
+        "skills_sh_url": "https://skills.sh/a1exmozz/skills/devflow"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "shihyuho/skills:tutor",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "shihyuho/skills",
+        "skill_name": "tutor",
+        "family_key": "shihyuho/skills:tutor",
+        "skills_sh_installs": 6,
+        "skills_sh_installs_display": "6",
+        "skills_sh_url": "https://skills.sh/shihyuho/skills/tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "8b-is/8b-is-mp:coding-tutor",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "8b-is/8b-is-mp",
+        "skill_name": "coding-tutor",
+        "family_key": "8b-is/8b-is-mp:coding-tutor",
+        "skills_sh_installs": 5,
+        "skills_sh_installs_display": "5",
+        "skills_sh_url": "https://skills.sh/8b-is/8b-is-mp/coding-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "ferueda/harness:learning-coach",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "active recall learning coach",
+        "owner_repo": "ferueda/harness",
+        "skill_name": "learning-coach",
+        "family_key": "ferueda/harness:learning-coach",
+        "skills_sh_installs": 5,
+        "skills_sh_installs_display": "5",
+        "skills_sh_url": "https://skills.sh/ferueda/harness/learning-coach"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "maragudk/fabrik:one-at-a-time",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "maragudk/fabrik",
+        "skill_name": "one-at-a-time",
+        "family_key": "maragudk/fabrik:one-at-a-time",
+        "skills_sh_installs": 5,
+        "skills_sh_installs_display": "5",
+        "skills_sh_url": "https://skills.sh/maragudk/fabrik/one-at-a-time"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "rebyteai-template/rebyte-skills:stripe-one-time-payment",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "rebyteai-template/rebyte-skills",
+        "skill_name": "stripe-one-time-payment",
+        "family_key": "rebyteai-template/rebyte-skills:stripe-one-time-payment",
+        "skills_sh_installs": 5,
+        "skills_sh_installs_display": "5",
+        "skills_sh_url": "https://skills.sh/rebyteai-template/rebyte-skills/stripe-one-time-payment"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "gentoosiast/skills:socratic-tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "gentoosiast/skills",
+        "skill_name": "socratic-tutor",
+        "family_key": "gentoosiast/skills:socratic-tutor",
+        "skills_sh_installs": 3,
+        "skills_sh_installs_display": "3",
+        "skills_sh_url": "https://skills.sh/gentoosiast/skills/socratic-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "owl-listener/design-leadership-skills:one-on-one",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "owl-listener/design-leadership-skills",
+        "skill_name": "one-on-one",
+        "family_key": "owl-listener/design-leadership-skills:one-on-one",
+        "skills_sh_installs": 3,
+        "skills_sh_installs_display": "3",
+        "skills_sh_url": "https://skills.sh/owl-listener/design-leadership-skills/one-on-one"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "paull78/skills:question-time",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "paull78/skills",
+        "skill_name": "question-time",
+        "family_key": "paull78/skills:question-time",
+        "skills_sh_installs": 3,
+        "skills_sh_installs_display": "3",
+        "skills_sh_url": "https://skills.sh/paull78/skills/question-time"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "shogo1222/socratic:socratic",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "shogo1222/socratic",
+        "skill_name": "socratic",
+        "family_key": "shogo1222/socratic:socratic",
+        "skills_sh_installs": 3,
+        "skills_sh_installs_display": "3",
+        "skills_sh_url": "https://skills.sh/shogo1222/socratic/socratic"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "tamdogood/builder-essential-skills:async-learning-teacher",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "tamdogood/builder-essential-skills",
+        "skill_name": "async-learning-teacher",
+        "family_key": "tamdogood/builder-essential-skills:async-learning-teacher",
+        "skills_sh_installs": 3,
+        "skills_sh_installs_display": "3",
+        "skills_sh_url": "https://skills.sh/tamdogood/builder-essential-skills/async-learning-teacher"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "captainphantasy/floyd-v5:concept-crystallization",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "captainphantasy/floyd-v5",
+        "skill_name": "concept-crystallization",
+        "family_key": "captainphantasy/floyd-v5:concept-crystallization",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/captainphantasy/floyd-v5/concept-crystallization"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "dvy1987/agent-loom:socratic",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "dvy1987/agent-loom",
+        "skill_name": "socratic",
+        "family_key": "dvy1987/agent-loom:socratic",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/dvy1987/agent-loom/socratic"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "izkreny/agentifico:socratic-tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "izkreny/agentifico",
+        "skill_name": "socratic-tutor",
+        "family_key": "izkreny/agentifico:socratic-tutor",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/izkreny/agentifico/socratic-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "jellypod-inc/school-skills:socratic-tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "jellypod-inc/school-skills",
+        "skill_name": "socratic-tutor",
+        "family_key": "jellypod-inc/school-skills:socratic-tutor",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/jellypod-inc/school-skills/socratic-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "jwmossmoz/agent-skills:one-on-one",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "jwmossmoz/agent-skills",
+        "skill_name": "one-on-one",
+        "family_key": "jwmossmoz/agent-skills:one-on-one",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/jwmossmoz/agent-skills/one-on-one"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "m4vic/socratic:socratic",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "m4vic/socratic",
+        "skill_name": "socratic",
+        "family_key": "m4vic/socratic:socratic",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/m4vic/socratic/socratic"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "organvm-iv-taxis/a-i--skills:socratic-tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "organvm-iv-taxis/a-i--skills",
+        "skill_name": "socratic-tutor",
+        "family_key": "organvm-iv-taxis/a-i--skills:socratic-tutor",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/organvm-iv-taxis/a-i--skills/socratic-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "revenuecat/play-billing-skills:one-time-products",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "revenuecat/play-billing-skills",
+        "skill_name": "one-time-products",
+        "family_key": "revenuecat/play-billing-skills:one-time-products",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/revenuecat/play-billing-skills/one-time-products"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "synapseradio/ai-skills:question-the-question",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "one question at a time tutoring",
+        "owner_repo": "synapseradio/ai-skills",
+        "skill_name": "question-the-question",
+        "family_key": "synapseradio/ai-skills:question-the-question",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/synapseradio/ai-skills/question-the-question"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "vietanh1508/skills:socratic-tutor",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "Socratic tutoring agent",
+        "owner_repo": "vietanh1508/skills",
+        "skill_name": "socratic-tutor",
+        "family_key": "vietanh1508/skills:socratic-tutor",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/vietanh1508/skills/socratic-tutor"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "zdenekmach/deep-research:concept-learning-site",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": {
+        "source": "skills.sh",
+        "query": "story based concept learning",
+        "owner_repo": "zdenekmach/deep-research",
+        "skill_name": "concept-learning-site",
+        "family_key": "zdenekmach/deep-research:concept-learning-site",
+        "skills_sh_installs": 2,
+        "skills_sh_installs_display": "2",
+        "skills_sh_url": "https://skills.sh/zdenekmach/deep-research/concept-learning-site"
+      },
+      "skillsmp": null,
+      "catalogs": [
+        "skills.sh"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openclaw/openclaw:gemini",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gemini",
+        "author": "openclaw",
+        "description": "Gemini CLI one-shot prompts, summaries, generation, skills, hooks, MCP, or Gemma routing.",
+        "content_language": "en",
+        "github_url": "https://github.com/openclaw/openclaw/tree/main/skills/gemini",
+        "skillsmp_url": "https://skillsmp.com/creators/openclaw/openclaw/skills-gemini",
+        "repo_stars": 385453,
+        "catalog_updated_at": "2026-05-17T10:50:27+00:00",
+        "source_key": "openclaw/openclaw:skills/gemini",
+        "family_key": "openclaw/openclaw:gemini",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openclaw/openclaw:ordercli",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "ordercli",
+        "author": "openclaw",
+        "description": "Foodora-only CLI for checking past orders and active order status (Deliveroo WIP).",
+        "content_language": "en",
+        "github_url": "https://github.com/openclaw/openclaw/tree/main/skills/ordercli",
+        "skillsmp_url": "https://skillsmp.com/creators/openclaw/openclaw/skills-ordercli",
+        "repo_stars": 385453,
+        "catalog_updated_at": "2026-05-17T10:50:27+00:00",
+        "source_key": "openclaw/openclaw:skills/ordercli",
+        "family_key": "openclaw/openclaw:ordercli",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openclaw/openclaw:qqbot-remind",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "qqbot-remind",
+        "author": "openclaw",
+        "description": "QQBot scheduled reminders. Use only for explicit user requests to create, list, or cancel one-time or recurring QQ reminders; ask for missing time, content, or timezone before scheduling.",
+        "content_language": "zh",
+        "github_url": "https://github.com/openclaw/openclaw/tree/main/extensions/qqbot/skills/qqbot-remind",
+        "skillsmp_url": "https://skillsmp.com/creators/openclaw/openclaw/extensions-qqbot-skills-qqbot-remind",
+        "repo_stars": 385453,
+        "catalog_updated_at": "2026-08-04T00:31:00+00:00",
+        "source_key": "openclaw/openclaw:extensions/qqbot/skills/qqbot-remind",
+        "family_key": "openclaw/openclaw:qqbot-remind",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openclaw/openclaw:taskflow",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "taskflow",
+        "author": "openclaw",
+        "description": "Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, state, waits, and child tasks.",
+        "content_language": "en",
+        "github_url": "https://github.com/openclaw/openclaw/tree/main/skills/taskflow",
+        "skillsmp_url": "https://skillsmp.com/creators/openclaw/openclaw/skills-taskflow",
+        "repo_stars": 385453,
+        "catalog_updated_at": "2026-05-17T10:50:27+00:00",
+        "source_key": "openclaw/openclaw:skills/taskflow",
+        "family_key": "openclaw/openclaw:taskflow",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "openclaw/openclaw:wacli",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "wacli",
+        "author": "openclaw",
+        "description": "Send third-party WhatsApp messages or sync/search WhatsApp history via wacli, not normal active chats.",
+        "content_language": "en",
+        "github_url": "https://github.com/openclaw/openclaw/tree/main/extensions/whatsapp/skills/wacli",
+        "skillsmp_url": "https://skillsmp.com/creators/openclaw/openclaw/extensions-whatsapp-skills-wacli",
+        "repo_stars": 385453,
+        "catalog_updated_at": "2026-08-04T00:31:00+00:00",
+        "source_key": "openclaw/openclaw:extensions/whatsapp/skills/wacli",
+        "family_key": "openclaw/openclaw:wacli",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:api-connector-builder",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "api-connector-builder",
+        "author": "affaan-m",
+        "description": "Build a new API connector or provider by matching the target repo's existing integration pattern exactly. Use when adding one more integration without inventing a second architecture.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/api-connector-builder",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-api-connector-builder",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/api-connector-builder",
+        "family_key": "affaan-m/ecc:api-connector-builder",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:blueprint",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "blueprint",
+        "author": "affaan-m",
+        "description": "Turn a one-line objective into a step-by-step construction plan for multi-session, multi-agent engineering projects. Each step has a self-contained context brief so a fresh agent can execute it cold. Includes adversarial review gate, dependency graph, parallel step detection, anti-pattern catalog, and plan mutation protocol. TRIGGER when: user requests a plan, blueprint, or roadmap for a complex multi-PR task, or describes work that needs multiple sessions. DO NOT TRIGGER when: task is completable in a single PR or fewer than 3 tool calls, or user says \"just do it\".",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/blueprint",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-blueprint",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/blueprint",
+        "family_key": "affaan-m/ecc:blueprint",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:inherit-legacy-style",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "inherit-legacy-style",
+        "author": "affaan-m",
+        "description": "Legacy-project style inheritance skill. Use when the user types /inherit-legacy-style, or when onboarding an AI coding agent onto a hand-written legacy project and you need to prevent \"style drift\" (the model imposing its pretrained mainstream idioms onto the project). Language- and framework-agnostic — it aligns meta-architecture only, not syntax. Once run, it becomes a behavioral constraint on all subsequent coding tasks. Do NOT use for pure research or one-off questions unrelated to code-style alignment.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/inherit-legacy-style",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-inherit-legacy-style",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/inherit-legacy-style",
+        "family_key": "affaan-m/ecc:inherit-legacy-style",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:intent-driven-development",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "intent-driven-development",
+        "author": "affaan-m",
+        "description": "Turn ambiguous or high-impact product and engineering changes into scoped, verifiable acceptance criteria before or alongside implementation. Use when a user asks to clarify a feature, define acceptance criteria, de-risk a security/data/migration/integration change, prepare implementation requirements for another agent, or make a complex request testable. Do not trigger for trivial edits, straightforward fixes, active debugging, code review, or implementation requests whose acceptance conditions are already clear unless the user explicitly invokes this skill.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/intent-driven-development",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-intent-driven-development",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-07T05:26:45+00:00",
+        "source_key": "affaan-m/ecc:skills/intent-driven-development",
+        "family_key": "affaan-m/ecc:intent-driven-development",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:investor-materials",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "investor-materials",
+        "author": "affaan-m",
+        "description": "Create and update pitch decks, one-pagers, investor memos, accelerator applications, financial models, and fundraising materials. Use when the user needs investor-facing documents, projections, use-of-funds tables, milestone plans, or materials that must stay internally consistent across multiple fundraising assets.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/investor-materials",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-investor-materials",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/investor-materials",
+        "family_key": "affaan-m/ecc:investor-materials",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/.cursor/skills/investor-materials"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/.cursor/skills/investor-materials"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/affaan-m/ECC/tree/main/.agents/skills/investor-materials"
+          }
+        ],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:project-flow-ops",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "project-flow-ops",
+        "author": "affaan-m",
+        "description": "Operate execution flow across GitHub and Linear by triaging issues and pull requests, linking active work, and keeping GitHub public-facing while Linear remains the internal execution layer. Use when the user wants backlog control, PR triage, or GitHub-to-Linear coordination.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/project-flow-ops",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-project-flow-ops",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/project-flow-ops",
+        "family_key": "affaan-m/ecc:project-flow-ops",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:unified-notifications-ops",
+      "queries": [
+        "one question at a time tutoring"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "unified-notifications-ops",
+        "author": "affaan-m",
+        "description": "Operate notifications as one ECC-native workflow across GitHub, Linear, desktop alerts, hooks, and connected communication surfaces. Use when the real problem is alert routing, deduplication, escalation, or inbox collapse.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/unified-notifications-ops",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-unified-notifications-ops",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/unified-notifications-ops",
+        "family_key": "affaan-m/ecc:unified-notifications-ops",
+        "aliases": [],
+        "query": "one question at a time tutoring"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "affaan-m/ecc:workspace-surface-audit",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "workspace-surface-audit",
+        "author": "affaan-m",
+        "description": "Audit the active repo, MCP servers, plugins, connectors, env surfaces, and harness setup, then recommend the highest-value ECC-native skills, hooks, agents, and operator workflows. Use when the user wants help setting up Claude Code or understanding what capabilities are actually available in their environment.",
+        "content_language": "en",
+        "github_url": "https://github.com/affaan-m/ECC/tree/main/skills/workspace-surface-audit",
+        "skillsmp_url": "https://skillsmp.com/creators/affaan-m/ecc/skills-workspace-surface-audit",
+        "repo_stars": 238527,
+        "catalog_updated_at": "2026-06-11T12:12:21+00:00",
+        "source_key": "affaan-m/ecc:skills/workspace-surface-audit",
+        "family_key": "affaan-m/ecc:workspace-surface-audit",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nousresearch/hermes-agent:here-now",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "here-now",
+        "author": "NousResearch",
+        "description": "Publish sites to {slug}.here.now and store files in Drives.",
+        "content_language": "en",
+        "github_url": "https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/productivity/here-now",
+        "skillsmp_url": "https://skillsmp.com/creators/nousresearch/hermes-agent/optional-skills-productivity-here-now",
+        "repo_stars": 227004,
+        "catalog_updated_at": "2026-07-24T04:07:16+00:00",
+        "source_key": "nousresearch/hermes-agent:optional-skills/productivity/here-now",
+        "family_key": "nousresearch/hermes-agent:here-now",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nousresearch/hermes-agent:web-pentest",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "web-pentest",
+        "author": "NousResearch",
+        "description": "Authorized web application penetration testing — reconnaissance, vulnerability\nanalysis, proof-based exploitation, and professional reporting. Adapts\nShannon's \"No Exploit, No Report\" methodology with hard guardrails for\nscope, authorization, and aux-client leakage. Active testing against running\napplications you own or have written authorization to test.",
+        "content_language": "en",
+        "github_url": "https://github.com/NousResearch/hermes-agent/tree/main/optional-skills/security/web-pentest",
+        "skillsmp_url": "https://skillsmp.com/creators/nousresearch/hermes-agent/optional-skills-security-web-pentest",
+        "repo_stars": 227004,
+        "catalog_updated_at": "2026-05-25T21:51:41+00:00",
+        "source_key": "nousresearch/hermes-agent:optional-skills/security/web-pentest",
+        "family_key": "nousresearch/hermes-agent:web-pentest",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "microsoft/vscode:chronicle",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "chronicle",
+        "author": "microsoft",
+        "description": "Analyze Copilot session history for standup reports, usage tips, session search, and session reindexing. Use when the user asks for a standup, daily summary, usage tips, workflow recommendations, wants to search or find past sessions by keyword/file/PR, wants to reindex their session store, or asks about deleting session data.",
+        "content_language": "en",
+        "github_url": "https://github.com/microsoft/vscode/tree/main/extensions/copilot/assets/prompts/skills/chronicle",
+        "skillsmp_url": "https://skillsmp.com/creators/microsoft/vscode/extensions-copilot-assets-prompts-skills-chronicle",
+        "repo_stars": 188467,
+        "catalog_updated_at": "2026-06-09T00:55:06+00:00",
+        "source_key": "microsoft/vscode:extensions/copilot/assets/prompts/skills/chronicle",
+        "family_key": "microsoft/vscode:chronicle",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "anthropics/claude-code:configured-agent",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "configured-agent",
+        "author": "anthropics",
+        "description": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content.",
+        "content_language": "en",
+        "github_url": "https://github.com/anthropics/claude-code/tree/main/plugins/plugin-dev/skills/plugin-settings",
+        "skillsmp_url": "https://skillsmp.com/creators/anthropics/claude-code/plugins-plugin-dev-skills-plugin-settings",
+        "repo_stars": 140591,
+        "catalog_updated_at": "2025-11-17T12:09:00+00:00",
+        "source_key": "anthropics/claude-code:plugins/plugin-dev/skills/plugin-settings",
+        "family_key": "anthropics/claude-code:configured-agent",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "microsoft/powertoys:publish-extension",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "publish-extension",
+        "author": "microsoft",
+        "description": "Publish your Command Palette extension to the Microsoft Store or WinGet. Use when asked to publish, distribute, release, deploy to store, create MSIX packages, submit to WinGet, set up CI/CD for releases, or automate builds with GitHub Actions.",
+        "content_language": "en",
+        "github_url": "https://github.com/microsoft/PowerToys/tree/main/src/modules/cmdpal/ExtensionTemplate/TemplateCmdPalExtension/.github/skills/publish-extension",
+        "skillsmp_url": "https://skillsmp.com/creators/microsoft/powertoys/src-modules-cmdpal-extensiontemplate-templatecmdpalextension-github-skills-publish-extension",
+        "repo_stars": 137545,
+        "catalog_updated_at": "2026-04-03T21:47:10+00:00",
+        "source_key": "microsoft/powertoys:src/modules/cmdpal/extensiontemplate/templatecmdpalextension/.github/skills/publish-extension",
+        "family_key": "microsoft/powertoys:publish-extension",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "microsoft/playwright:playwright-component-testing",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "playwright-component-testing",
+        "author": "microsoft",
+        "description": "Set up component testing with Playwright using a story gallery — scaffold stories and a gallery dev page driven by the built-in mount fixture, no dedicated component-testing runtime. Use when asked to test React or Vue components in isolation with Playwright, or to migrate off @playwright/experimental-ct-react / -vue.",
+        "content_language": "en",
+        "github_url": "https://github.com/microsoft/playwright/tree/main/packages/playwright-core/src/tools/skills/playwright-component-testing",
+        "skillsmp_url": "https://skillsmp.com/creators/microsoft/playwright/packages-playwright-core-src-tools-skills-playwright-component-testing",
+        "repo_stars": 94147,
+        "catalog_updated_at": "2026-07-21T23:25:41+00:00",
+        "source_key": "microsoft/playwright:packages/playwright-core/src/tools/skills/playwright-component-testing",
+        "family_key": "microsoft/playwright:playwright-component-testing",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "storybookjs/storybook:storybook-startup-benchmark",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "storybook-startup-benchmark",
+        "author": "storybookjs",
+        "description": "Measure Storybook startup time from spawning `storybook dev` until the first story renders in the browser. Use when the user asks about Storybook boot time, server-ready timing, first story render timing, startup regressions, benchmarking with repeat runs, or comparing Storybook versions or feature flags.",
+        "content_language": "en",
+        "github_url": "https://github.com/storybookjs/storybook/tree/next/.agents/skills/storybook-startup-benchmark",
+        "skillsmp_url": "https://skillsmp.com/creators/storybookjs/storybook/agents-skills-storybook-startup-benchmark",
+        "repo_stars": 90782,
+        "catalog_updated_at": "2026-06-26T08:57:39+00:00",
+        "source_key": "storybookjs/storybook:.agents/skills/storybook-startup-benchmark",
+        "family_key": "storybookjs/storybook:storybook-startup-benchmark",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "thedotmack/claude-mem:weekly-digests",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "weekly-digests",
+        "author": "thedotmack",
+        "description": "Generate a serial week-by-week narrative digest of a project's full claude-mem timeline. Splits the timeline into per-ISO-week files, then runs one consecutive subagent per week — each receiving the prior week's carry-forward block — to produce one chapter per ISO week of data. Use when asked for \"weekly digests\", \"week-by-week story\", \"serial timeline\", or \"narrative chapters\" of a project's history.",
+        "content_language": "en",
+        "github_url": "https://github.com/thedotmack/claude-mem/tree/main/plugin/skills/weekly-digests",
+        "skillsmp_url": "https://skillsmp.com/creators/thedotmack/claude-mem/plugin-skills-weekly-digests",
+        "repo_stars": 89990,
+        "catalog_updated_at": "2026-08-02T17:11:25+00:00",
+        "source_key": "thedotmack/claude-mem:plugin/skills/weekly-digests",
+        "family_key": "thedotmack/claude-mem:weekly-digests",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:huashu-slides",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "huashu-slides",
+        "author": "nexu-io",
+        "description": "A career-pivot story from consultant to product leader — the arc, the proof, and why the next role is the right bet. Built as a decision-grade career deck for hiring manager, mentors.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/huashu-slides",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/plugins-official-examples-huashu-slides",
+        "repo_stars": 84364,
+        "catalog_updated_at": "2026-07-14T08:43:57+00:00",
+        "source_key": "nexu-io/open-design:plugins/_official/examples/huashu-slides",
+        "family_key": "nexu-io/open-design:huashu-slides",
+        "aliases": [],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:open-design-landing-deck",
+      "queries": [
+        "story based concept learning"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "open-design-landing-deck",
+        "author": "nexu-io",
+        "description": "Open Design's brand-story deck for partners and press: why it exists, what it believes, and where design is going. Built as a decision-grade marketing & GTM deck for partners, press, community.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/design-templates/open-design-landing-deck",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/design-templates-open-design-landing-deck",
+        "repo_stars": 84364,
+        "catalog_updated_at": "2026-07-31T02:35:18+00:00",
+        "source_key": "nexu-io/open-design:design-templates/open-design-landing-deck",
+        "family_key": "nexu-io/open-design:open-design-landing-deck",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/open-design-landing-deck"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/open-design-landing-deck"
+          }
+        ],
+        "query": "story based concept learning"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:saas-landing",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "saas-landing",
+        "author": "nexu-io",
+        "description": "Single-page SaaS landing with hero, features, social proof, pricing, and CTA.\nRespects the active DESIGN.md color/typography/layout tokens.\nTrigger keywords: \"saas landing\", \"marketing page\", \"product landing\".",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/design-templates/saas-landing",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/design-templates-saas-landing",
+        "repo_stars": 84364,
+        "catalog_updated_at": "2026-07-27T14:02:48+00:00",
+        "source_key": "nexu-io/open-design:design-templates/saas-landing",
+        "family_key": "nexu-io/open-design:saas-landing",
+        "aliases": [
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/docs/examples/saas-landing-skill"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/saas-landing"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/docs/examples/saas-landing-skill"
+          },
+          {
+            "language": "en",
+            "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/examples/saas-landing"
+          }
+        ],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "nexu-io/open-design:token-map",
+      "queries": [
+        "active recall learning coach"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "token-map",
+        "author": "nexu-io",
+        "description": "Map an extracted Figma / source-code token bag onto the active OD design system, producing a deterministic mapping the generate stage can consume.",
+        "content_language": "en",
+        "github_url": "https://github.com/nexu-io/open-design/tree/main/plugins/_official/atoms/token-map",
+        "skillsmp_url": "https://skillsmp.com/creators/nexu-io/open-design/plugins-official-atoms-token-map",
+        "repo_stars": 84364,
+        "catalog_updated_at": "2026-07-18T03:41:08+00:00",
+        "source_key": "nexu-io/open-design:plugins/_official/atoms/token-map",
+        "family_key": "nexu-io/open-design:token-map",
+        "aliases": [],
+        "query": "active recall learning coach"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "bmad-code-org/bmad-method:bmad-advanced-elicitation",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "bmad-advanced-elicitation",
+        "author": "bmad-code-org",
+        "description": "Push the LLM to reconsider, refine, and improve its recent output. Use when user asks for deeper critique or mentions a known deeper critique method, e.g. socratic, first principles, pre-mortem, red team.",
+        "content_language": "en",
+        "github_url": "https://github.com/bmad-code-org/BMAD-METHOD/tree/main/src/core-skills/bmad-advanced-elicitation",
+        "skillsmp_url": "https://skillsmp.com/creators/bmad-code-org/bmad-method/src-core-skills-bmad-advanced-elicitation",
+        "repo_stars": 51611,
+        "catalog_updated_at": "2026-07-19T04:49:22+00:00",
+        "source_key": "bmad-code-org/bmad-method:src/core-skills/bmad-advanced-elicitation",
+        "family_key": "bmad-code-org/bmad-method:bmad-advanced-elicitation",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "imbad0202/academic-research-skills:academic-paper-reviewer",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "academic-paper-reviewer",
+        "author": "Imbad0202",
+        "description": "Multi-perspective academic paper review with dynamic reviewer personas. Simulates 5 independent reviewers (Journal-Fit Reviewer + 3 peer reviewers + Devil's Advocate) with field-specific expertise. Supports full review, re-review (verification), quick assessment, methodology focus, Socratic guided, and calibration modes. Triggers on: review paper, peer review, manuscript review, referee report, review my paper, critique paper, simulate review, editorial review, calibrate reviewer, reviewer calibration, measure reviewer accuracy, 審查論文, 論文審查, 模擬審查, 同儕審查, 幫我審這篇, 以審查人角度評估, 審查者校準, 논문 심사, 동료 심사, 모의 심사, 심사자 관점에서 평가, 심사자 보정.",
+        "content_language": "en",
+        "github_url": "https://github.com/Imbad0202/academic-research-skills/tree/main/academic-paper-reviewer",
+        "skillsmp_url": "https://skillsmp.com/creators/imbad0202/academic-research-skills/academic-paper-reviewer",
+        "repo_stars": 41282,
+        "catalog_updated_at": "2026-08-06T05:41:22+00:00",
+        "source_key": "imbad0202/academic-research-skills:academic-paper-reviewer",
+        "family_key": "imbad0202/academic-research-skills:academic-paper-reviewer",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "imbad0202/academic-research-skills:deep-research",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "deep-research",
+        "author": "Imbad0202",
+        "description": "Universal deep research agent team. 13-agent pipeline for rigorous academic research on any topic. 8 modes: full research, quick brief, paper review, lit-review, fact-check, three-way literature scan, Socratic guided research dialogue, and systematic review with optional meta-analysis. Covers research question formulation, Socratic mentoring, methodology design, systematic literature search, source verification, cross-source synthesis, risk of bias assessment, meta-analysis, APA 7.0 report compilation, editorial review, devil's advocate challenges, ethics review, and post-research literature monitoring. Triggers on: research, deep research, literature review, systematic review, meta-analysis, PRISMA, evidence synthesis, fact-check, WHY HOW WHAT papers, 3W literature scan, guide my research, help me think through, 研究, 深度研究, 文獻回顧, 文獻探討, 系統性回顧, 後設分析, 事實查核, 三段式文獻掃描, 引導我的研究, 幫我釐清, 幫我想想, 我不確定要研究什麼, 研究方向, 研究主題, 심층 연구, 문헌 조사, 체계적 문헌고찰, 메타분석, 사실 확인, 연구 방향을 잡아줘, 연구 주제 정하는 것을 도와줘.",
+        "content_language": "en",
+        "github_url": "https://github.com/Imbad0202/academic-research-skills/tree/main/deep-research",
+        "skillsmp_url": "https://skillsmp.com/creators/imbad0202/academic-research-skills/deep-research",
+        "repo_stars": 41282,
+        "catalog_updated_at": "2026-08-02T03:56:17+00:00",
+        "source_key": "imbad0202/academic-research-skills:deep-research",
+        "family_key": "imbad0202/academic-research-skills:deep-research",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "yeachan-heo/oh-my-claudecode:deep-interview",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "deep-interview",
+        "author": "Yeachan-Heo",
+        "description": "Socratic deep interview with mathematical ambiguity gating before explicit execution approval",
+        "content_language": "en",
+        "github_url": "https://github.com/Yeachan-Heo/oh-my-claudecode/tree/main/skills/deep-interview",
+        "skillsmp_url": "https://skillsmp.com/creators/yeachan-heo/oh-my-claudecode/skills-deep-interview",
+        "repo_stars": 38417,
+        "catalog_updated_at": "2026-05-17T07:09:19+00:00",
+        "source_key": "yeachan-heo/oh-my-claudecode:skills/deep-interview",
+        "family_key": "yeachan-heo/oh-my-claudecode:deep-interview",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "github/awesome-copilot:mentoring-juniors",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "mentoring-juniors",
+        "author": "github",
+        "description": "Socratic mentoring for junior developers and AI newcomers. Guides through questions, never answers. Triggers: \"help me understand\", \"explain this code\", \"I'm stuck\", \"Im stuck\", \"I'm confused\", \"Im confused\", \"I don't understand\", \"I dont understand\", \"can you teach me\", \"teach me\", \"mentor me\", \"guide me\", \"what does this error mean\", \"why doesn't this work\", \"why does not this work\", \"I'm a beginner\", \"Im a beginner\", \"I'm learning\", \"Im learning\", \"I'm new to this\", \"Im new to this\", \"walk me through\", \"how does this work\", \"what's wrong with my code\", \"what's wrong\", \"can you break this down\", \"ELI5\", \"step by step\", \"where do I start\", \"what am I missing\", \"newbie here\", \"junior dev\", \"first time using\", \"how do I\", \"what is\", \"is this right\", \"not sure\", \"need help\", \"struggling\", \"show me\", \"help me debug\", \"best practice\", \"too complex\", \"overwhelmed\", \"lost\", \"debug this\", \"/socratic\", \"/hint\", \"/concept\", \"/pseudocode\". Progressive clue systems, teaching techniques, and success metrics.",
+        "content_language": "en",
+        "github_url": "https://github.com/github/awesome-copilot/tree/main/skills/mentoring-juniors",
+        "skillsmp_url": "https://skillsmp.com/creators/github/awesome-copilot/skills-mentoring-juniors",
+        "repo_stars": 37555,
+        "catalog_updated_at": "2026-03-02T23:06:32+00:00",
+        "source_key": "github/awesome-copilot:skills/mentoring-juniors",
+        "family_key": "github/awesome-copilot:mentoring-juniors",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "yeachan-heo/oh-my-codex:deep-interview",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "deep-interview",
+        "author": "Yeachan-Heo",
+        "description": "Socratic deep interview with mathematical ambiguity gating before execution",
+        "content_language": "en",
+        "github_url": "https://github.com/Yeachan-Heo/oh-my-codex/tree/main/plugins/oh-my-codex/skills/deep-interview",
+        "skillsmp_url": "https://skillsmp.com/creators/yeachan-heo/oh-my-codex/plugins-oh-my-codex-skills-deep-interview",
+        "repo_stars": 32512,
+        "catalog_updated_at": "2026-06-04T07:56:26+00:00",
+        "source_key": "yeachan-heo/oh-my-codex:plugins/oh-my-codex/skills/deep-interview",
+        "family_key": "yeachan-heo/oh-my-codex:deep-interview",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "vercel/ai:adr-skill",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "adr-skill",
+        "author": "vercel",
+        "description": "Create and maintain Architecture Decision Records (ADRs) optimized for agentic coding workflows. Use when you need to propose, write, update, accept/reject, deprecate, or supersede an ADR; bootstrap an adr folder and index; consult existing ADRs before implementing changes; or enforce ADR conventions. This skill uses Socratic questioning to capture intent before drafting, and validates output against an agent-readiness checklist.",
+        "content_language": "en",
+        "github_url": "https://github.com/vercel/ai/tree/main/skills/adr-skill",
+        "skillsmp_url": "https://skillsmp.com/creators/vercel/ai/skills-adr-skill",
+        "repo_stars": 26065,
+        "catalog_updated_at": "2026-05-08T10:20:07+00:00",
+        "source_key": "vercel/ai:skills/adr-skill",
+        "family_key": "vercel/ai:adr-skill",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "anthropics/claude-for-legal:socratic-drill",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "socratic-drill",
+        "author": "anthropics",
+        "description": "Socratic drilling — it asks, you answer, it pushes back. Does NOT give you the answer until you've earned it. Use when the user says \"drill me on\", \"quiz me\", \"socratic\", \"test me on [subject]\", or wants to study actively.",
+        "content_language": "en",
+        "github_url": "https://github.com/anthropics/claude-for-legal/tree/main/law-student/skills/socratic-drill",
+        "skillsmp_url": "https://skillsmp.com/creators/anthropics/claude-for-legal/law-student-skills-socratic-drill",
+        "repo_stars": 9047,
+        "catalog_updated_at": "2026-05-11T20:44:26+00:00",
+        "source_key": "anthropics/claude-for-legal:law-student/skills/socratic-drill",
+        "family_key": "anthropics/claude-for-legal:socratic-drill",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "vudovn/ag-kit:brainstorming",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "brainstorming",
+        "author": "vudovn",
+        "description": "Socratic questioning protocol + user communication. MANDATORY for complex requests, new features, or unclear requirements. Includes progress reporting and error handling.",
+        "content_language": "en",
+        "github_url": "https://github.com/vudovn/ag-kit/tree/main/.agents/skills/brainstorming",
+        "skillsmp_url": "https://skillsmp.com/creators/vudovn/ag-kit/agents-skills-brainstorming",
+        "repo_stars": 8098,
+        "catalog_updated_at": "2026-07-18T12:54:54+00:00",
+        "source_key": "vudovn/ag-kit:.agents/skills/brainstorming",
+        "family_key": "vudovn/ag-kit:brainstorming",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    },
+    {
+      "family_key": "open-gsd/gsd-core:gsd-explore",
+      "queries": [
+        "Socratic tutoring agent"
+      ],
+      "skills_sh": null,
+      "skillsmp": {
+        "source": "skillsmp",
+        "name": "gsd-explore",
+        "author": "open-gsd",
+        "description": "Socratic ideation and idea routing — think through ideas before committing to plans",
+        "content_language": "en",
+        "github_url": "https://github.com/open-gsd/gsd-core/tree/next/skills/gsd-explore",
+        "skillsmp_url": "https://skillsmp.com/creators/open-gsd/gsd-core/skills-gsd-explore",
+        "repo_stars": 7879,
+        "catalog_updated_at": "2026-06-22T22:07:35+00:00",
+        "source_key": "open-gsd/gsd-core:skills/gsd-explore",
+        "family_key": "open-gsd/gsd-core:gsd-explore",
+        "aliases": [],
+        "query": "Socratic tutoring agent"
+      },
+      "catalogs": [
+        "skillsmp"
+      ],
+      "requires_source_review": true
+    }
+  ],
+  "missing_evidence": [],
+  "next_steps": [
+    "shortlist by job relevance and role coverage, not combined popularity",
+    "open canonical GitHub source and inspect SKILL.md before adoption",
+    "verify license, maintenance, permissions, security, duplication, and rating evidence",
+    "write keep/adapt/reject/invent synthesis before authoring"
+  ]
+}
