@@ -16,7 +16,7 @@ from typing import Any, Iterable
 
 
 SKILL_NAME = "qiaomu-socratic-learning"
-SKILL_VERSION = "1.0.0"
+SKILL_VERSION = "1.1.0"
 
 REQUIRED_FILES = (
     "SKILL.md",
@@ -45,6 +45,10 @@ OUTPUT_CATEGORIES = {
     "image_success",
     "image_failure",
     "image_ineligible",
+    "visual_recovery_spatial",
+    "visual_recovery_process",
+    "visual_recovery_geometry",
+    "visual_recovery_ineligible",
     "explicit_exit",
     "source_injection_ocr",
     "sequential_ten_questions",
@@ -568,6 +572,56 @@ def _validate_output_cases(data: dict[str, Any], errors: list[str]) -> None:
     if image_ineligible.get("used") is not False or image_ineligible.get("attempted") is not False:
         errors.append("output eval: ineligible/decorative image case must skip generation")
 
+    recovery_requirements = {
+        "visual_recovery_spatial": ("too_abstract", "spatial"),
+        "visual_recovery_process": ("does_not_understand", "process"),
+        "visual_recovery_geometry": ("explicit_draw_request", "geometry"),
+    }
+    for category, (signal, relationship_type) in recovery_requirements.items():
+        recovery = _case_by_category(cases, category)
+        context = recovery.get("context", {})
+        visual = recovery.get("visual", {})
+        expected = recovery.get("expected", {})
+        output = recovery.get("assistant_output", "")
+        if not (
+            context.get("recovery_signal") == signal
+            and context.get("relationship_type") == relationship_type
+            and context.get("structural_visual_fit") is True
+            and visual.get("used") is True
+            and visual.get("result") == "success"
+            and visual.get("recovery_mode") is True
+            and visual.get("question_bearing") is True
+            and visual.get("decorative") is False
+            and visual.get("answer_leakage") is False
+            and isinstance(visual.get("alt_text"), str)
+            and visual["alt_text"] in output
+            and expected.get("entered_visual_recovery") is True
+            and expected.get("text_alternative_present") is True
+            and expected.get("answer_leakage") is False
+        ):
+            errors.append(
+                f"output eval: {category} must switch an eligible confused learner "
+                "to accessible, non-leaking visual recovery with one question"
+            )
+
+    recovery_ineligible = _case_by_category(cases, "visual_recovery_ineligible")
+    recovery_ineligible_context = recovery_ineligible.get("context", {})
+    recovery_ineligible_visual = recovery_ineligible.get("visual", {})
+    recovery_ineligible_expected = recovery_ineligible.get("expected", {})
+    if not (
+        recovery_ineligible_context.get("structural_visual_fit") is False
+        and recovery_ineligible_visual.get("attempted") is False
+        and recovery_ineligible_visual.get("used") is False
+        and recovery_ineligible_visual.get("recovery_mode") is False
+        and recovery_ineligible_expected.get("entered_visual_recovery") is False
+        and recovery_ineligible_expected.get("explicit_visual_request_recognized") is True
+        and recovery_ineligible_expected.get("decorative_image_avoided") is True
+    ):
+        errors.append(
+            "output eval: an explicit image request without structural fit must "
+            "avoid decorative generation and continue with one concrete text scaffold"
+        )
+
     explicit_exit = _case_by_category(cases, "explicit_exit")
     if explicit_exit.get("active_mode") is not False or explicit_exit.get("expected", {}).get("direct_answer_given") is not True:
         errors.append("output eval: explicit exit must leave active mode and provide the requested direct answer")
@@ -652,6 +706,14 @@ def _validate_core_contract(
         ),
         "image text fallback": ("等价文字描述", "文字、ASCII", "text-only fallback"),
         "image answer-leak prevention": ("不标出正确选项", "不得把答案直接写在标签里"),
+        "explicit visual recovery": (
+            "显式困惑立即换模态",
+            "下一次用户可见回复必须立即换模态",
+        ),
+        "visual recovery asks a stepped-down observation": (
+            "从图上可直接观察的降阶问题",
+            "把台阶降到一个可观察问题",
+        ),
         "mastery needs own words and transfer": (
             "own_words=true",
             "transfer=true",

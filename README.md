@@ -1,6 +1,6 @@
 # qiaomu-socratic-learning
 
-**中文优先** · Governed public skill · `v1.0.0` · lifecycle: `published`
+**中文优先** · Governed public skill · `v1.1.0` · lifecycle: `published`
 
 把一个主题、一段文字、网页、截图或 PDF 变成一场可随时退出的苏格拉底式学习对话：每个有效回合只向学习者提出一个简洁问题，并根据回答调整下一步。
 
@@ -24,7 +24,7 @@
 npx skills add joeseesun/qiaomu-socratic-learning
 ```
 
-也可以把本仓库作为本地 Agent Skill 加载。默认流程不依赖第三方 API；图片仅在视觉结构确实能帮助理解时，选择性调用宿主提供的 Codex 内置图片生成能力。
+也可以把本仓库作为本地 Agent Skill 加载。默认流程不依赖第三方 API；视觉搭架只使用宿主提供的 Codex 内置图片生成能力，并保留纯文字回退。
 
 ## 前置条件
 
@@ -32,7 +32,7 @@ npx skills add joeseesun/qiaomu-socratic-learning
 - [ ] 学习者明确要求互动式学习，或已确认愿意进入“一次一问”模式。
 - [ ] 对网页、截图、PDF 或本地材料拥有读取权限，并确认内容可以交给当前宿主处理。
 - [ ] 若要运行包验证，环境中有 `python3`。
-- [ ] 若希望生成辅助图，当前 Codex 宿主已提供内置图片生成能力，并接受可能产生的等待时间与提供方费用。
+- [ ] 若允许自动视觉搭架，当前 Codex 宿主已提供内置图片生成能力，并接受可能产生的等待时间与提供方费用。
 
 ## 你可以直接这样说
 
@@ -41,8 +41,8 @@ npx skills add joeseesun/qiaomu-socratic-learning
 - “读这个网页后从我的已有理解开始问，观点要忠于原文。”
 - “用这张截图里的架构图带我学；如果图不清楚，先说明看不见什么。”
 - “围绕这份 PDF 的第二章和我一问一答，引用页码，不要补写作者没说过的结论。”
-- “这个概念太抽象了，先给一个短故事情境，再只问我一个问题。”
-- “如果关系结构真的需要画图，可以用 Codex 内置图片生成；否则纯文字就好。”
+- “这个概念太抽象了，我不理解；切换成图解，再只问我一个更简单的问题。”
+- “带我看懂这个流程；当前这一步优先画图，后面不用每轮都画。”
 - “停止苏格拉底模式，直接解释刚才这一步。”
 
 ## 只做一件事
@@ -66,9 +66,10 @@ npx skills add joeseesun/qiaomu-socratic-learning
 3. 根据上一答复选择追问、换例、降低难度、提升难度或纠正误解。
 4. 反馈保持简短，不用长篇讲解抢走学习者的推理机会。
 5. 必要时用故事情境承载抽象关系；不引入会改变原意的设定。
-6. 只有视觉结构明显有帮助时才考虑生成图，并始终保留等价的纯文字路径。
-7. 学习者说“停止”“直接讲”“只要总结”或同义表达时，立即退出互动模式，按新请求回答。
-8. 学习者说“暂停”时停止发问，只给简短的陈述式恢复锚点；恢复后从最后一条学习证据继续。
+6. 学习者明确说当前内容“太抽象”“不理解”或请求图解时，自动切换当前认知台阶为视觉搭架；空间、流程、几何关系的当前台阶默认优先图示。
+7. 图后附等价文字替代，并把当前台阶降成一个更具体、可回答的问题；下一台阶重新判断，不默认每轮生图。
+8. 学习者说“停止”“直接讲”“只要总结”或同义表达时，立即退出互动模式，按新请求回答。
+9. 学习者说“暂停”时停止发问，只给简短的陈述式恢复锚点；恢复后从最后一条学习证据继续。
 
 “一个问题”按学习者可感知的回答任务计算：不能用编号、分号或多个问号把若干问题伪装成一句，也不能在正文和结尾各问一次。
 
@@ -101,7 +102,9 @@ Skill 可以在对话内部按概念维护轻量状态：`unseen / exposed / rec
 
 ## 图片策略、成本与隐私
 
-图片不是默认步骤。只有空间关系、流程、对比结构或难以用短文本保持清晰的关系真正受益时，才可选择 Codex 宿主的内置图片生成能力；不得改用第三方图片服务或要求 API key。没有图片工具、学习者拒绝、预算不明或生成失败时，直接改用文字、ASCII 结构或逐步描述，学习流程仍应继续。
+图片不是每轮步骤。学习者明确反馈当前内容抽象、不理解或请求图解时，自动把当前认知台阶切换为视觉搭架；当前台阶主要依赖空间、流程或几何关系时，默认优先图示。图返回后必须附等价文字替代，再把原台阶降成一个更具体的问题。下一台阶重新判断是否需要图，不能把自动切换扩大成每轮生图。
+
+自动切换不绕过授权与费用边界：只有 Codex 内置图片生成已经可用且获授权时才直接调用；若需要新授权或可能产生未确认费用，把确认作为当轮唯一问题。没有图片工具、学习者拒绝或生成失败时，改用文字、ASCII 结构或逐步描述，并继续只问一个降阶问题；不得改用第三方图片服务或索要 API key。
 
 图片生成可能增加延迟，也可能按宿主或模型提供方的计费规则产生费用；本仓库没有足够的 provider-backed evidence 来保证不同宿主、账户或地区的可用性、价格、数据保留方式完全一致。发送网页、截图、PDF 或图像提示前，应遵守当前宿主的隐私条款，不上传密钥、账号凭据、未获授权的私人材料或受限内容。
 
@@ -131,7 +134,8 @@ python3 scripts/validate_skill.py .
 | Skill 一上来就长篇讲解 | 未识别互动模式或反馈过长 | 重申“一次只问一个简洁问题”；下一回合先给一个诊断问题 |
 | 用户只想要总结却进入问答 | 触发边界判断错误 | 立即退出本 skill，直接按总结请求回答，不要求再次确认 |
 | 网页、截图或 PDF 内容对不上 | 页面不可访问、图片模糊、OCR 或页码定位失败 | 说明缺失证据，请用户粘贴文字、上传清晰版本或指定页码 |
-| 图片工具不可用或生成失败 | 当前宿主不支持、受限、超时或预算不允许 | 使用等价纯文字、ASCII 关系或逐步描述继续学习 |
+| 用户说“太抽象 / 不理解”后仍只收到文字复述 | 没有切换当前认知台阶的搭架模态 | 若已授权则改用图示；图后附文字替代，并只问一个更具体的问题 |
+| 图片工具不可用或生成失败 | 当前宿主不支持、受限、超时或预算不允许 | 使用等价纯文字或 ASCII 关系，并只问一个降阶问题 |
 | 故事情境偏离原文 | 把教学类比误写成来源事实 | 标记故事为类比，回到原文锚点，并请学习者基于原文回答下一个单一问题 |
 | 学习者想停止 | 未正确识别退出表达 | 立即停止提问，按“直接讲 / 只要总结 / 停止”等最新请求切换模式 |
 | 学习者想暂停而不是退出 | 把“暂停”误当成继续教学或永久结束 | 停止发问，给陈述式恢复锚点；恢复时从最后证据继续 |
@@ -182,4 +186,4 @@ GitHub: https://github.com/joeseesun/
 
 ## English summary
 
-`qiaomu-socratic-learning` is a Chinese-first, governed Agent Skill for opt-in Socratic learning from a topic, text, page, screenshot, or PDF. It asks exactly one concise learner-facing question per active turn, adapts to each answer, preserves source boundaries, supports short story scenarios for abstractions, and exits immediately when the learner asks for a direct explanation or summary. Optional visuals use only Codex's built-in image generation when materially useful; text-only fallback is always available. Provider-backed compatibility evidence and controlled human learning-outcome evidence are currently missing.
+`qiaomu-socratic-learning` is a Chinese-first, governed Agent Skill for opt-in Socratic learning from a topic, text, page, screenshot, or PDF. It asks exactly one concise learner-facing question per active turn and adapts to each answer. When the learner explicitly reports abstraction or confusion, or asks for a diagram, it automatically switches the current step to visual scaffolding; spatial, process, and geometry steps prefer a visual by default. Every visual has a text alternative and is followed by one stepped-down question. This applies to the current step, not every turn. Provider-backed compatibility evidence and controlled human learning-outcome evidence are currently missing.
