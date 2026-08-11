@@ -2,11 +2,11 @@
 
 ## Result
 
-- Skill: `qiaomu-socratic-learning` 1.1.0
+- Skill: `qiaomu-learning` 2.0.0
 - Date: 2026-08-11
 - Mode: Governed，面向公开复用
 - Job: 把教材、截图、PDF、笔记、题目或一个主题变成“一轮一个认知台阶”的自适应苏格拉底学习对话，并用主动回忆、最小搭架、故事/视觉桥和新情境迁移积累可见的学习证据。
-- Local path: `/Users/joe/Documents/日常对话/qiaomu-socratic-learning`
+- Local path: `/Users/joe/.agents/skills/qiaomu-learning`
 - Publication status: `v1.0.0` 已发布；`v1.1.0` 本地 release candidate 已就绪，远端 PR、Release 与 clean-install 证据在本次报告生成时仍待发布流程完成。
 
 ## v1.1.0 feedback-driven improvement

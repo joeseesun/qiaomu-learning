@@ -2,8 +2,8 @@
   "schema_version": "2.0.0-qiaomu-lite",
   "generated_at": "2026-08-11",
   "package": {
-    "name": "qiaomu-socratic-learning",
-    "version": "1.1.0",
+    "name": "qiaomu-learning",
+    "version": "2.0.0",
     "owner": "向阳乔木",
     "maturity_tier": "governed",
     "lifecycle_stage": "published",
@@ -11,8 +11,8 @@
     "upstream_sync": {}
   },
   "intent": {
-    "description": "用苏格拉底式逐问学习把教材、截图、PDF、笔记、题目或一个主题变成主动推导对话。Use when the learner明确要求“苏格拉底式学习”“逐问带我学”“一次只问一个问题”“先别告诉我答案”“边问边引导我推出来”、interactive quiz、active recall or question-led tutoring。每个活跃回合只问一个简短、可回答的问题，并根据学习者上一步的推理调整难度；学习者说“太抽象”“不理解”“想象不出来”或要求图解，且当前台阶可视觉化时，必须立即切换为问题承载型图示并提供文字替代，空间、相对运动、流程和几何关系默认优先视觉搭架。不用于只要直接解释、摘要、翻译、代做/解题、批量出题、评分、写苏格拉底对话或单独生成图片的请求；用户要求停止提问或直接给答案时立即退出苏格拉底模式。\n",
-    "job_to_be_done": "Conduct an opt-in, adaptive Socratic learning dialogue from a topic, text, page, screenshot, or PDF, with exactly one concise learner-facing question per active turn.",
+    "description": "用苏格拉底式逐问学习把教材、截图、PDF、笔记、题目或一个主题变成主动推导对话。Use when the learner明确要求“苏格拉底式学习”“逐问带我学”“一次只问一个问题”“先别告诉我答案”“边问边引导我推出来”、interactive quiz、active recall or question-led tutoring。宽泛主题默认先建立 12 个关键词地图，每个词配白话解释，并提供专家、书籍和按需扩展入口，再让学习者选择起点。每个活跃回合只问一个简短、可回答的问题，并根据学习者上一步的推理调整难度；学习者说“太抽象”“不理解”“想象不出来”或要求图解，且当前台阶可视觉化时，必须立即切换为问题承载型图示并提供文字替代，空间、相对运动、流程和几何关系默认优先视觉搭架。不用于只要直接解释、摘要、翻译、代做/解题、批量出题、评分、写苏格拉底对话或单独生成图片的请求；用户要求停止提问或直接给答案时立即退出苏格拉底模式。\n",
+    "job_to_be_done": "Conduct an opt-in, adaptive Socratic learning dialogue from a topic, text, page, screenshot, or PDF, with exactly one concise learner-facing question per active turn; keep beginner explanations concrete before symbols and proactively anchor calculus change and curve relations visually.",
     "target_users": [
       "self-directed learners",
       "students",
@@ -141,7 +141,7 @@
     "activation": {
       "mode": "explicit-opt-in",
       "primary": "frontmatter-description",
-      "explicit": "qiaomu-socratic-learning",
+      "explicit": "qiaomu-learning",
       "allowed_intents": [
         "interactive Socratic learning",
         "one-question-at-a-time tutoring",
