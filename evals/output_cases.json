@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-socratic-learning",
-  "contract_version": "1.0.0",
+  "contract_version": "1.1.0",
   "fixture_kind": "deterministic_acceptance_examples",
   "question_policy": {
     "active_turn_semantic_question_count": 1,
@@ -164,6 +164,152 @@
         "change representation after repeated stall",
         "brief named-character story",
         "ask learner to reconstruct the rule"
+      ]
+    },
+    {
+      "id": "too-abstract-spatial-problem-enters-visual-recovery",
+      "category": "visual_recovery_spatial",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "立方体旋转后的方位",
+        "previous_question": "立方体绕竖直轴旋转四分之一圈后，A 面会朝向哪里？",
+        "learner_request": "这个空间变化太抽象了。",
+        "recovery_signal": "too_abstract",
+        "relationship_type": "spatial",
+        "structural_visual_fit": true
+      },
+      "visual": {
+        "used": true,
+        "eligibility": "explicit_confusion_plus_spatial_relationship",
+        "result": "success",
+        "recovery_mode": true,
+        "question_bearing": true,
+        "decorative": false,
+        "answer_leakage": false,
+        "alt_text": "一个立方体的 A 面被标出，竖直轴周围有四分之一圈的旋转箭头，四个可能朝向只用 1–4 标号。"
+      },
+      "assistant_output": "![一个立方体的 A 面被标出，竖直轴周围有四分之一圈的旋转箭头，四个可能朝向只用 1–4 标号。](fixture://spatial-rotation-recovery.png)\n\n文字替代：A 面从起始方位沿箭头旋转四分之一圈，候选朝向只标为 1–4，图中没有标出正确项。按这个旋转方向，A 面最终会对准哪个编号？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "entered_visual_recovery": true,
+        "text_alternative_present": true,
+        "answer_leakage": false
+      },
+      "evaluation_concepts": [
+        "explicit too-abstract signal triggers a modality change",
+        "the current reasoning target is spatial",
+        "the visual keeps one unanswered learning task"
+      ]
+    },
+    {
+      "id": "not-understood-process-problem-enters-visual-recovery",
+      "category": "visual_recovery_process",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "TCP 三次握手流程",
+        "previous_question": "客户端发出 SYN 后，服务端下一步需要回什么？",
+        "learner_request": "我还是不理解这个先后流程。",
+        "recovery_signal": "does_not_understand",
+        "relationship_type": "process",
+        "structural_visual_fit": true
+      },
+      "visual": {
+        "used": true,
+        "eligibility": "explicit_confusion_plus_process_relationship",
+        "result": "success",
+        "recovery_mode": true,
+        "question_bearing": true,
+        "decorative": false,
+        "answer_leakage": false,
+        "alt_text": "客户端和服务端两条时间轴之间有三个顺序箭头，第一个标为 SYN，第二个标签留空，第三个标为 ACK。"
+      },
+      "assistant_output": "![客户端和服务端两条时间轴之间有三个顺序箭头，第一个标为 SYN，第二个标签留空，第三个标为 ACK。](fixture://tcp-handshake-recovery.png)\n\n文字替代：流程从客户端的 SYN 开始，再由服务端返回一个留空的中间消息，最后客户端发送 ACK；空白处没有预填答案。为了同时确认收到客户端请求并表示服务端也要建立连接，中间箭头应携带什么控制信息？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "entered_visual_recovery": true,
+        "text_alternative_present": true,
+        "answer_leakage": false
+      },
+      "evaluation_concepts": [
+        "explicit non-understanding signal changes the scaffold",
+        "a process diagram reduces sequence load",
+        "the missing step remains for the learner to infer"
+      ]
+    },
+    {
+      "id": "explicit-draw-request-for-geometry-enters-visual-recovery",
+      "category": "visual_recovery_geometry",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "平行线分割三角形",
+        "previous_question": "DE 平行于 BC 时，为什么上下两个三角形相似？",
+        "learner_request": "给我画图，我想先看出角的关系。",
+        "recovery_signal": "explicit_draw_request",
+        "relationship_type": "geometry",
+        "structural_visual_fit": true
+      },
+      "visual": {
+        "used": true,
+        "eligibility": "explicit_draw_request_plus_geometry_relationship",
+        "result": "success",
+        "recovery_mode": true,
+        "question_bearing": true,
+        "decorative": false,
+        "answer_leakage": false,
+        "alt_text": "三角形 ABC 中，D 和 E 分别位于 AB 和 AC 上，DE 与 BC 平行，只标出顶点和平行符号，未标出等角结论。"
+      },
+      "assistant_output": "![三角形 ABC 中，D 和 E 分别位于 AB 和 AC 上，DE 与 BC 平行，只标出顶点和平行符号，未标出等角结论。](fixture://parallel-triangle-recovery.png)\n\n文字替代：D、E 在三角形 ABC 的两条边上，DE 与 BC 平行；图中只给出平行条件，没有标出哪些角相等。沿 AB 作为截线观察 DE 与 BC，你能先找出哪一对对应角？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "entered_visual_recovery": true,
+        "text_alternative_present": true,
+        "answer_leakage": false
+      },
+      "evaluation_concepts": [
+        "honor an explicit draw request when geometry is material",
+        "neutral labels preserve the inference",
+        "the post-image turn asks one observation question"
+      ]
+    },
+    {
+      "id": "explicit-draw-request-without-structural-fit-stays-textual",
+      "category": "visual_recovery_ineligible",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "机会成本的判断标准",
+        "previous_question": "什么才算某个选择的机会成本？",
+        "learner_request": "太抽象了，给我画一张好看的图吧。",
+        "recovery_signal": "explicit_draw_request",
+        "relationship_type": "conceptual_definition",
+        "structural_visual_fit": false
+      },
+      "visual": {
+        "used": false,
+        "attempted": false,
+        "eligibility": "not_eligible_without_spatial_process_geometry_or_graph_structure",
+        "recovery_mode": false,
+        "decorative": false,
+        "reason": "The current gap is a decision criterion; a decorative illustration would not expose a relevant structural relationship."
+      },
+      "assistant_output": "这一步的缺口是判断标准，不是空间、流程或几何关系；画装饰图不会增加可推导的信息。假设你用一小时上课，因此放弃了同一小时里最想做的兼职，你会把哪一项视为这次选择的机会成本？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "entered_visual_recovery": false,
+        "explicit_visual_request_recognized": true,
+        "decorative_image_avoided": true
+      },
+      "evaluation_concepts": [
+        "an explicit image request does not bypass the structural-fit gate",
+        "avoid decorative visual generation",
+        "recover with one concrete textual scenario"
       ]
     },
     {

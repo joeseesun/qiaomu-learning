@@ -47,7 +47,7 @@ class SkillContractTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(0, result.returncode, result.stderr)
-        self.assertIn("PASS qiaomu-socratic-learning v1.0.0", result.stdout)
+        self.assertIn("PASS qiaomu-socratic-learning v1.1.0", result.stdout)
 
     def test_trigger_eval_is_bilingual_and_boundary_focused(self) -> None:
         cases = self.triggers["cases"]
@@ -141,12 +141,17 @@ class SkillContractTests(unittest.TestCase):
             "image_success",
             "image_failure",
             "image_ineligible",
+            "visual_recovery_spatial",
+            "visual_recovery_process",
+            "visual_recovery_geometry",
+            "visual_recovery_ineligible",
             "explicit_exit",
             "source_injection_ocr",
             "sequential_ten_questions",
             "mastery_gate",
             "mastery_confirmed",
         }
+        self.assertEqual("1.1.0", self.outputs["contract_version"])
         self.assertGreaterEqual(len(self.outputs["cases"]), 10)
         self.assertTrue(required.issubset(self.by_category))
 
@@ -209,6 +214,42 @@ class SkillContractTests(unittest.TestCase):
         self.assertFalse(skipped["visual"]["attempted"])
         self.assertFalse(skipped["visual"]["used"])
 
+    def test_visual_recovery_requires_explicit_confusion_and_structural_fit(self) -> None:
+        positive_categories = {
+            "visual_recovery_spatial": ("too_abstract", "spatial", "太抽象"),
+            "visual_recovery_process": ("does_not_understand", "process", "不理解"),
+            "visual_recovery_geometry": ("explicit_draw_request", "geometry", "给我画图"),
+        }
+        for category, (signal, relationship, learner_phrase) in positive_categories.items():
+            case = self.by_category[category]
+            self.assertIn(learner_phrase, case["context"]["learner_request"], category)
+            self.assertEqual(signal, case["context"]["recovery_signal"], category)
+            self.assertEqual(relationship, case["context"]["relationship_type"], category)
+            self.assertTrue(case["context"]["structural_visual_fit"], category)
+            self.assertTrue(case["visual"]["used"], category)
+            self.assertTrue(case["visual"]["recovery_mode"], category)
+            self.assertTrue(case["visual"]["question_bearing"], category)
+            self.assertFalse(case["visual"]["decorative"], category)
+            self.assertFalse(case["visual"]["answer_leakage"], category)
+            self.assertTrue(case["visual"]["alt_text"], category)
+            self.assertIn(case["visual"]["alt_text"], case["assistant_output"], category)
+            self.assertTrue(case["expected"]["entered_visual_recovery"], category)
+            self.assertTrue(case["expected"]["text_alternative_present"], category)
+            self.assertFalse(case["expected"]["answer_leakage"], category)
+            self.assertEqual(1, len(QUESTION_MARK_RE.findall(case["assistant_output"])), category)
+            self.assertTrue(case["assistant_output"].rstrip().endswith("？"), category)
+
+        ineligible = self.by_category["visual_recovery_ineligible"]
+        self.assertIn("给我画", ineligible["context"]["learner_request"])
+        self.assertFalse(ineligible["context"]["structural_visual_fit"])
+        self.assertEqual("conceptual_definition", ineligible["context"]["relationship_type"])
+        self.assertFalse(ineligible["visual"]["attempted"])
+        self.assertFalse(ineligible["visual"]["used"])
+        self.assertFalse(ineligible["visual"]["recovery_mode"])
+        self.assertFalse(ineligible["expected"]["entered_visual_recovery"])
+        self.assertTrue(ineligible["expected"]["explicit_visual_request_recognized"])
+        self.assertTrue(ineligible["expected"]["decorative_image_avoided"])
+
     def test_source_opening_and_ocr_injection_contracts(self) -> None:
         source = self.by_category["source_diagnostic"]
         self.assertEqual("readable_text", source["context"]["source_kind"])
@@ -262,6 +303,32 @@ class SkillContractTests(unittest.TestCase):
             )
             self.assertNotEqual(0, result.returncode)
             self.assertIn("active output must contain one question mark", result.stderr)
+
+    def test_validator_rejects_disabled_spatial_visual_recovery(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            copied_root = Path(temp_dir) / ROOT.name
+            shutil.copytree(ROOT, copied_root)
+            fixture_path = copied_root / "evals" / "output_cases.json"
+            mutated = json.loads(fixture_path.read_text(encoding="utf-8"))
+            spatial_case = next(
+                case
+                for case in mutated["cases"]
+                if case["category"] == "visual_recovery_spatial"
+            )
+            spatial_case["visual"]["used"] = False
+            fixture_path.write_text(
+                json.dumps(mutated, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
+
+            result = subprocess.run(
+                [sys.executable, str(copied_root / "scripts" / "validate_skill.py"), str(copied_root)],
+                cwd=copied_root,
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            self.assertNotEqual(0, result.returncode)
+            self.assertRegex(result.stderr.casefold(), r"visual[_ -]recovery")
 
 
 if __name__ == "__main__":

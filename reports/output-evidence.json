@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-socratic-learning",
-  "contract_version": "1.0.0",
-  "recorded_at": "2026-08-10",
+  "contract_version": "1.1.0",
+  "recorded_at": "2026-08-11",
   "scope": "Deterministic package, fixture, and contract checks only. This record does not represent provider execution, blinded human judgment, or measured learner outcomes.",
   "recorded_checks": [
     {
@@ -30,7 +30,7 @@
       "status": "pass",
       "evidence": {
         "fixture": "evals/output_cases.json",
-        "acceptance_scenario_count": 14,
+        "acceptance_scenario_count": 18,
         "covered_branches": [
           "readable-source diagnostic",
           "correct advance",
@@ -38,6 +38,10 @@
           "partial answer targets gap",
           "incorrect answer gets minimal hint",
           "third stall gets a reframe and reconstruction question",
+          "explicit too-abstract spatial feedback enters visual recovery",
+          "explicit non-understanding of a process enters visual recovery",
+          "explicit geometry draw request enters visual recovery",
+          "visual request without structural fit avoids decorative generation",
           "explicit learner exit"
         ],
         "active_turn_rule": "one learner-facing question, placed last"
@@ -73,6 +77,8 @@
           "eligible image success with alt text and no answer leakage",
           "image-provider failure with text fallback",
           "ineligible decorative image skipped",
+          "explicit visual recovery after abstraction or confusion",
+          "post-visual stepped-down question remains the only question",
           "own-words-only evidence rejected as mastery",
           "mastery accepted only with own words and novel transfer"
         ]
@@ -88,7 +94,11 @@
           "python3 -m unittest discover -s tests -p 'test_*.py'"
         ],
         "expected_exit_code": 0,
-        "negative_control": "tests mutate a passing fixture to contain two questions and require the validator to reject it"
+        "unit_test_count": 15,
+        "negative_controls": [
+          "tests mutate a passing fixture to contain two questions and require the validator to reject it",
+          "tests disable visual recovery for an eligible explicit-confusion fixture and require the validator to reject it"
+        ]
       }
     }
   ],
@@ -112,5 +122,5 @@
       "claim_boundary": "Do not claim the skill improves grades, retention, transfer, or outcomes versus teachers, courses, or other tools."
     }
   ],
-  "interpretation": "A pass means the checked files encode the stated v1.0.0 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit."
+  "interpretation": "A pass means the checked files encode the stated v1.1.0 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit."
 }
