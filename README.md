@@ -1,8 +1,8 @@
-# qiaomu-socratic-learning
+# qiaomu-learning
 
-**中文优先** · Governed public skill · `v1.1.0` · lifecycle: `published`
+**中文优先** · Governed public skill · `v2.0.0` · lifecycle: `published`
 
-把一个主题、一段文字、网页、截图或 PDF 变成一场可随时退出的苏格拉底式学习对话：每个有效回合只向学习者提出一个简洁问题，并根据回答调整下一步。
+把一个主题、一段文字、网页、截图或 PDF 变成一场可随时退出的苏格拉底式学习对话：每个有效回合只向学习者提出一个简洁问题，并根据回答调整下一步。它会接住学习者的原话，像真人老师一样温和纠错，并通过逐帧黑板把推理画出来。
 
 ## 一段真实形态的对话
 
@@ -21,7 +21,7 @@
 ## 安装
 
 ```bash
-npx skills add joeseesun/qiaomu-socratic-learning
+npx skills add joeseesun/qiaomu-learning
 ```
 
 也可以把本仓库作为本地 Agent Skill 加载。默认流程不依赖第三方 API；视觉搭架只使用宿主提供的 Codex 内置图片生成能力，并保留纯文字回退。
@@ -43,11 +43,15 @@ npx skills add joeseesun/qiaomu-socratic-learning
 - “围绕这份 PDF 的第二章和我一问一答，引用页码，不要补写作者没说过的结论。”
 - “这个概念太抽象了，我不理解；切换成图解，再只问我一个更简单的问题。”
 - “带我看懂这个流程；当前这一步优先画图，后面不用每轮都画。”
+- “带我学微积分，先用直观例子和图，再慢慢引入公式。”
+- “像老师在黑板上讲一样带我学导数，每次只画下一步，不要一次给完整答案。”
 - “停止苏格拉底模式，直接解释刚才这一步。”
 
 ## 只做一件事
 
 这个 skill 的唯一工作是：从学习者给出的主题或材料出发，开展自适应、一次一问的互动学习。
+
+如果用户只给出一个宽泛主题，正式提问前会先建立 12 个关键词地图，每个词配白话解释，再给 3–5 位专家和 3–5 本专业书籍作为入口，并提供扩展关键词的入口，最后只问学习者想先从哪个关键词开始。用户选定后，才进入真人老师式的渐进黑板学习。遇到单位圆、波形、向量、矩阵、注意力或模型架构等多层抽象结构，默认用 Codex 生图建立主视觉。
 
 | 输入 | 处理方式 |
 |---|---|
@@ -66,10 +70,13 @@ npx skills add joeseesun/qiaomu-socratic-learning
 3. 根据上一答复选择追问、换例、降低难度、提升难度或纠正误解。
 4. 反馈保持简短，不用长篇讲解抢走学习者的推理机会。
 5. 必要时用故事情境承载抽象关系；不引入会改变原意的设定。
-6. 学习者明确说当前内容“太抽象”“不理解”或请求图解时，自动切换当前认知台阶为视觉搭架；空间、流程、几何关系的当前台阶默认优先图示。
-7. 图后附等价文字替代，并把当前台阶降成一个更具体、可回答的问题；下一台阶重新判断，不默认每轮生图。
-8. 学习者说“停止”“直接讲”“只要总结”或同义表达时，立即退出互动模式，按新请求回答。
-9. 学习者说“暂停”时停止发问，只给简短的陈述式恢复锚点；恢复后从最后一条学习证据继续。
+6. 新手或抽象主题默认按“具体例子 → 可见关系 → 口头规则 → 数学符号 → 形式化定义”推进；不要因一个算术答案正确就跳到公式。
+7. 像真人老师一样接住学习者的原话，保留部分正确，用“保留 → 区分 → 重建”温和纠错；连续卡住时可短讲半步，不机械逼问。
+8. 视觉采用累积黑板：保留上一帧，每次最多新增一个点、线、箭头、区域或公式变形；先让学习者观察，再命名概念和写公式。
+9. 学习者明确说当前内容“太抽象”“不理解”“枯燥”或请求图解时，自动切换当前认知台阶为视觉搭架；空间、流程、几何以及微积分中的运动、变化率、曲线、斜率、极限和面积关系默认及时建立视觉锚点。
+10. 图后附等价文字替代，并把当前台阶降成一个更具体、可回答的问题；下一台阶重新判断，不默认每轮生图。
+11. 学习者说“停止”“直接讲”“只要总结”或同义表达时，立即退出互动模式，按新请求回答。
+12. 学习者说“暂停”时停止发问，只给简短的陈述式恢复锚点；恢复后从最后一条学习证据继续。
 
 “一个问题”按学习者可感知的回答任务计算：不能用编号、分号或多个问号把若干问题伪装成一句，也不能在正文和结尾各问一次。
 
@@ -102,7 +109,7 @@ Skill 可以在对话内部按概念维护轻量状态：`unseen / exposed / rec
 
 ## 图片策略、成本与隐私
 
-图片不是每轮步骤。学习者明确反馈当前内容抽象、不理解或请求图解时，自动把当前认知台阶切换为视觉搭架；当前台阶主要依赖空间、流程或几何关系时，默认优先图示。图返回后必须附等价文字替代，再把原台阶降成一个更具体的问题。下一台阶重新判断是否需要图，不能把自动切换扩大成每轮生图。
+图片不是每轮步骤。当前台阶主要依赖空间、流程、几何，或微积分中的运动、变化率、曲线、斜率、极限、导数、面积和累积关系时，首次进入该台阶就建立视觉锚点；学习者明确反馈当前内容抽象、不理解、枯燥或请求图解时，则立即切换模态。优先用逐步黑板、ASCII、表格和确定性草图，必要时再调用图片工具。图返回后必须附等价文字替代，再把原台阶降成一个更具体的问题。下一台阶重新判断是否需要图，不能把自动切换扩大成每轮生图。
 
 自动切换不绕过授权与费用边界：只有 Codex 内置图片生成已经可用且获授权时才直接调用；若需要新授权或可能产生未确认费用，把确认作为当轮唯一问题。没有图片工具、学习者拒绝或生成失败时，改用文字、ASCII 结构或逐步描述，并继续只问一个降阶问题；不得改用第三方图片服务或索要 API key。
 
@@ -186,4 +193,4 @@ GitHub: https://github.com/joeseesun/
 
 ## English summary
 
-`qiaomu-socratic-learning` is a Chinese-first, governed Agent Skill for opt-in Socratic learning from a topic, text, page, screenshot, or PDF. It asks exactly one concise learner-facing question per active turn and adapts to each answer. When the learner explicitly reports abstraction or confusion, or asks for a diagram, it automatically switches the current step to visual scaffolding; spatial, process, and geometry steps prefer a visual by default. Every visual has a text alternative and is followed by one stepped-down question. This applies to the current step, not every turn. Provider-backed compatibility evidence and controlled human learning-outcome evidence are currently missing.
+`qiaomu-learning` is a Chinese-first, governed Agent Skill for opt-in Socratic learning from a topic, text, page, screenshot, or PDF. It asks exactly one concise learner-facing question per active turn and adapts to each answer. When the learner explicitly reports abstraction or confusion, or asks for a diagram, it automatically switches the current step to visual scaffolding; spatial, process, and geometry steps prefer a visual by default. Every visual has a text alternative and is followed by one stepped-down question. This applies to the current step, not every turn. Provider-backed compatibility evidence and controlled human learning-outcome evidence are currently missing.

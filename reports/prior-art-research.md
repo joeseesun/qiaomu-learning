@@ -1,6 +1,6 @@
 # Prior-Art Research
 
-- Skill: `qiaomu-socratic-learning` 1.1.0
+- Skill: `qiaomu-learning` 2.0.0
 - Mode: Governed（面向公开复用）
 - Researched at: 2026-08-10
 - Queries: `Socratic tutoring agent`; `active recall learning coach`; `one question at a time tutoring`; `story based concept learning`

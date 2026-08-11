@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "skill": "qiaomu-socratic-learning",
-  "contract_version": "1.1.0",
+  "skill": "qiaomu-learning",
+  "contract_version": "2.0.0",
   "fixture_kind": "deterministic_acceptance_examples",
   "question_policy": {
     "active_turn_semantic_question_count": 1,
@@ -37,6 +37,134 @@
         "begin from source content",
         "diagnose prior understanding",
         "avoid setup or readiness chatter"
+      ]
+    },
+    {
+      "id": "complex-positional-encoding-uses-codex-imagegen",
+      "category": "complex_visual_imagegen",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "位置编码：角度到正弦/余弦数字",
+        "complex_visual_relationship": true,
+        "learner_request": "这个 ASCII 太抽象了，请用 Codex 生图解释。",
+        "layers": ["位置", "圆上的角度", "坐标", "波形数字"]
+      },
+      "visual": {
+        "tool": "codex_builtin_imagegen",
+        "used": true,
+        "result": "success",
+        "question_bearing": true,
+        "decorative": false,
+        "answer_leakage": false,
+        "alt_text": "一张分步骤教学图：左侧是单位圆和从最右侧转向最上方的角度箭头，右侧把转动位置对应到正弦波上的数值；没有写出最后答案。"
+      },
+      "assistant_output": "![一张分步骤教学图：左侧是单位圆和从最右侧转向最上方的角度箭头，右侧把转动位置对应到正弦波上的数值；没有写出最后答案。](fixture://positional-encoding-unit-circle.png)\n\n文字替代：左侧展示一个点在单位圆上转动，右侧把这个位置映射到波形上的数值；图中没有直接写出结论。先只观察这一个映射：点从圆的最右侧转到最上方时，蓝色点的纵坐标如何变化？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "image_required": true,
+        "text_verification_present": true,
+        "progressive_frame_only": true
+      },
+      "evaluation_concepts": [
+        "multi-layer abstract mapping routes to built-in image generation",
+        "image is the main intuition layer rather than ASCII",
+        "text alternative verifies the visual relationship",
+        "only one observation question remains"
+      ]
+    },
+    {
+      "id": "keyword-orientation-builds-12-word-map",
+      "category": "keyword_orientation",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "微积分",
+        "source_kind": "broad_topic_without_source",
+        "keyword_count": 12,
+        "keyword_explanations_count": 12,
+        "experts": [
+          {"name": "牛顿", "role": "历史奠基者", "why": "帮助理解变化率与运动问题的源头"},
+          {"name": "莱布尼茨", "role": "历史奠基者", "why": "帮助理解微分与积分记号的形成"},
+          {"name": "Michael Spivak", "role": "数学教育者", "why": "适合从严格推理理解微积分"}
+        ],
+        "books": [
+          {"title": "Calculus", "author": "Michael Spivak", "why": "适合补上定义、证明和结构"},
+          {"title": "Calculus", "author": "James Stewart", "why": "适合循序练习和应用"},
+          {"title": "Calculus, Vol. 1", "author": "Tom M. Apostol", "why": "适合把微积分放进更完整的数学框架"}
+        ]
+      },
+      "keywords": [
+        {"category": "基础词", "term": "变量", "plain_explanation": "可以随着情境改变的量。"},
+        {"category": "基础词", "term": "函数", "plain_explanation": "把一个输入量对应到一个输出量的规则。"},
+        {"category": "基础词", "term": "变化量", "plain_explanation": "一个量从原来数值到后来数值的差。"},
+        {"category": "核心词", "term": "极限", "plain_explanation": "一个量不断靠近某个目标时呈现的稳定结果。"},
+        {"category": "核心词", "term": "导数", "plain_explanation": "某一时刻一个量变化得有多快。"},
+        {"category": "核心词", "term": "积分", "plain_explanation": "把许多很小的量累加起来。"},
+        {"category": "核心词", "term": "连续", "plain_explanation": "变化过程中没有突然跳断的性质。"},
+        {"category": "方法/应用", "term": "平均变化率", "plain_explanation": "一段区间内总变化除以区间长度。"},
+        {"category": "方法/应用", "term": "瞬时变化率", "plain_explanation": "把区间缩到极小时的变化速度。"},
+        {"category": "方法/应用", "term": "切线", "plain_explanation": "在某点附近代表曲线局部方向的直线。"},
+        {"category": "方法/应用", "term": "面积", "plain_explanation": "积分可以用来计算曲线下方的累积区域。"},
+        {"category": "方法/应用", "term": "最优化", "plain_explanation": "寻找最大、最小或最合适的方案。"}
+      ],
+      "assistant_output": "先把微积分的最小地图铺开。下面是 12 个核心入口，不要求一次记住全部：\n\n| 类别 | 关键词 | 白话解释 |\n|---|---|---|\n| 基础 | 变量 | 会随着情境改变的量。 |\n| 基础 | 函数 | 把输入对应到输出的规则。 |\n| 基础 | 变化量 | 一个量前后数值的差。 |\n| 核心 | 极限 | 不断靠近目标时呈现的稳定结果。 |\n| 核心 | 导数 | 某一时刻变化得有多快。 |\n| 核心 | 积分 | 把许多很小的量累加起来。 |\n| 核心 | 连续 | 变化过程中没有突然跳断。 |\n| 方法/应用 | 平均变化率 | 一段区间内总变化除以区间长度。 |\n| 方法/应用 | 瞬时变化率 | 把区间缩到极小时的变化速度。 |\n| 方法/应用 | 切线 | 表示曲线局部方向的直线。 |\n| 方法/应用 | 面积 | 积分可以计算的累积区域。 |\n| 方法/应用 | 最优化 | 寻找最大、最小或最合适的方案。 |\n\n专家入口：牛顿适合了解运动和变化率的源头；莱布尼茨适合了解微分、积分记号与累积思想；Michael Spivak 适合从严格推理理解微积分。\n\n书籍入口：Spivak 的《Calculus》适合补定义和证明；James Stewart 的《Calculus》适合循序练习与应用；Apostol 的《Calculus, Vol. 1》适合建立更完整的数学框架。\n\n如果你想建立更完整的地图，可以回复“扩展关键词”或“扩展到 25 个”，我会补充不重复的入口。选定关键词后，我会像老师在黑板上讲解一样，从具体例子开始，一步一步画出关系，再进入公式。你想先从哪一个关键词开始？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "orientation_only": true,
+        "formal_learning_started": false,
+        "keyword_count": 12,
+        "keyword_explanations_count": 12,
+        "expansion_affordance": true,
+        "expert_count": 3,
+        "book_count": 3,
+        "selection_question_only": true
+      },
+      "evaluation_concepts": [
+        "broad topic gets a structured keyword map before tutoring",
+        "every keyword has a beginner-friendly explanation",
+        "experts and books are offered as study entrances",
+        "the only question chooses the first keyword"
+      ]
+    },
+    {
+      "id": "keyword-expansion-adds-non-duplicate-terms",
+      "category": "keyword_expansion",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "微积分",
+        "requested": "扩展关键词",
+        "previous_keyword_count": 12
+      },
+      "new_keywords": [
+        {"category": "边界/进阶", "term": "收敛", "plain_explanation": "一个过程越来越接近某个稳定结果。"},
+        {"category": "边界/进阶", "term": "误差", "plain_explanation": "近似值和真实值之间还差多少。"},
+        {"category": "方法", "term": "割线", "plain_explanation": "连接曲线上两个点的直线，可用来近似局部方向。"},
+        {"category": "方法", "term": "微分", "plain_explanation": "用很小的变化来描述函数在某点附近怎样变。"},
+        {"category": "应用", "term": "速度", "plain_explanation": "位置随时间变化的快慢和方向。"},
+        {"category": "应用", "term": "加速度", "plain_explanation": "速度本身随时间变化的快慢。"},
+        {"category": "工具", "term": "黎曼和", "plain_explanation": "用许多小矩形的面积近似曲线下的累积量。"},
+        {"category": "工具", "term": "微积分基本定理", "plain_explanation": "它把求变化率和求累积量这两类操作连接起来。"}
+      ],
+      "assistant_output": "在原来的 12 个词上，只补 8 个新入口：\n\n| 类别 | 关键词 | 白话解释 |\n|---|---|---|\n| 边界/进阶 | 收敛 | 一个过程越来越接近某个稳定结果。 |\n| 边界/进阶 | 误差 | 近似值和真实值之间还差多少。 |\n| 方法 | 割线 | 连接曲线上两个点的直线，可用来近似局部方向。 |\n| 方法 | 微分 | 用很小的变化来描述函数在某点附近怎样变。 |\n| 应用 | 速度 | 位置随时间变化的快慢和方向。 |\n| 应用 | 加速度 | 速度本身随时间变化的快慢。 |\n| 工具 | 黎曼和 | 用许多小矩形的面积近似曲线下的累积量。 |\n| 工具 | 微积分基本定理 | 它把求变化率和求累积量这两类操作连接起来。 |\n\n这些词补上了进阶、方法、应用和计算工具层，没有重复前面的地图。你想先从哪一个关键词开始？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "expansion_only": true,
+        "new_keyword_count": 8,
+        "total_keyword_count": 20,
+        "duplicate_count": 0,
+        "formal_learning_started": false,
+        "selection_question_only": true
+      },
+      "evaluation_concepts": [
+        "expansion is opt-in rather than default",
+        "new terms do not duplicate the previous map",
+        "expansion fills uncovered categories",
+        "the expansion turn still ends with one start-keyword question"
       ]
     },
     {
@@ -201,6 +329,72 @@
         "explicit too-abstract signal triggers a modality change",
         "the current reasoning target is spatial",
         "the visual keeps one unanswered learning task"
+      ]
+    },
+    {
+      "id": "beginner-calculus-keeps-concrete-ladder",
+      "category": "concrete_to_symbolic_clarity",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "微积分：平均速度到瞬时速度",
+        "previous_question": "如果想知道某一个瞬间的速度，时间区间应该不断变大还是不断缩小？",
+        "learner_answer": "小",
+        "learner_level": "unknown_or_beginner",
+        "next_symbol_available": "h"
+      },
+      "assistant_output": "对，缩小的是计算平均速度的时间段。先保持同一个例子：\n\n```text\n时间段       平均速度\n2 小时       60 千米/小时\n1 小时       20 千米/小时\n更短时间     更接近某一个时刻的速度\n```\n\n文字图示：时间窗口从宽变窄，当前只观察平均速度是否更接近某一时刻的速度；这里先不引入 `h` 或极限符号。当时间窗口继续缩小时，平均速度会更接近什么量？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "adaptation_branch": "correct_but_local",
+        "next_move": "same-example-meaning-before-symbol",
+        "symbol_jump_avoided": true,
+        "visual_or_text_anchor_present": true
+      },
+      "evaluation_concepts": [
+        "correct answer receives explicit meaning bridge",
+        "concrete-to-symbolic ladder is preserved",
+        "one small question remains for the learner"
+      ]
+    },
+    {
+      "id": "calculus-slope-gets-proactive-visual-anchor",
+      "category": "calculus_visual_first",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "微积分：割线逐渐接近切线",
+        "previous_question": "曲线上两点越来越接近时，连接这两点的直线会发生什么变化？",
+        "learner_answer": "我不知道",
+        "explicit_confusion": false,
+        "current_step": "slope_and_derivative",
+        "structural_visual_fit": true,
+        "proactive_visual_trigger": "calculus_curve_slope"
+      },
+      "visual": {
+        "used": true,
+        "eligibility": "proactive_calculus_curve_relationship",
+        "result": "success",
+        "recovery_mode": false,
+        "question_bearing": true,
+        "decorative": false,
+        "answer_leakage": false,
+        "alt_text": "一条上升曲线，以及两条分别连接曲线上较远和较近两点的直线；第二条直线的两个端点更接近，图中未命名任何答案。"
+      },
+      "assistant_output": "![一条上升曲线，以及两条分别连接曲线上较远和较近两点的直线；第二条直线的两个端点更接近，图中未命名任何答案。](fixture://calculus-secant-to-tangent.png)\n\n文字替代：同一条上升曲线上有两条连线；一条连接较远的两点，另一条连接更近的两点，图中没有写出它们的名称。图中哪条连线更能反映曲线在右侧点附近的方向？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "next_move": "visual_observation_before_naming",
+        "proactive_visual_used": true,
+        "visual_current_step_only": true,
+        "answer_leakage": false
+      },
+      "evaluation_concepts": [
+        "calculus curve relation gets a visual anchor before formal naming",
+        "visual is proactive without requiring explicit confusion",
+        "question asks one observable comparison"
       ]
     },
     {
@@ -539,6 +733,63 @@
         "one-question invariant survives a longer exchange",
         "later prompts depend on learner answers",
         "branches vary with answer quality"
+      ]
+    },
+    {
+      "id": "human-teacher-repairs-partial-misconception",
+      "category": "human_teacher_repair",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "微积分：割线趋近切线",
+        "previous_question": "两个点继续靠近时，连接它们的红线会越来越像什么？",
+        "learner_answer": "点",
+        "answer_quality": "partially_correct",
+        "learner_signal": "confused_about_point_vs_direction"
+      },
+      "assistant_output": "你看到的是两个端点会靠近，这部分没错。黑板上把两件事分开：\n\n```text\n两点较远：  ●────────●\n两点较近：      ●──●\n```\n\n我只补上了“连接线变短”这一层；下一步不急着命名概念，只观察这条线在变短时保留下来的性质。线段变短时，我们要继续观察它的哪一个性质？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "teacher_voice": true,
+        "partial_correctness_preserved": true,
+        "correction_style": "preserve-contrast-reconstruct",
+        "mechanical_interrogation": false,
+        "new_visual_objects": 1
+      },
+      "evaluation_concepts": [
+        "responds to the learner's exact word",
+        "preserves a partially correct observation",
+        "uses a small cumulative board drawing before asking one question"
+      ]
+    },
+    {
+      "id": "blackboard-reveals-one-calculus-layer",
+      "category": "blackboard_progression",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "微积分：平均变化率到瞬时变化率",
+        "previous_board": "已经画出位置—时间曲线和两个较远的点",
+        "learner_answer": "4.1",
+        "current_step": "narrow_the_time_window",
+        "board_frame": 2
+      },
+      "assistant_output": "把你算出的 4.1 留在黑板上：\n\n```text\n时间区间       平均变化率\n2 到 2.1       4.1\n```\n\n现在只新增一行，把时间窗口再缩短：\n\n```text\n2 到 2.01      4.01\n```\n\n先不写极限，也不急着写导数；这一笔只让我们观察数值在往哪儿靠近。4.01 和 4.1 相比，哪个更接近 4？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "teacher_voice": true,
+        "blackboard_cumulative": true,
+        "board_frame": 3,
+        "new_visual_objects": 1,
+        "formula_layers_revealed": 0,
+        "complete_solution_leaked": false
+      },
+      "evaluation_concepts": [
+        "retains previous board content",
+        "adds one numerical layer only",
+        "delays formal limit and derivative notation"
       ]
     },
     {

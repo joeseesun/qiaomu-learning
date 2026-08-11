@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Standard-library contract tests for qiaomu-socratic-learning."""
+"""Standard-library contract tests for qiaomu-learning."""
 
 from __future__ import annotations
 
@@ -47,7 +47,7 @@ class SkillContractTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(0, result.returncode, result.stderr)
-        self.assertIn("PASS qiaomu-socratic-learning v1.1.0", result.stdout)
+        self.assertIn("PASS qiaomu-learning v2.0.0", result.stdout)
 
     def test_trigger_eval_is_bilingual_and_boundary_focused(self) -> None:
         cases = self.triggers["cases"]
@@ -138,6 +138,13 @@ class SkillContractTests(unittest.TestCase):
             "partial_target_gap",
             "incorrect_minimal_hint",
             "repeated_stall_reframe",
+            "concrete_to_symbolic_clarity",
+            "calculus_visual_first",
+            "human_teacher_repair",
+            "blackboard_progression",
+            "keyword_orientation",
+            "keyword_expansion",
+            "complex_visual_imagegen",
             "image_success",
             "image_failure",
             "image_ineligible",
@@ -151,7 +158,7 @@ class SkillContractTests(unittest.TestCase):
             "mastery_gate",
             "mastery_confirmed",
         }
-        self.assertEqual("1.1.0", self.outputs["contract_version"])
+        self.assertEqual("2.0.0", self.outputs["contract_version"])
         self.assertGreaterEqual(len(self.outputs["cases"]), 10)
         self.assertTrue(required.issubset(self.by_category))
 
@@ -196,6 +203,58 @@ class SkillContractTests(unittest.TestCase):
         )
         self.assertIn(stalled["expected"]["story_sentence_count"], range(1, 4))
         self.assertTrue(stalled["expected"]["named_character"])
+
+    def test_teacher_voice_and_blackboard_fixtures_preserve_progressive_teaching(self) -> None:
+        repair = self.by_category["human_teacher_repair"]
+        self.assertTrue(repair["expected"]["teacher_voice"])
+        self.assertTrue(repair["expected"]["partial_correctness_preserved"])
+        self.assertEqual("preserve-contrast-reconstruct", repair["expected"]["correction_style"])
+        self.assertFalse(repair["expected"]["mechanical_interrogation"])
+        self.assertEqual(1, repair["expected"]["new_visual_objects"])
+
+        board = self.by_category["blackboard_progression"]
+        self.assertTrue(board["expected"]["blackboard_cumulative"])
+        self.assertEqual(1, board["expected"]["new_visual_objects"])
+        self.assertEqual(0, board["expected"]["formula_layers_revealed"])
+        self.assertFalse(board["expected"]["complete_solution_leaked"])
+
+    def test_keyword_orientation_precedes_formal_socratic_learning(self) -> None:
+        orientation = self.by_category["keyword_orientation"]
+        self.assertEqual("broad_topic_without_source", orientation["context"]["source_kind"])
+        self.assertEqual(12, len(orientation["keywords"]))
+        self.assertTrue(all(item["plain_explanation"] for item in orientation["keywords"]))
+        self.assertIn(len(orientation["context"]["experts"]), range(3, 6))
+        self.assertIn(len(orientation["context"]["books"]), range(3, 6))
+        self.assertTrue(orientation["expected"]["orientation_only"])
+        self.assertFalse(orientation["expected"]["formal_learning_started"])
+        self.assertTrue(orientation["expected"]["expansion_affordance"])
+        self.assertTrue(orientation["expected"]["selection_question_only"])
+
+    def test_keyword_expansion_adds_non_duplicate_terms(self) -> None:
+        expansion = self.by_category["keyword_expansion"]
+        self.assertEqual(12, expansion["context"]["previous_keyword_count"])
+        terms = [item["term"] for item in expansion["new_keywords"]]
+        self.assertEqual(len(terms), len(set(terms)))
+        orientation_terms = {item["term"] for item in self.by_category["keyword_orientation"]["keywords"]}
+        self.assertTrue(set(terms).isdisjoint(orientation_terms))
+        self.assertEqual(8, expansion["expected"]["new_keyword_count"])
+        self.assertEqual(20, expansion["expected"]["total_keyword_count"])
+        self.assertEqual(0, expansion["expected"]["duplicate_count"])
+        self.assertFalse(expansion["expected"]["formal_learning_started"])
+        self.assertTrue(expansion["expected"]["selection_question_only"])
+
+    def test_complex_visual_routes_to_codex_image_generation(self) -> None:
+        visual_case = self.by_category["complex_visual_imagegen"]
+        visual = visual_case["visual"]
+        expected = visual_case["expected"]
+        self.assertTrue(visual_case["context"]["complex_visual_relationship"])
+        self.assertEqual("codex_builtin_imagegen", visual["tool"])
+        self.assertTrue(visual["used"])
+        self.assertTrue(visual["question_bearing"])
+        self.assertFalse(visual["answer_leakage"])
+        self.assertTrue(visual["alt_text"])
+        self.assertTrue(expected["image_required"])
+        self.assertTrue(expected["text_verification_present"])
 
     def test_image_success_failure_and_skip_paths_are_explicit(self) -> None:
         success = self.by_category["image_success"]

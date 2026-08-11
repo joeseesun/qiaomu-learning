@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministically validate the qiaomu-socratic-learning package.
+"""Deterministically validate the qiaomu-learning package.
 
 This validator intentionally uses only the Python standard library so it can
 run in a clean checkout without installing a YAML or test dependency.
@@ -15,8 +15,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-SKILL_NAME = "qiaomu-socratic-learning"
-SKILL_VERSION = "1.1.0"
+SKILL_NAME = "qiaomu-learning"
+SKILL_VERSION = "2.0.0"
 
 REQUIRED_FILES = (
     "SKILL.md",
@@ -26,6 +26,9 @@ REQUIRED_FILES = (
     "agents/interface.yaml",
     "references/socratic-protocol.md",
     "references/story-visual-learning.md",
+    "references/teaching-clarity.md",
+    "references/blackboard-teaching.md",
+    "references/keyword-learning.md",
     "evals/trigger_cases.json",
     "evals/output_cases.json",
     "reports/prior-art-candidates.json",
@@ -42,6 +45,13 @@ OUTPUT_CATEGORIES = {
     "partial_target_gap",
     "incorrect_minimal_hint",
     "repeated_stall_reframe",
+    "concrete_to_symbolic_clarity",
+    "calculus_visual_first",
+    "human_teacher_repair",
+    "blackboard_progression",
+    "keyword_orientation",
+    "keyword_expansion",
+    "complex_visual_imagegen",
     "image_success",
     "image_failure",
     "image_ineligible",
@@ -515,6 +525,99 @@ def _validate_output_cases(data: dict[str, Any], errors: list[str]) -> None:
     if source.get("expected", {}).get("opening_move") != "diagnostic_content_question":
         errors.append("output eval: readable source must open with a diagnostic content question")
 
+    keyword_orientation = _case_by_category(cases, "keyword_orientation")
+    keyword_context = keyword_orientation.get("context", {})
+    keyword_expected = keyword_orientation.get("expected", {})
+    keyword_items = keyword_orientation.get("keywords")
+    experts = keyword_context.get("experts")
+    books = keyword_context.get("books")
+    orientation_terms: set[str] = set()
+    if not isinstance(keyword_items, list) or len(keyword_items) != 12:
+        errors.append("output eval: keyword orientation must contain exactly 12 default keyword items")
+    else:
+        for index, item in enumerate(keyword_items, 1):
+            if not isinstance(item, dict) or not item.get("term") or not item.get("plain_explanation"):
+                errors.append(f"output eval: keyword item {index} needs a term and plain explanation")
+            elif isinstance(item.get("term"), str):
+                orientation_terms.add(item["term"])
+    if not isinstance(experts, list) or not 3 <= len(experts) <= 5:
+        errors.append("output eval: keyword orientation must recommend 3 to 5 experts")
+    if not isinstance(books, list) or not 3 <= len(books) <= 5:
+        errors.append("output eval: keyword orientation must recommend 3 to 5 books")
+    if not (
+        keyword_context.get("source_kind") == "broad_topic_without_source"
+        and keyword_expected.get("orientation_only") is True
+        and keyword_expected.get("formal_learning_started") is False
+        and keyword_expected.get("keyword_count") == 12
+        and keyword_expected.get("keyword_explanations_count") == 12
+        and keyword_expected.get("expansion_affordance") is True
+        and keyword_expected.get("selection_question_only") is True
+    ):
+        errors.append("output eval: keyword orientation must precede formal tutoring with one selection question")
+
+    keyword_expansion = _case_by_category(cases, "keyword_expansion")
+    expansion_context = keyword_expansion.get("context", {})
+    expansion_expected = keyword_expansion.get("expected", {})
+    expansion_items = keyword_expansion.get("new_keywords")
+    if not isinstance(expansion_items, list) or not expansion_items:
+        errors.append("output eval: keyword expansion must add at least one keyword")
+    else:
+        terms = [
+            item.get("term")
+            for item in expansion_items
+            if isinstance(item, dict) and item.get("term")
+        ]
+        if len(terms) != len(set(terms)):
+            errors.append("output eval: keyword expansion must not duplicate its own new terms")
+        if not all(isinstance(item, dict) and item.get("term") and item.get("plain_explanation") for item in expansion_items):
+            errors.append("output eval: expanded keyword items need terms and plain explanations")
+        overlap = orientation_terms.intersection(terms)
+        if overlap:
+            errors.append(
+                "output eval: keyword expansion must not repeat default terms: "
+                + ", ".join(sorted(overlap))
+            )
+        if expansion_expected.get("new_keyword_count") != len(expansion_items):
+            errors.append("output eval: keyword expansion count metadata must match its new items")
+        expected_total = expansion_context.get("previous_keyword_count")
+        if isinstance(expected_total, int):
+            expected_total += len(expansion_items)
+        if expansion_expected.get("total_keyword_count") != expected_total:
+            errors.append("output eval: keyword expansion total count must equal previous plus new items")
+        if expansion_context.get("requested") == "扩展关键词":
+            if not isinstance(expected_total, int) or not 20 <= expected_total <= 25:
+                errors.append(
+                    "output eval: default keyword expansion should land at roughly 20 to 25 total terms"
+                )
+    if not (
+        expansion_context.get("requested") in {"扩展关键词", "扩展到 25 个"}
+        and expansion_context.get("previous_keyword_count") == 12
+        and expansion_expected.get("duplicate_count") == 0
+        and expansion_expected.get("formal_learning_started") is False
+        and expansion_expected.get("selection_question_only") is True
+    ):
+        errors.append("output eval: keyword expansion must add non-duplicate terms before formal tutoring")
+
+    complex_visual = _case_by_category(cases, "complex_visual_imagegen")
+    complex_context = complex_visual.get("context", {})
+    complex_visual_meta = complex_visual.get("visual", {})
+    complex_expected = complex_visual.get("expected", {})
+    if not (
+        complex_context.get("complex_visual_relationship") is True
+        and complex_visual_meta.get("tool") == "codex_builtin_imagegen"
+        and complex_visual_meta.get("used") is True
+        and complex_visual_meta.get("question_bearing") is True
+        and complex_visual_meta.get("decorative") is False
+        and complex_visual_meta.get("answer_leakage") is False
+        and complex_visual_meta.get("alt_text")
+        and complex_expected.get("image_required") is True
+        and complex_expected.get("text_verification_present") is True
+    ):
+        errors.append(
+            "output eval: complex multi-layer visual steps must route to Codex image generation "
+            "with alt text, verification, and one non-leaking question"
+        )
+
     correct_moves = {
         _case_by_category(cases, "correct_advance").get("expected", {}).get("next_move"),
         _case_by_category(cases, "correct_transfer").get("expected", {}).get("next_move"),
@@ -709,6 +812,21 @@ def _validate_core_contract(
         "explicit visual recovery": (
             "显式困惑立即换模态",
             "下一次用户可见回复必须立即换模态",
+        ),
+        "human teacher voice": (
+            "接住上一句",
+            "保留 → 区分 → 重建",
+            "真人老师会在必要时替学习者补半步",
+        ),
+        "cumulative blackboard progression": (
+            "会累积的黑板",
+            "每次只新增一个关键笔画",
+            "逐层展开",
+        ),
+        "complex visual Codex image routing": (
+            "两层以上相互作用的结构",
+            "必须调用它",
+            "复杂多层结构优先调用 Codex 内置生图",
         ),
         "visual recovery asks a stepped-down observation": (
             "从图上可直接观察的降阶问题",

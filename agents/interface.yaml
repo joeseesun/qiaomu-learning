@@ -1,11 +1,13 @@
 interface:
   display_name: "乔木苏格拉底学习"
-  short_description: "一次只问一个问题，并在抽象或结构关系处自动切换视觉搭架"
+  short_description: "像真人老师一样一次一问，边讲边用渐进黑板搭出推理"
   default_prompt: >-
-    使用 $qiaomu-socratic-learning 带我进行中文优先的苏格拉底式学习。基于我提供的主题、文字、网页、截图或 PDF，
-    每个有效回合只提出一个简洁、面向学习者的问题，并根据我的上一答复调整难度和路径。抽象概念可用一个短故事情境，
-    但要标明它是类比并忠于来源。当我明确说当前内容抽象、不理解或请求图解时，自动切换当前台阶为视觉搭架；
-    空间、流程、几何关系的当前台阶默认优先图示。图后附等价文字替代，再只问一个更具体的问题；不要每轮都生图。
+    使用 $qiaomu-learning 带我进行中文优先的苏格拉底式学习。基于我提供的主题、文字、网页、截图或 PDF，
+    每个有效回合只提出一个简洁、面向学习者的问题，并根据我的上一答复调整难度和路径。像真人老师一样先接住我刚说的话，再画出下一笔，
+    解释一个连接，最后只问一个观察或重建问题。默认按“具体例子→可见关系→口头规则→符号”推进，不要因为我算对一个数字就突然跳到公式。
+    抽象概念可用一个短故事情境，但要标明它是类比并忠于来源。当我明确说当前内容抽象、不理解、枯燥或请求图解时，自动切换当前台阶为视觉搭架；
+    空间、流程、几何，以及微积分中的运动、曲线、斜率、极限、导数、面积关系默认及时建立视觉锚点。板书要逐步累积，不要一次给完整答案。
+    图后附等价文字替代，再只问一个更具体的问题；视觉只服务当前台阶，不要每轮都生图。
     我说停止、直接讲或只要总结时，立即退出提问模式。
   examples:
     - "用一次一问的方式带我理解机会成本。"
@@ -23,7 +25,7 @@ compatibility:
   activation:
     mode: "explicit-opt-in"
     primary: "frontmatter-description"
-    explicit: "qiaomu-socratic-learning"
+    explicit: "qiaomu-learning"
     allowed_intents:
       - "interactive Socratic learning"
       - "one-question-at-a-time tutoring"
@@ -37,7 +39,12 @@ compatibility:
   execution:
     context: "inline dialogue"
     active_turn_contract: "exactly one concise learner-facing question"
-    visual_scaffolding: "auto-switch the current step on explicit abstraction, confusion, or diagram requests; prefer visuals for spatial, process, and geometry steps; never imply image-every-turn"
+    keyword_orientation: "for broad topics without a specified source, present exactly 12 categorized keywords with plain-language explanations, 3-5 expert entries, and 3-5 book entries before asking the learner to choose one starting keyword; offer expansion to more keywords as a non-question affordance"
+    keyword_expansion: "when the learner requests expansion, add only non-duplicate terms that fill uncovered categories; default to roughly 20-25 total terms, and honor a larger explicit target only when requested"
+    teacher_voice: "respond to the learner's exact words, preserve partial correctness, correct gently, vary natural teacher moves, and use a 2-4 sentence micro-explanation after repeated stalls instead of mechanical interrogation"
+    blackboard_progression: "retain the previous frame and add at most one key point, line, arrow, region, or formula transformation per turn; ask one observation or reconstruction question about the new stroke"
+    complex_visual_tool: "when a step has two or more interacting abstract layers such as angle-to-wave-to-number, vectors, matrices, attention, or architecture, call authorized Codex built-in image generation for the main visual; if the learner says ASCII is too abstract or explicitly asks for Codex image generation, generation is mandatory for the next visible reply"
+    visual_scaffolding: "auto-switch the current step on explicit abstraction, confusion, boredom, or diagram requests; proactively anchor motion, change, curves, slope, limits, derivatives, area, spatial, process, and geometry steps; use Codex built-in image generation for complex multi-layer visuals; prefer deterministic sketches as a precision check; never imply image-every-turn"
     preferred_language: "zh-CN"
   trust:
     source_policy: "separate source statements, inference, general background, and unknowns"
@@ -71,7 +78,9 @@ gates:
     - "positive-and-negative-trigger-evaluation"
     - "one-question-turn-compliance"
     - "adaptive-response-coverage"
+    - "12-keyword-default-and-on-demand-expansion-coverage"
     - "current-step-automatic-visual-scaffolding"
+    - "complex-visual-codex-image-routing"
     - "visual-alt-text-and-stepped-down-question"
     - "no-image-every-turn-expansion"
     - "mastery-evidence"
