@@ -6,7 +6,7 @@ license: MIT
 compatibility: "Agent Skills compatible; interactive multi-turn agent. Optional image generation; no network, shell, or file write required by default."
 metadata:
   author: 向阳乔木
-  version: "2.0.0"
+  version: "2.0.1"
 ---
 
 # 乔木学习

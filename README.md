@@ -1,6 +1,8 @@
 # qiaomu-learning
 
-**中文优先** · Governed public skill · `v2.0.0` · lifecycle: `published`
+**中文优先** · [English](#english) · [安装](#安装) · [验证](#验证) · [Release v2.0.1](https://github.com/joeseesun/qiaomu-learning/releases/tag/v2.0.1)
+
+> **v2.0.1 · 已验证**：12 词默认地图、按需扩展、不重复关键词、一次一问、渐进黑板；本地验证 19/19 测试通过。
 
 把一个主题、一段文字、网页、截图或 PDF 变成一场可随时退出的苏格拉底式学习对话：每个有效回合只向学习者提出一个简洁问题，并根据回答调整下一步。它会接住学习者的原话，像真人老师一样温和纠错，并通过逐帧黑板把推理画出来。
 
@@ -17,6 +19,17 @@
 上面每个 Skill 回合都只有一个面向学习者的问题。它可以先给一句反馈或一个短情境，但不会在同一回合连发多个问题。
 
 核心实践灵感来自用户提供的 gnarlouse 学习经验：把教材页交给模型，在语音对话中让模型扮演提问者；一次只推进一个问题，抽象处再用具名人物情境搭桥。
+
+## 核心能力
+
+| 能力 | 学习者得到什么 |
+|---|---|
+| 一轮一问 | 每次只回答一个问题，模型根据你的回答选择下一步。 |
+| 12 词地图 | 宽泛主题先建立轻量知识骨架，并推荐专家与书籍入口。 |
+| 按需扩展 | 回复“扩展关键词”即可补充不重复的新词，默认扩展到约 20–25 个。 |
+| 真人老师节奏 | 保留部分正确，温和区分误解，连续卡住时补半步。 |
+| 渐进黑板 | 具体例子 → 可见关系 → 口头规则 → 符号 → 迁移。 |
+| 视觉恢复 | 抽象、流程、几何和复杂模型关系优先建立问题承载型图示。 |
 
 ## 安装
 
@@ -191,6 +204,40 @@ X: https://x.com/vista8
 
 GitHub: https://github.com/joeseesun/
 
-## English summary
+<a name="english"></a>
+# English
 
-`qiaomu-learning` is a Chinese-first, governed Agent Skill for opt-in Socratic learning from a topic, text, page, screenshot, or PDF. It asks exactly one concise learner-facing question per active turn and adapts to each answer. When the learner explicitly reports abstraction or confusion, or asks for a diagram, it automatically switches the current step to visual scaffolding; spatial, process, and geometry steps prefer a visual by default. Every visual has a text alternative and is followed by one stepped-down question. This applies to the current step, not every turn. Provider-backed compatibility evidence and controlled human learning-outcome evidence are currently missing.
+`qiaomu-learning` is a Chinese-first, governed Agent Skill for opt-in Socratic learning from a topic, text, page, screenshot, or PDF. It asks exactly one concise learner-facing question per active turn, adapts to each answer, and uses a cumulative blackboard for concrete-to-symbolic teaching.
+
+## Install
+
+```bash
+npx skills add joeseesun/qiaomu-learning
+```
+
+Then ask your Agent to tutor you one question at a time. For broad topics, it starts with 12 plain-language keywords, expert/book entrances, and an opt-in expansion path.
+
+## What it does
+
+- Adaptive Socratic tutoring with exactly one learner-facing question per active turn.
+- Concrete example → visible relation → plain-language rule → symbol → transfer.
+- Human-teacher repair for partial answers, misconceptions, and repeated stalls.
+- Cumulative blackboard progression for calculus, motion, curves, geometry, processes, and model architectures.
+- Visual recovery when the learner reports abstraction or requests a diagram; every visual has a text alternative and a stepped-down question.
+
+## Verification
+
+```bash
+python3 scripts/validate_skill.py .
+python3 -m unittest discover -s tests -p 'test_*.py'
+```
+
+The v2.0.1 package passes 19/19 local contract tests. GitHub discovery and clean installation were also verified for the published package.
+
+## Limits
+
+The skill does not claim provider-wide compatibility, identical image availability/cost, or measured learning gains. Provider-backed compatibility, blinded human review, and controlled learner-outcome evidence remain missing. It exits immediately when the learner asks for a direct explanation, summary, pause, or stop.
+
+## License
+
+MIT License. See [LICENSE](LICENSE). Maintained by [向阳乔木](https://github.com/joeseesun/).

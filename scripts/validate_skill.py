@@ -16,7 +16,7 @@ from typing import Any, Iterable
 
 
 SKILL_NAME = "qiaomu-learning"
-SKILL_VERSION = "2.0.0"
+SKILL_VERSION = "2.0.1"
 
 REQUIRED_FILES = (
     "SKILL.md",

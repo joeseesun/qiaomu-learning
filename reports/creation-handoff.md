@@ -2,7 +2,7 @@
 
 ## Result
 
-- Skill: `qiaomu-learning` 2.0.0
+- Skill: `qiaomu-learning` 2.0.1
 - Date: 2026-08-11
 - Mode: Governed，面向公开复用
 - Job: 把教材、截图、PDF、笔记、题目或一个主题变成“一轮一个认知台阶”的自适应苏格拉底学习对话，并用主动回忆、最小搭架、故事/视觉桥和新情境迁移积累可见的学习证据。

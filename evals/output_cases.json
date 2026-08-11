@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.0.0",
+  "contract_version": "2.0.1",
   "fixture_kind": "deterministic_acceptance_examples",
   "question_policy": {
     "active_turn_semantic_question_count": 1,

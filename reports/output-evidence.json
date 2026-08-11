@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.0.0",
+  "contract_version": "2.0.1",
   "recorded_at": "2026-08-11",
   "scope": "Deterministic package, fixture, and contract checks only. This record does not represent provider execution, blinded human judgment, or measured learner outcomes.",
   "recorded_checks": [
@@ -129,5 +129,5 @@
       "claim_boundary": "Do not claim the skill improves grades, retention, transfer, or outcomes versus teachers, courses, or other tools."
     }
   ],
-  "interpretation": "A pass means the checked files encode the stated v2.0.0 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit."
+  "interpretation": "A pass means the checked files encode the stated v2.0.1 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit."
 }
