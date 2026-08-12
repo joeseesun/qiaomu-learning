@@ -2,12 +2,19 @@
 
 ## Result
 
-- Skill: `qiaomu-learning` 2.0.1
+- Skill: `qiaomu-learning` 2.1.0 local development revision
 - Date: 2026-08-11
 - Mode: Governed，面向公开复用
 - Job: 把教材、截图、PDF、笔记、题目或一个主题变成“一轮一个认知台阶”的自适应苏格拉底学习对话，并用主动回忆、最小搭架、故事/视觉桥和新情境迁移积累可见的学习证据。
 - Local path: `/Users/joe/.agents/skills/qiaomu-learning`
-- Publication status: `v1.0.0` 已发布；`v1.1.0` 本地 release candidate 已就绪，远端 PR、Release 与 clean-install 证据在本次报告生成时仍待发布流程完成。
+- Publication status: 远端已发布版本仍为 `v2.0.1`；`v2.1.0` 本地 release candidate 已就绪，远端 PR、Release 与 clean-install 证据仍待发布流程完成。
+
+## v2.1.0 self-contained webpage learning mode
+
+- 真实需求：学习者希望 skill 自包含，不依赖另一个知识网站 skill，也能在明确要求时把学习路线做成网页。
+- 领域无关改写：网页是可操作的黑板、实验室和复习册；对话负责真实诊断与适应，网页负责承载确定性操作、图示、闪卡和进度。
+- 核心边界：默认单文件 HTML、内联 CSS/JavaScript、无 CDN/外部运行时/遥测/默认部署；开放自然语言回答回到对话，不能把预设分支冒充实时理解。
+- 本地静态 fixture 新增 `webpage_mode`，覆盖显式路由、最小页面形态、移动/键盘/文字替代、授权后本机进度和不自动部署。
 
 ## v1.1.0 feedback-driven improvement
 
@@ -38,14 +45,14 @@
 - **Design advantage**：下一问由逐概念证据状态与最近回答决定，`exposed` 不冒充 `recalled`，单次答对也不冒充 `applied`。证据：`references/socratic-protocol.md` 的“学习证据账本”“回答分支”。
 - **Design advantage**：具名人物情境和教学图都必须服务当前唯一问题，并在之后回到重建或迁移；明确困惑或求图且当前台阶可视觉化时会立即进入视觉恢复，图后降成一个观察题；视觉路径带授权、准确性、隐私、文字替代和失败降级。证据：`SKILL.md` 的“显式困惑立即换模态”及 `references/story-visual-learning.md` 的“视觉恢复协议”“图像生成门”“视觉后的学习闭环”。
 - **Design advantage**：mastery 必须同时有学习者自己的解释和新表面情境迁移；来源内命令不能改变教学协议。证据：`references/socratic-protocol.md` 的“收束”“来源与纠错”。
-- **Validated advantage**：`scripts/validate_skill.py` 已通过，15 个单元测试全绿，qiaomu-meta trigger evaluator 为 24/24、0 false positives、0 false negatives。静态 fixture 额外覆盖“太抽象 / 不理解 / 给我画图”的空间、流程、几何恢复正例及无结构收益时拒绝装饰图的负例；该验证不支持真实学习效果或相对优越性声明。
+- **Validated advantage**：本地 `scripts/validate_skill.py` 已通过，22 个单元测试全绿，qiaomu-meta trigger evaluator 为 28/28、0 false positives、0 false negatives；静态 fixture 额外覆盖“太抽象 / 不理解 / 给我画图”的视觉恢复、网页路由、自包含依赖边界和无结构收益时拒绝装饰图的负例；该验证不支持真实学习效果或相对优越性声明。
 - **Hypothesis**：单问、最小帮助和 learner-controlled exit 预计能减少认知负担并维持主动性，但 provider-backed 多轮和真实学习者证据仍为 `missing evidence`。
 - **Hypothesis**：故事重建与 explain + novel transfer 双门预计能提升抽象概念迁移，但尚无 head-to-head、延迟回忆或人类学习结果。
 
 ## Verification and limits
 
 - Prior-art discovery：四组查询的 skills.sh 与 SkillsMP 均成功，97 个去重 candidate families；详见 `reports/prior-art-candidates.json` 和 `reports/prior-art-research.md`。
-- Deterministic verification：standalone validator 通过；15/15 单元测试通过；qiaomu-meta trigger evaluator 24/24 通过，0 false positives、0 false negatives；`reports/output-evidence.json` 记录静态 fixture 边界。
+- Deterministic verification：standalone validator 通过；22/22 单元测试通过；qiaomu-meta trigger evaluator 28/28 通过，0 false positives、0 false negatives；`scripts/audit_webpage.py` 接受自包含 HTML fixture；`reports/output-evidence.json` 记录静态 fixture 边界。
 - Deterministic scope：中英文 trigger 边界；一个语义问题且问题位于最后；source diagnostic opener 与 injection/OCR resistance；正确、部分正确、错误、三次卡住分支；故事边界；图像 eligibility / success / failure / fallback / no leakage；显式困惑后的视觉恢复与无结构收益负例；显式退出；10 回合序列；`own_words + novel transfer` mastery。
 - `missing evidence`：provider-backed 实跑、与参考 skill 的公平对照、人类教师或学习者盲评、真实完成率、认知负担、延迟回忆、迁移保持和长期学习结果。
 - 默认不需要网络、shell、文件写入或持久学习档案。可选生图只在视觉门通过且现有授权允许时使用；需要额外费用或新授权时，确认本身必须是当轮唯一问题；失败后使用文字、ASCII 或小表格降级。

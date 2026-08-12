@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>直播学习小实验</title>
+</head>
+<body>
+  <main>
+    <h1>直播定位</h1>
+    <p>这页只保存在本机。你可以随时清除进度。</p>
+    <button type="button" id="clear">清除进度</button>
+    <p>哪个案例更容易让观众知道为什么要留下来？</p>
+  </main>
+  <script>
+    document.querySelector('#clear').addEventListener('click', () => localStorage.clear());
+  </script>
+</body>
+</html>

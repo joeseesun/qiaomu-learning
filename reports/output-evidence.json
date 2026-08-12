@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.0.1",
-  "recorded_at": "2026-08-11",
+  "contract_version": "2.1.0",
+  "recorded_at": "2026-08-12",
   "scope": "Deterministic package, fixture, and contract checks only. This record does not represent provider execution, blinded human judgment, or measured learner outcomes.",
   "recorded_checks": [
     {
@@ -11,7 +11,7 @@
       "status": "pass",
       "evidence": {
         "fixture": "evals/trigger_cases.json",
-        "case_count": 24,
+        "case_count": 28,
         "bucket_counts": {
           "should_trigger": 8,
           "should_not_trigger": 8,
@@ -30,7 +30,7 @@
       "status": "pass",
       "evidence": {
         "fixture": "evals/output_cases.json",
-        "acceptance_scenario_count": 25,
+        "acceptance_scenario_count": 28,
         "covered_branches": [
           "readable-source diagnostic",
           "correct advance",
@@ -52,6 +52,22 @@
           "explicit learner exit"
         ],
         "active_turn_rule": "one learner-facing question, placed last"
+      }
+    },
+    {
+      "id": "self-contained-webpage-contract",
+      "evidence_type": "recorded_static_fixture",
+      "status": "pass",
+      "evidence": {
+        "fixture": "evals/output_cases.json:webpage_mode",
+        "explicit_route": true,
+        "artifact": "single HTML file with inline CSS/JavaScript",
+        "external_runtime": false,
+        "default_deployment": false,
+        "one_current_step": true,
+        "deterministic_branches_are_labeled": true,
+        "local_progress_requires_authorization": true,
+        "mobile_keyboard_and_text_alternative": true
       }
     },
     {
@@ -101,7 +117,7 @@
           "python3 -m unittest discover -s tests -p 'test_*.py'"
         ],
         "expected_exit_code": 0,
-        "unit_test_count": 19,
+        "unit_test_count": 22,
         "negative_controls": [
           "tests mutate a passing fixture to contain two questions and require the validator to reject it",
           "tests disable visual recovery for an eligible explicit-confusion fixture and require the validator to reject it"

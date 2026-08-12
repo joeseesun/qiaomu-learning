@@ -1,6 +1,6 @@
 # Prior-Art Research
 
-- Skill: `qiaomu-learning` 2.0.1
+- Skill: `qiaomu-learning` 2.1.0 local development revision
 - Mode: Governed（面向公开复用）
 - Researched at: 2026-08-10
 - Queries: `Socratic tutoring agent`; `active recall learning coach`; `one question at a time tutoring`; `story based concept learning`
@@ -8,7 +8,7 @@
 - Reproducible catalog artifact: `reports/prior-art-candidates.json`
 - Rating evidence: unavailable
 
-> 2026-08-11 v1.1.0 note：本次没有重新扩展候选检索。真实使用暴露的是既有 dual-coding / nondecorative visual 原则没有被写成强制恢复路径；因此沿用下列已核验参考，把“明确困惑或求图 + 当前台阶可视觉化”提升为立即换模态的通用协议，并把相对论火车场景仅作为回归情境。
+> 2026-08-12 v2.1.0 note：本次没有重新扩展候选检索。新增网页能力是已有学习协议的容器化扩展，不引入第二个知识网站 skill；网页只承载确定性互动，开放回答仍回到对话。沿用下列已核验参考，并把自包含、离线、无默认部署和诚实的静态分支边界写入本 skill。
 
 四组查询在 skills.sh 和 SkillsMP 均成功，共得到 97 个去重候选 family。skills.sh 的数字是生态安装量；SkillsMP 展示的是候选所在 GitHub 仓库的 stars。二者都不是用户评分、正确率或单个 skill 的质量证据，也未合并成跨目录分数。下表中的可变数字均观测于 2026-08-10。
 
@@ -80,7 +80,7 @@
 - **Design advantage**：下一问显式依赖学习证据状态，并把 `exposed`、`recalled`、`applied` 和具体误解分开；单次猜对不会自动升级为掌握。证据：`references/socratic-protocol.md` 的“学习证据账本”“回答分支”“收束”。
 - **Design advantage**：故事和图像都必须接回 reconstruction / transfer question；生图有授权、隐私、准确性、文字替代和失败降级门。证据：`references/story-visual-learning.md` 的“具名人物情境”“图像生成门”“Codex / OpenAI 适配”“视觉后的学习闭环”。
 - **Design advantage**：显式处理来源注入和 learner-controlled exit，避免“苏格拉底法”压过用户指令或材料边界。证据：`references/socratic-protocol.md` 的“学习者控制权”“来源与纠错”。
-- **Validated advantage**：standalone validator、15 个单元测试与 qiaomu-meta trigger evaluator 已通过；trigger 为 24/24、0 false positives、0 false negatives。该证据只证明包内规定的触发边界、静态回合合同、分支、退出、视觉恢复/拒绝装饰图边界和 mastery fixture 符合预期，不等于真实学习效果优于参考 skill。
+- **Validated advantage**：standalone validator、22 个单元测试与 qiaomu-meta trigger evaluator 已通过；trigger 为 28/28、0 false positives、0 false negatives，网页静态审计 fixture 通过。该证据只证明包内规定的触发边界、静态回合合同、分支、退出、视觉恢复/拒绝装饰图、网页自包含边界和 mastery fixture 符合预期，不等于真实学习效果优于参考 skill。
 - **Hypothesis**：语义级单问与最小帮助可能减少认知负荷并提高主动回忆质量，但尚无 provider-backed 多轮或真实学习者证据。
 - **Hypothesis**：具名人物故事后立即重建，以及 explain + novel transfer 双门，可能比被动解释更有利于概念迁移；尚无 head-to-head 或延迟保持实验。
 

@@ -47,7 +47,7 @@ class SkillContractTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(0, result.returncode, result.stderr)
-        self.assertIn("PASS qiaomu-learning v2.0.1", result.stdout)
+        self.assertIn("PASS qiaomu-learning v2.1.0", result.stdout)
 
     def test_trigger_eval_is_bilingual_and_boundary_focused(self) -> None:
         cases = self.triggers["cases"]
@@ -128,7 +128,7 @@ class SkillContractTests(unittest.TestCase):
             self.assertEqual(expected_items, actual, bucket)
             self.assertTrue(projected_families.isdisjoint(actual), bucket)
             projected_families.update(actual)
-        self.assertEqual(24, len(projected_families))
+        self.assertEqual(28, len(projected_families))
 
     def test_output_eval_covers_required_acceptance_scenarios(self) -> None:
         required = {
@@ -141,10 +141,12 @@ class SkillContractTests(unittest.TestCase):
             "concrete_to_symbolic_clarity",
             "calculus_visual_first",
             "human_teacher_repair",
+            "feedback_self_evolution",
             "blackboard_progression",
             "keyword_orientation",
             "keyword_expansion",
             "complex_visual_imagegen",
+            "visual_prefetch",
             "image_success",
             "image_failure",
             "image_ineligible",
@@ -158,9 +160,45 @@ class SkillContractTests(unittest.TestCase):
             "mastery_gate",
             "mastery_confirmed",
         }
-        self.assertEqual("2.0.1", self.outputs["contract_version"])
+        self.assertEqual("2.1.0", self.outputs["contract_version"])
         self.assertGreaterEqual(len(self.outputs["cases"]), 10)
         self.assertTrue(required.issubset(self.by_category))
+
+    def test_webpage_mode_is_explicit_self_contained_and_not_fake_adaptive(self) -> None:
+        case = self.by_category["webpage_mode"]
+        context = case["context"]
+        artifact = case["artifact"]
+        expected = case["expected"]
+        self.assertEqual("self-contained_html", context["requested_artifact"])
+        self.assertEqual("topic_workspace", context["webpage_shape"])
+        self.assertTrue(expected["explicit_webpage_route"])
+        self.assertTrue(expected["smallest_artifact_selected"])
+        self.assertTrue(artifact["self_contained_html"] if "self_contained_html" in artifact else artifact["format"] == "single_html_file")
+        self.assertTrue(artifact["inline_css"])
+        self.assertTrue(artifact["inline_javascript"])
+        self.assertFalse(artifact["external_runtime"])
+        self.assertFalse(artifact["cdn"])
+        self.assertFalse(artifact["default_deployment"])
+        self.assertTrue(artifact["current_step_only"])
+        self.assertTrue(artifact["deterministic_branches_labeled"])
+        self.assertEqual("only_after_explicit_authorization", artifact["local_storage"])
+        self.assertTrue(artifact["clear_data_action"])
+        self.assertTrue(artifact["text_alternative"])
+        self.assertTrue(expected["deterministic_branch_honesty"])
+        self.assertTrue(expected["local_progress_is_opt_in"])
+
+    def test_static_webpage_audit_accepts_self_contained_fixture(self) -> None:
+        audit_script = ROOT / "scripts" / "audit_webpage.py"
+        fixture = ROOT / "tests" / "fixtures" / "valid-learning.html"
+        result = subprocess.run(
+            [sys.executable, str(audit_script), str(fixture)],
+            cwd=ROOT,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        self.assertEqual(0, result.returncode, result.stderr)
+        self.assertIn("PASS self-contained webpage static audit", result.stdout)
 
     def test_every_active_fixture_has_one_question_and_puts_it_last(self) -> None:
         for case in self.outputs["cases"]:
@@ -218,6 +256,16 @@ class SkillContractTests(unittest.TestCase):
         self.assertEqual(0, board["expected"]["formula_layers_revealed"])
         self.assertFalse(board["expected"]["complete_solution_leaked"])
 
+        feedback = self.by_category["feedback_self_evolution"]
+        self.assertTrue(feedback["expected"]["immediate_repair"])
+        self.assertTrue(feedback["expected"]["abstraction_lowered"])
+        self.assertTrue(feedback["expected"]["candidate_rule_recorded"])
+        self.assertEqual(
+            "explicit_skill_update_or_two_independent_reproductions",
+            feedback["expected"]["promotion_gate"],
+        )
+        self.assertFalse(feedback["expected"]["raw_private_content_persisted"])
+
     def test_keyword_orientation_precedes_formal_socratic_learning(self) -> None:
         orientation = self.by_category["keyword_orientation"]
         self.assertEqual("broad_topic_without_source", orientation["context"]["source_kind"])
@@ -229,6 +277,17 @@ class SkillContractTests(unittest.TestCase):
         self.assertFalse(orientation["expected"]["formal_learning_started"])
         self.assertTrue(orientation["expected"]["expansion_affordance"])
         self.assertTrue(orientation["expected"]["selection_question_only"])
+
+    def test_keyword_orientation_requires_chinese_names_for_foreign_entries(self) -> None:
+        reference = (ROOT / "references" / "keyword-learning.md").read_text(encoding="utf-8")
+        skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        orientation = self.by_category["keyword_orientation"]
+        self.assertIn("Clayton Christensen（克莱顿·克里斯坦森）", reference)
+        self.assertIn("Competing Against Luck（《与运气竞争》）", reference)
+        self.assertIn("非中文人名和非中文书名", skill)
+        self.assertIn("中译名待核验", reference)
+        self.assertIn("Michael Spivak（迈克尔·斯皮瓦克）", orientation["assistant_output"])
+        self.assertIn("Calculus（《微积分》）", orientation["assistant_output"])
 
     def test_keyword_expansion_adds_non_duplicate_terms(self) -> None:
         expansion = self.by_category["keyword_expansion"]
@@ -255,6 +314,18 @@ class SkillContractTests(unittest.TestCase):
         self.assertTrue(visual["alt_text"])
         self.assertTrue(expected["image_required"])
         self.assertTrue(expected["text_verification_present"])
+
+        prefetch = self.by_category["visual_prefetch"]
+        prefetch_visual = prefetch["visual"]
+        prefetch_expected = prefetch["expected"]
+        self.assertTrue(prefetch_visual["prefetched"])
+        self.assertFalse(prefetch_visual["shown_before_confirmation"])
+        self.assertTrue(prefetch_visual["branch_confirmed"])
+        self.assertTrue(prefetch_visual["reverified_before_use"])
+        self.assertTrue(prefetch_visual["discard_on_branch_change"])
+        self.assertTrue(prefetch_expected["prefetch_hidden_until_confirmation"])
+        self.assertTrue(prefetch_expected["branch_reverified"])
+        self.assertTrue(prefetch_expected["speculative_draft_not_treated_as_fact"])
 
     def test_image_success_failure_and_skip_paths_are_explicit(self) -> None:
         success = self.by_category["image_success"]

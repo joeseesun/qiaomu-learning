@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.0.1",
+  "contract_version": "2.1.0",
   "recommended_threshold": 0.34,
   "description_required_concepts": [
     "learning_goal",
@@ -107,7 +107,10 @@
     "score me at the end",
     "选择题和答案",
     "润色这段",
-    "修正错别字"
+    "修正错别字",
+    "不需要互动学习",
+    "do not include learning interactions",
+    "decorative landing page"
   ],
   "should_trigger": [
     {
@@ -141,6 +144,14 @@
     {
       "text": "Question me through opportunity cost until I can explain it in my own words and apply it to a case I have not seen.",
       "family": "trigger-en-transfer-goal"
+    },
+    {
+      "text": "把直播这 12 个关键词做成一个自包含的互动学习网页：页面一次只带我做一个小练习，答完再进入下一步。",
+      "family": "trigger-zh-self-contained-learning-page"
+    },
+    {
+      "text": "Turn this lesson into a self-contained interactive HTML learning page with one current concept, deterministic practice branches, and no external runtime dependencies.",
+      "family": "trigger-en-self-contained-learning-page"
     },
     {
       "text": "我不想背梯度下降公式。你每次问我一个关键点，让我自己推导出来。",
@@ -191,6 +202,14 @@
     {
       "text": "Turn these biology notes into an Anki-ready CSV of flashcards.",
       "family": "no-trigger-en-flashcards"
+    },
+    {
+      "text": "把这篇文章排成一个漂亮的静态网页摘要，不需要互动学习。",
+      "family": "no-trigger-zh-static-web-summary"
+    },
+    {
+      "text": "Generate a decorative landing page for my course with illustrations and a signup button; do not include learning interactions.",
+      "family": "no-trigger-en-decorative-course-page"
     }
   ],
   "near_neighbor": [
@@ -521,6 +540,58 @@
         "own-words reconstruction"
       ],
       "rationale": "This is clearly question-led learning even without the word Socratic."
+    },
+    {
+      "id": "trigger-zh-self-contained-learning-page",
+      "language": "zh-CN",
+      "bucket": "should_trigger",
+      "user_prompt": "把直播这 12 个关键词做成一个自包含的互动学习网页：页面一次只带我做一个小练习，答完再进入下一步。",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "explicit learning webpage request",
+        "interactive learning artifact",
+        "one-step progression"
+      ],
+      "rationale": "The learner requests a webpage specifically as an interactive learning container with one-step progression."
+    },
+    {
+      "id": "trigger-en-self-contained-learning-page",
+      "language": "en",
+      "bucket": "should_trigger",
+      "user_prompt": "Turn this lesson into a self-contained interactive HTML learning page with one current concept, deterministic practice branches, and no external runtime dependencies.",
+      "expected_activation": true,
+      "evaluator_concepts": [
+        "explicit self-contained webpage request",
+        "interactive practice",
+        "runtime boundary"
+      ],
+      "rationale": "The user explicitly asks for an interactive HTML learning artifact and defines its learning and dependency constraints."
+    },
+    {
+      "id": "no-trigger-zh-static-web-summary",
+      "language": "zh-CN",
+      "bucket": "should_not_trigger",
+      "user_prompt": "把这篇文章排成一个漂亮的静态网页摘要，不需要互动学习。",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "static web formatting",
+        "summary artifact",
+        "explicitly no learning interaction"
+      ],
+      "rationale": "This asks for a static summary page and explicitly excludes interactive learning."
+    },
+    {
+      "id": "no-trigger-en-decorative-course-page",
+      "language": "en",
+      "bucket": "should_not_trigger",
+      "user_prompt": "Generate a decorative landing page for my course with illustrations and a signup button; do not include learning interactions.",
+      "expected_activation": false,
+      "evaluator_concepts": [
+        "decorative landing page",
+        "marketing call to action",
+        "no learning interaction"
+      ],
+      "rationale": "A decorative course landing page without learning interactions is outside this skill's webpage mode."
     }
   ]
 }
