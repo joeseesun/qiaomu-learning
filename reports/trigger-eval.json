@@ -1,0 +1,327 @@
+{
+  "ok": true,
+  "threshold": 0.34,
+  "description_concepts": [
+    "adaptive_turn_taking",
+    "learner_reasoning",
+    "learning_goal",
+    "question_led_method",
+    "source_grounding"
+  ],
+  "missing_description_concepts": [],
+  "summary": {
+    "total": 24,
+    "passed": 24,
+    "false_positive": 0,
+    "false_negative": 0,
+    "pass_rate": 1.0
+  },
+  "failures": [],
+  "results": {
+    "should_trigger": [
+      {
+        "prompt": "请用苏格拉底式提问带我真正理解贝叶斯定理。一次只问我一个问题，等我回答后再继续。",
+        "family": "trigger-zh-socratic-bayes",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learning_goal",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "我贴一段经济学材料。不要先总结，请先用一个关于材料内容的问题诊断我理解到哪，再根据我的回答教我。",
+        "family": "trigger-zh-source-diagnostic",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learning_goal",
+          "question_led_method",
+          "source_grounding"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "别直接告诉我动量守恒为什么成立。像导师一样逐步问我，让我自己把因果链重建出来。",
+        "family": "trigger-zh-reconstruct-physics",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "learner_reasoning",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "我们用对话复习 TCP 拥塞控制：你每轮根据我的回答只追问一个最关键的问题，直到我能迁移到新场景。",
+        "family": "trigger-zh-dialogue-review",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learner_reasoning",
+          "learning_goal",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Help me discover how JavaScript closures work by asking one question at a time and adapting to each answer.",
+        "family": "trigger-en-closures",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learner_reasoning",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Use the attached chapter as our source. Start with a diagnostic question about its argument, then coach me through it without lecturing.",
+        "family": "trigger-en-source-first",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "learning_goal",
+          "question_led_method",
+          "source_grounding"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Tutor me on natural selection as a back-and-forth. Probe my causal model, give only small hints when I am wrong, and let me do the explaining.",
+        "family": "trigger-en-causal-model",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.8,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learner_reasoning",
+          "learning_goal",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Question me through opportunity cost until I can explain it in my own words and apply it to a case I have not seen.",
+        "family": "trigger-en-transfer-goal",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "learner_reasoning",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "我不想背梯度下降公式。你每次问我一个关键点，让我自己推导出来。",
+        "family": "near-zh-guided-derivation",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "learner_reasoning",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "和我一问一答复习光合作用；根据我的回答决定下一步，不会时先给一点提示。",
+        "family": "near-zh-adaptive-review",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learning_goal",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Do not give me the formula for compound interest. Ask what I think happens each period and build from my replies.",
+        "family": "near-en-adaptive-derive",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.4,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learner_reasoning"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Review photosynthesis with me as a dialogue: use each answer to choose one next question, and make me explain the mechanism myself.",
+        "family": "near-en-dialogue-review",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 0.6,
+        "matched_concepts": [
+          "adaptive_turn_taking",
+          "learning_goal",
+          "question_led_method"
+        ],
+        "negative_pattern": null
+      }
+    ],
+    "should_not_trigger": [
+      {
+        "prompt": "直接告诉我这道微积分题的答案和完整步骤，不要问我问题。",
+        "family": "no-trigger-zh-direct-answer",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "把这篇机器学习论文总结成五个要点。",
+        "family": "no-trigger-zh-summary",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "learning_goal"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "根据这章内容生成 20 道选择题和答案，方便我稍后打印。",
+        "family": "no-trigger-zh-quiz-artifact",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "选择题和答案"
+      },
+      {
+        "prompt": "帮我润色这段课程笔记，保持原意并修正错别字。",
+        "family": "no-trigger-zh-copyedit",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "source_grounding"
+        ],
+        "negative_pattern": "润色这段"
+      },
+      {
+        "prompt": "Explain gradient descent in plain English with one worked example.",
+        "family": "no-trigger-en-explanation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Solve questions 1 through 8 and give me the final answers only.",
+        "family": "no-trigger-en-homework",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "final answers only"
+      },
+      {
+        "prompt": "Write a short history of the Socratic method and list three famous Socratic questions.",
+        "family": "no-trigger-en-socratic-description",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "question_led_method"
+        ],
+        "negative_pattern": "write a short history"
+      },
+      {
+        "prompt": "Turn these biology notes into an Anki-ready CSV of flashcards.",
+        "family": "no-trigger-en-flashcards",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "source_grounding"
+        ],
+        "negative_pattern": "Anki-ready CSV"
+      }
+    ],
+    "near_neighbor": [
+      {
+        "prompt": "教我理解递归。",
+        "family": "near-zh-generic-teach",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "learning_goal"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "给我列十个能启发思考的哲学问题，我自己慢慢看。",
+        "family": "near-zh-static-question-set",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Teach me recursion.",
+        "family": "near-en-generic-tutor",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.2,
+        "matched_concepts": [
+          "learning_goal"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "Run a mock job interview and ask one behavioral question at a time, then score me at the end.",
+        "family": "near-en-interview-simulation",
+        "expected_trigger": false,
+        "predicted_trigger": false,
+        "passed": true,
+        "score": 0.0,
+        "matched_concepts": [],
+        "negative_pattern": "mock job interview"
+      }
+    ]
+  }
+}
