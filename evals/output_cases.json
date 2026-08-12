@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.0.1",
+  "contract_version": "2.1.0",
   "fixture_kind": "deterministic_acceptance_examples",
   "question_policy": {
     "active_turn_semantic_question_count": 1,
@@ -87,12 +87,12 @@
         "experts": [
           {"name": "牛顿", "role": "历史奠基者", "why": "帮助理解变化率与运动问题的源头"},
           {"name": "莱布尼茨", "role": "历史奠基者", "why": "帮助理解微分与积分记号的形成"},
-          {"name": "Michael Spivak", "role": "数学教育者", "why": "适合从严格推理理解微积分"}
+          {"name": "Michael Spivak（迈克尔·斯皮瓦克）", "role": "数学教育者", "why": "适合从严格推理理解微积分"}
         ],
         "books": [
-          {"title": "Calculus", "author": "Michael Spivak", "why": "适合补上定义、证明和结构"},
-          {"title": "Calculus", "author": "James Stewart", "why": "适合循序练习和应用"},
-          {"title": "Calculus, Vol. 1", "author": "Tom M. Apostol", "why": "适合把微积分放进更完整的数学框架"}
+          {"title": "Calculus（《微积分》）", "author": "Michael Spivak（迈克尔·斯皮瓦克）", "why": "适合补上定义、证明和结构"},
+          {"title": "Calculus（《微积分》）", "author": "James Stewart（詹姆斯·斯图尔特）", "why": "适合循序练习和应用"},
+          {"title": "Calculus, Vol. 1（《微积分（第一卷）》）", "author": "Tom M. Apostol（汤姆·M. 阿波斯托尔）", "why": "适合把微积分放进更完整的数学框架"}
         ]
       },
       "keywords": [
@@ -109,7 +109,7 @@
         {"category": "方法/应用", "term": "面积", "plain_explanation": "积分可以用来计算曲线下方的累积区域。"},
         {"category": "方法/应用", "term": "最优化", "plain_explanation": "寻找最大、最小或最合适的方案。"}
       ],
-      "assistant_output": "先把微积分的最小地图铺开。下面是 12 个核心入口，不要求一次记住全部：\n\n| 类别 | 关键词 | 白话解释 |\n|---|---|---|\n| 基础 | 变量 | 会随着情境改变的量。 |\n| 基础 | 函数 | 把输入对应到输出的规则。 |\n| 基础 | 变化量 | 一个量前后数值的差。 |\n| 核心 | 极限 | 不断靠近目标时呈现的稳定结果。 |\n| 核心 | 导数 | 某一时刻变化得有多快。 |\n| 核心 | 积分 | 把许多很小的量累加起来。 |\n| 核心 | 连续 | 变化过程中没有突然跳断。 |\n| 方法/应用 | 平均变化率 | 一段区间内总变化除以区间长度。 |\n| 方法/应用 | 瞬时变化率 | 把区间缩到极小时的变化速度。 |\n| 方法/应用 | 切线 | 表示曲线局部方向的直线。 |\n| 方法/应用 | 面积 | 积分可以计算的累积区域。 |\n| 方法/应用 | 最优化 | 寻找最大、最小或最合适的方案。 |\n\n专家入口：牛顿适合了解运动和变化率的源头；莱布尼茨适合了解微分、积分记号与累积思想；Michael Spivak 适合从严格推理理解微积分。\n\n书籍入口：Spivak 的《Calculus》适合补定义和证明；James Stewart 的《Calculus》适合循序练习与应用；Apostol 的《Calculus, Vol. 1》适合建立更完整的数学框架。\n\n如果你想建立更完整的地图，可以回复“扩展关键词”或“扩展到 25 个”，我会补充不重复的入口。选定关键词后，我会像老师在黑板上讲解一样，从具体例子开始，一步一步画出关系，再进入公式。你想先从哪一个关键词开始？",
+      "assistant_output": "先把微积分的最小地图铺开。下面是 12 个核心入口，不要求一次记住全部：\n\n| 类别 | 关键词 | 白话解释 |\n|---|---|---|\n| 基础 | 变量 | 会随着情境改变的量。 |\n| 基础 | 函数 | 把输入对应到输出的规则。 |\n| 基础 | 变化量 | 一个量前后数值的差。 |\n| 核心 | 极限 | 不断靠近目标时呈现的稳定结果。 |\n| 核心 | 导数 | 某一时刻变化得有多快。 |\n| 核心 | 积分 | 把许多很小的量累加起来。 |\n| 核心 | 连续 | 变化过程中没有突然跳断。 |\n| 方法/应用 | 平均变化率 | 一段区间内总变化除以区间长度。 |\n| 方法/应用 | 瞬时变化率 | 把区间缩到极小时的变化速度。 |\n| 方法/应用 | 切线 | 表示曲线局部方向的直线。 |\n| 方法/应用 | 面积 | 积分可以计算的累积区域。 |\n| 方法/应用 | 最优化 | 寻找最大、最小或最合适的方案。 |\n\n专家入口：牛顿适合了解运动和变化率的源头；莱布尼茨适合了解微分、积分记号与累积思想；Michael Spivak（迈克尔·斯皮瓦克）适合从严格推理理解微积分。\n\n书籍入口：Calculus（《微积分》）适合补定义和证明；Calculus（《微积分》）适合循序练习与应用；Calculus, Vol. 1（《微积分（第一卷）》）适合建立更完整的数学框架。\n\n如果你想建立更完整的地图，可以回复“扩展关键词”或“扩展到 25 个”，我会补充不重复的入口。选定关键词后，我会像老师在黑板上讲解一样，从具体例子开始，一步一步画出关系，再进入公式。你想先从哪一个关键词开始？",
       "expected": {
         "semantic_question_count": 1,
         "question_is_last": true,
@@ -541,6 +541,42 @@
       ]
     },
     {
+      "id": "visual-prefetch-waits-for-branch-confirmation",
+      "category": "visual_prefetch",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "排版：版心与边距",
+        "current_work": "解释上一页并解析下一页 PDF 内容",
+        "next_visual_step_confidence": "high",
+        "independent_work_available": true,
+        "authorization": true,
+        "learner_branch_confirmed": true
+      },
+      "visual": {
+        "prefetched": true,
+        "shown_before_confirmation": false,
+        "branch_confirmed": true,
+        "reverified_before_use": true,
+        "discard_on_branch_change": true,
+        "question_bearing": true
+      },
+      "assistant_output": "视觉预取图已经准备好，但我先根据你刚才的回答确认学习路径；现在展示它的文字替代：页面外框、左右边距和中间版心用三种边界区分，标题与正文沿同一条左边界排列。观察这张图时，只看边距变化如何改变版心宽度。边距都增加 5 mm 后，版心会发生什么变化？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "prefetch_hidden_until_confirmation": true,
+        "branch_reverified": true,
+        "speculative_draft_not_treated_as_fact": true
+      },
+      "evaluation_concepts": [
+        "prefetch can run alongside independent work",
+        "draft remains hidden until branch confirmation",
+        "visual is reverified before reuse",
+        "branch changes discard speculative assets"
+      ]
+    },
+    {
       "id": "eligible-image-failure-falls-back-to-text",
       "category": "image_failure",
       "language": "en",
@@ -764,6 +800,35 @@
       ]
     },
     {
+      "id": "feedback-lowers-abstraction-after-unclear-question",
+      "category": "feedback_self_evolution",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "语言模型参数",
+        "prior_failure": "用记忆条目与可调旋钮的抽象二选一提问，学习者无法判断比较对象",
+        "learner_feedback": "刚才的问题讲得不清楚",
+        "feedback_scope": "reusable_rule",
+        "candidate_rule": "反馈问题不清楚时，先换成具体可观察的输入—输出例子，再继续一问一答"
+      },
+      "assistant_output": "你说得对，我刚才把问题问得太抽象了。先看一个具体例子：如果训练数据里经常出现‘猫在叫’，模型会调整内部参数，让‘猫’后面预测‘叫’的概率变高。这里的参数先理解成模型为了提高预测准确率而反复调整的一大堆内部数值。训练数据让模型发现‘猫’后面经常出现‘叫’时，它会把‘叫’的预测概率调高吗？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "immediate_repair": true,
+        "abstraction_lowered": true,
+        "candidate_rule_recorded": true,
+        "promotion_gate": "explicit_skill_update_or_two_independent_reproductions",
+        "raw_private_content_persisted": false
+      },
+      "evaluation_concepts": [
+        "feedback changes the next teaching action",
+        "abstract comparison becomes a concrete input-output example",
+        "candidate rule is separated from immediate repair",
+        "one-question contract remains intact"
+      ]
+    },
+    {
       "id": "blackboard-reveals-one-calculus-layer",
       "category": "blackboard_progression",
       "language": "zh-CN",
@@ -844,6 +909,53 @@
         "mastery follows two independent evidence types",
         "completion ends active questioning",
         "no readiness or celebratory extra question"
+      ]
+    },
+    {
+      "id": "explicit-request-routes-to-self-contained-webpage",
+      "category": "webpage_mode",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "learner_request": "把直播学习做成一个自包含互动网页，答完一个小练习再进入下一步。",
+        "topic_maturity": "stable_enough_for_small_artifact",
+        "requested_artifact": "self-contained_html",
+        "webpage_shape": "topic_workspace"
+      },
+      "artifact": {
+        "format": "single_html_file",
+        "inline_css": true,
+        "inline_javascript": true,
+        "external_runtime": false,
+        "cdn": false,
+        "default_deployment": false,
+        "mobile_responsive": true,
+        "keyboard_accessible": true,
+        "current_step_only": true,
+        "deterministic_branches_labeled": true,
+        "local_storage": "only_after_explicit_authorization",
+        "clear_data_action": true,
+        "text_alternative": true
+      },
+      "assistant_output": "这页只帮助你观察“直播定位”如何影响内容和观众；它包含一个可切换的直播案例、一个练习和一个文字替代，暂不直接展示完整定位答案。先看两个案例：一个写“我什么都聊”，另一个写“帮第一次做知识直播的人搭出一场 30 分钟直播”。你觉得哪一个更容易让观众知道为什么要留下来？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "explicit_webpage_route": true,
+        "smallest_artifact_selected": true,
+        "self_contained_html": true,
+        "no_external_runtime": true,
+        "no_default_deployment": true,
+        "one_current_step": true,
+        "deterministic_branch_honesty": true,
+        "accessibility_and_mobile": true,
+        "local_progress_is_opt_in": true
+      },
+      "evaluation_concepts": [
+        "explicit webpage request activates the webpage mode",
+        "single-file HTML remains self-contained and offline-capable",
+        "webpage acts as an interactive blackboard rather than a second tutor",
+        "privacy, accessibility, and deployment boundaries are explicit"
       ]
     }
   ]

@@ -16,7 +16,7 @@ from typing import Any, Iterable
 
 
 SKILL_NAME = "qiaomu-learning"
-SKILL_VERSION = "2.0.1"
+SKILL_VERSION = "2.1.0"
 
 REQUIRED_FILES = (
     "SKILL.md",
@@ -26,14 +26,17 @@ REQUIRED_FILES = (
     "agents/interface.yaml",
     "references/socratic-protocol.md",
     "references/story-visual-learning.md",
+    "references/self-evolution.md",
     "references/teaching-clarity.md",
     "references/blackboard-teaching.md",
     "references/keyword-learning.md",
+    "references/web-learning.md",
     "evals/trigger_cases.json",
     "evals/output_cases.json",
     "reports/prior-art-candidates.json",
     "reports/output-evidence.json",
     "scripts/validate_skill.py",
+    "scripts/audit_webpage.py",
     "tests/test_skill_contract.py",
 )
 
@@ -64,6 +67,7 @@ OUTPUT_CATEGORIES = {
     "sequential_ten_questions",
     "mastery_gate",
     "mastery_confirmed",
+    "webpage_mode",
 }
 
 QUESTION_MARK_RE = re.compile(r"[?？]")
@@ -761,14 +765,46 @@ def _validate_output_cases(data: dict[str, Any], errors: list[str]) -> None:
     ):
         errors.append("output eval: mastery confirmation must require own-words and novel-transfer evidence")
 
+    webpage = _case_by_category(cases, "webpage_mode")
+    webpage_context = webpage.get("context", {})
+    webpage_artifact = webpage.get("artifact", {})
+    webpage_expected = webpage.get("expected", {})
+    if not (
+        webpage_context.get("requested_artifact") == "self-contained_html"
+        and webpage_context.get("webpage_shape") in {"concept_lab", "topic_workspace", "course_review_book"}
+        and webpage_expected.get("explicit_webpage_route") is True
+        and webpage_expected.get("smallest_artifact_selected") is True
+        and webpage_artifact.get("format") == "single_html_file"
+        and webpage_artifact.get("inline_css") is True
+        and webpage_artifact.get("inline_javascript") is True
+        and webpage_artifact.get("external_runtime") is False
+        and webpage_artifact.get("cdn") is False
+        and webpage_artifact.get("default_deployment") is False
+        and webpage_artifact.get("mobile_responsive") is True
+        and webpage_artifact.get("keyboard_accessible") is True
+        and webpage_artifact.get("current_step_only") is True
+        and webpage_artifact.get("deterministic_branches_labeled") is True
+        and webpage_artifact.get("local_storage") == "only_after_explicit_authorization"
+        and webpage_artifact.get("clear_data_action") is True
+        and webpage_artifact.get("text_alternative") is True
+        and webpage_expected.get("deterministic_branch_honesty") is True
+        and webpage_expected.get("no_default_deployment") is True
+    ):
+        errors.append(
+            "output eval: webpage mode must be an explicit, smallest, self-contained, accessible HTML artifact "
+            "with honest deterministic branches and no default deployment"
+        )
+
 
 def _validate_core_contract(
     skill_text: str,
     protocol_text: str,
     visual_text: str,
+    evolution_text: str,
+    webpage_text: str,
     errors: list[str],
 ) -> None:
-    combined = "\n".join((skill_text, protocol_text, visual_text))
+    combined = "\n".join((skill_text, protocol_text, visual_text, evolution_text, webpage_text))
     requirements = {
         "one semantic learner-facing question per active turn": (
             "只有一个实质性的学习问题",
@@ -831,6 +867,46 @@ def _validate_core_contract(
         "visual recovery asks a stepped-down observation": (
             "从图上可直接观察的降阶问题",
             "把台阶降到一个可观察问题",
+        ),
+        "feedback-driven self-evolution": (
+            "反馈驱动的自进化",
+            "立即修复",
+            "候选规则",
+            "回归夹具",
+        ),
+        "keyword hard default": (
+            "默认严格列出恰好 12 个关键词",
+            "12 词是本 skill 的硬契约",
+            "外部的通用学习偏好",
+        ),
+        "speculative visual prefetch": (
+            "视觉预取",
+            "speculative draft",
+            "分支确认",
+            "丢弃",
+        ),
+        "self-contained webpage learning mode": (
+            "自包含的互动网页",
+            "自包含网页",
+            "self-contained interactive HTML",
+            "网页是可操作的黑板",
+        ),
+        "webpage no-external-runtime boundary": (
+            "不依赖另一个 skill",
+            "不依赖外部 skill",
+            "no CDN",
+            "不引入外部脚本",
+        ),
+        "webpage deterministic-adaptation honesty": (
+            "不能声称理解了开放式自然语言回答",
+            "开放自然语言回答",
+            "deterministic branches",
+        ),
+        "webpage privacy and deployment boundary": (
+            "只保存在本机",
+            "不默认收集",
+            "不默认部署",
+            "do not deploy",
         ),
         "mastery needs own words and transfer": (
             "own_words=true",
@@ -917,6 +993,12 @@ def validate_skill(root: Path) -> list[str]:
     visual_text = _load_text(
         root / "references/story-visual-learning.md", errors, "references/story-visual-learning.md"
     )
+    evolution_text = _load_text(
+        root / "references/self-evolution.md", errors, "references/self-evolution.md"
+    )
+    webpage_text = _load_text(
+        root / "references/web-learning.md", errors, "references/web-learning.md"
+    )
 
     manifest = _load_json(root / "manifest.json", errors, "manifest.json")
     triggers = _load_json(root / "evals/trigger_cases.json", errors, "trigger_cases.json")
@@ -932,7 +1014,7 @@ def validate_skill(root: Path) -> list[str]:
     _validate_readme(readme_text, errors)
     _validate_trigger_cases(triggers, errors)
     _validate_output_cases(outputs, errors)
-    _validate_core_contract(skill_text, protocol_text, visual_text, errors)
+    _validate_core_contract(skill_text, protocol_text, visual_text, evolution_text, webpage_text, errors)
     _validate_evidence(evidence, errors)
 
     if prior_art and (prior_art.get("ok") is not True or prior_art.get("complete") is not True):
