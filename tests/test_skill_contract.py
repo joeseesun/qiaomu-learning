@@ -47,7 +47,7 @@ class SkillContractTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(0, result.returncode, result.stderr)
-        self.assertIn("PASS qiaomu-learning v2.1.0", result.stdout)
+        self.assertIn("PASS qiaomu-learning v2.3.0", result.stdout)
 
     def test_trigger_eval_is_bilingual_and_boundary_focused(self) -> None:
         cases = self.triggers["cases"]
@@ -160,9 +160,25 @@ class SkillContractTests(unittest.TestCase):
             "mastery_gate",
             "mastery_confirmed",
         }
-        self.assertEqual("2.1.0", self.outputs["contract_version"])
+        self.assertEqual("2.3.0", self.outputs["contract_version"])
         self.assertGreaterEqual(len(self.outputs["cases"]), 10)
         self.assertTrue(required.issubset(self.by_category))
+
+    def test_visual_expression_routes_information_shape_to_smallest_view(self) -> None:
+        case = self.by_category["visual_expression"]
+        routes = case["context"]["routes"]
+        self.assertEqual("pseudocode", routes["algorithm"])
+        self.assertEqual("call_tree", routes["call_order"])
+        self.assertEqual("component_tree", routes["component_state"])
+        self.assertEqual("shallow_file_tree", routes["file_responsibility"])
+        self.assertEqual("mermaid", routes["data_flow"])
+        self.assertEqual("diff", routes["local_change"])
+        self.assertEqual("focused_html", routes["controllable_dense_concept"])
+        self.assertEqual("verified_image_or_deterministic_fallback", routes["multi_layer_spatial_mapping"])
+        self.assertTrue(case["expected"]["smallest_view_selected"])
+        self.assertTrue(case["expected"]["progressive_reveal"])
+        self.assertTrue(case["expected"]["text_alternative"])
+        self.assertTrue(case["expected"]["decorative_overview_avoided"])
 
     def test_webpage_mode_is_explicit_self_contained_and_not_fake_adaptive(self) -> None:
         case = self.by_category["webpage_mode"]

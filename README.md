@@ -1,8 +1,8 @@
 # qiaomu-learning
 
-**中文优先** · [English](#english) · [安装](#安装) · [验证](#验证) · 本地开发版本 v2.1.0（尚未发布）
+**中文优先** · [English](#english) · [安装](#安装) · [验证](#验证) · v2.3.0
 
-> **v2.1.0 · 本地开发版本**：在 v2.0.1 的 12 词默认地图、一次一问、渐进黑板和视觉恢复之上，加入可选的自包含互动 HTML 学习网页；本地验证结果以本次检查为准，远端 v2.1.0 尚未发布。
+> **v2.3.0**：按理解目标选择清晰文字、图解、互动 HTML 或定制解释视频。新增 STE 启发的写作原则、一次性学习实验和视频制作验收流程；保留一次一问的学习节奏。
 
 把一个主题、一段文字、网页、截图或 PDF 变成一场可随时退出的苏格拉底式学习对话：每个有效回合只向学习者提出一个简洁问题，并根据回答调整下一步。它会接住学习者的原话，像真人老师一样温和纠错，并通过逐帧黑板把推理画出来。学习者明确要求时，还能把路线封装成一个不依赖外部运行时的互动 HTML 学习容器。
 
@@ -32,6 +32,8 @@
 | 视觉恢复 | 抽象、流程、几何和复杂模型关系优先建立问题承载型图示；视觉密集主题每 1–2 个问题做一次视觉检查。 |
 | 反馈自进化 | 用户指出不清楚或太抽象时，下一回合立即降低抽象层级；可复用规则经过回归验证后再固化。 |
 | 自包含网页 | 明确要求网页时，生成概念小实验、主题工作台或课程复习册；默认单文件、离线、无 CDN、不自动部署。 |
+| 定制理解产物 | STE 启发的清晰文字、图解、变量实验、原创动画解释；视频按需制作，交付前验证真实渲染、音轨与字幕。 |
+| 最小视图表达 | 先按信息形态选择伪代码、树、Mermaid、diff、聚焦 HTML 或图像，不把“可视化”简化成生图。 |
 
 ## 安装
 
@@ -39,7 +41,7 @@
 npx skills add joeseesun/qiaomu-learning
 ```
 
-也可以把本仓库作为本地 Agent Skill 加载。默认流程不依赖第三方 API；视觉搭架只使用宿主提供的 Codex 内置图片生成能力，并保留纯文字回退。
+也可以把本仓库作为本地 Agent Skill 加载。默认流程不依赖第三方 API；图像生成使用宿主提供的 Codex 内置能力，并保留文字回退。按需视频可使用已有本地渲染与 TTS 工具；ElevenLabs 等外部旁白服务是可选路径，密钥只从已授权环境或宿主凭据读取。
 
 ## 前置条件
 
@@ -62,6 +64,10 @@ npx skills add joeseesun/qiaomu-learning
 - “像老师在黑板上讲一样带我学导数，每次只画下一步，不要一次给完整答案。”
 - “把直播的 12 个关键词做成一个自包含互动学习网页，每次只练一个小概念。”
 - “把刚才 PDF 的学习路线做成单文件 HTML 复习册，保留页码，不要上传或部署。”
+- “这个 API 调用过程太抽象了，用最小调用树带我一步步看，不要先画整张架构图。”
+- “用 80% ASD-STE100 的清晰程度带我学，保持自然中文，一次一问。”
+- “做一个 HTML 小实验，让我调整输入，预测输出怎样变化。”
+- “使用已有本地资源，为导数做一个 3b1b 风格的原创解释视频，带旁白、字幕和文字稿。”
 - “停止苏格拉底模式，直接解释刚才这一步。”
 
 ## 只做一件事
@@ -250,9 +256,9 @@ python3 scripts/validate_skill.py .
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-The published v2.0.1 package passed its recorded local contract tests; the local v2.1.0 development revision must be validated separately. GitHub discovery and clean installation evidence applies to v2.0.1, not automatically to this unreleased revision.
+The v2.3.0 package passes local validation and 23 existing contract tests. These checks verify packaging and recorded fixtures, not live model compliance or rendered teaching-video quality.
 
-The local v2.1.0 development revision adds an explicit self-contained webpage mode. Its release, clean-install, and provider-backed webpage evidence are not claimed until a separate release flow verifies them.
+Version v2.3.0 adds goal-based selection of STE-inspired text, diagrams, disposable HTML experiments, and on-request original explanation videos. Video guidance requires actual rendering, audio/caption checks, and honest fallback; it does not establish provider compatibility or measured learning gains.
 
 ## Limits
 

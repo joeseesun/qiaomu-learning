@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.1.0",
+  "contract_version": "2.3.0",
   "fixture_kind": "deterministic_acceptance_examples",
   "question_policy": {
     "active_turn_semantic_question_count": 1,
@@ -956,6 +956,42 @@
         "single-file HTML remains self-contained and offline-capable",
         "webpage acts as an interactive blackboard rather than a second tutor",
         "privacy, accessibility, and deployment boundaries are explicit"
+      ]
+    },
+    {
+      "id": "visual-expression-selects-smallest-information-shaped-view",
+      "category": "visual_expression",
+      "language": "zh-CN",
+      "active_mode": true,
+      "context": {
+        "topic": "理解一个 Web 请求从点击到返回的过程",
+        "routes": {
+          "algorithm": "pseudocode",
+          "call_order": "call_tree",
+          "component_state": "component_tree",
+          "file_responsibility": "shallow_file_tree",
+          "data_flow": "mermaid",
+          "local_change": "diff",
+          "controllable_dense_concept": "focused_html",
+          "multi_layer_spatial_mapping": "verified_image_or_deterministic_fallback"
+        },
+        "current_step": "which function receives the click first",
+        "view": "shallow call tree"
+      },
+      "assistant_output": "这一步只看调用顺序，不展开完整架构：\n\n```text\n点击按钮\n  handleSubmit\n    createRequest\n```\n\n文字替代：用户点击按钮后，先进入 `handleSubmit`，再由它调用 `createRequest`；当前没有展示网络返回和后续状态。哪个函数最先接住了用户的点击？",
+      "expected": {
+        "semantic_question_count": 1,
+        "question_is_last": true,
+        "smallest_view_selected": true,
+        "progressive_reveal": true,
+        "text_alternative": true,
+        "decorative_overview_avoided": true
+      },
+      "evaluation_concepts": [
+        "information shape routes to a call tree rather than a decorative image",
+        "the view keeps only the current relation",
+        "progressive reveal with equivalent text alternative",
+        "one observation question follows the visual"
       ]
     }
   ]

@@ -16,7 +16,7 @@ from typing import Any, Iterable
 
 
 SKILL_NAME = "qiaomu-learning"
-SKILL_VERSION = "2.1.0"
+SKILL_VERSION = "2.3.0"
 
 REQUIRED_FILES = (
     "SKILL.md",
@@ -31,6 +31,8 @@ REQUIRED_FILES = (
     "references/blackboard-teaching.md",
     "references/keyword-learning.md",
     "references/web-learning.md",
+    "references/visual-expression.md",
+    "references/understanding-artifacts.md",
     "evals/trigger_cases.json",
     "evals/output_cases.json",
     "reports/prior-art-candidates.json",
@@ -68,6 +70,7 @@ OUTPUT_CATEGORIES = {
     "mastery_gate",
     "mastery_confirmed",
     "webpage_mode",
+    "visual_expression",
 }
 
 QUESTION_MARK_RE = re.compile(r"[?？]")
@@ -795,6 +798,30 @@ def _validate_output_cases(data: dict[str, Any], errors: list[str]) -> None:
             "with honest deterministic branches and no default deployment"
         )
 
+    visual_expression = _case_by_category(cases, "visual_expression")
+    visual_context = visual_expression.get("context", {})
+    visual_expected = visual_expression.get("expected", {})
+    routes = visual_context.get("routes")
+    if not (
+        isinstance(routes, dict)
+        and routes.get("algorithm") == "pseudocode"
+        and routes.get("call_order") == "call_tree"
+        and routes.get("component_state") == "component_tree"
+        and routes.get("file_responsibility") == "shallow_file_tree"
+        and routes.get("data_flow") == "mermaid"
+        and routes.get("local_change") == "diff"
+        and routes.get("controllable_dense_concept") == "focused_html"
+        and routes.get("multi_layer_spatial_mapping") == "verified_image_or_deterministic_fallback"
+        and visual_expected.get("smallest_view_selected") is True
+        and visual_expected.get("progressive_reveal") is True
+        and visual_expected.get("text_alternative") is True
+        and visual_expected.get("decorative_overview_avoided") is True
+    ):
+        errors.append(
+            "output eval: visual expression must route information shapes to the smallest view "
+            "with progressive reveal, text alternative, and no decorative overview"
+        )
+
 
 def _validate_core_contract(
     skill_text: str,
@@ -907,6 +934,19 @@ def _validate_core_contract(
             "不默认收集",
             "不默认部署",
             "do not deploy",
+        ),
+        "information-shape visual routing": (
+            "信息形态",
+            "伪代码",
+            "调用树",
+            "Mermaid",
+            "diff",
+            "聚焦 HTML",
+        ),
+        "smallest-view rule": (
+            "最小视图",
+            "只承载当前唯一问题",
+            "smallest view",
         ),
         "mastery needs own words and transfer": (
             "own_words=true",

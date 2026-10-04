@@ -1,7 +1,7 @@
 interface:
   display_name: "乔木苏格拉底学习"
-  short_description: "一次一问的真人老师式学习，可按需生成自包含互动学习网页"
-    default_prompt: >-
+  short_description: "一次一问的真人老师式学习，用清晰文字、图解、互动网页和定制视频理解复杂关系"
+  default_prompt: >-
     使用 $qiaomu-learning 带我进行中文优先的苏格拉底式学习。基于我提供的主题、文字、网页、截图或 PDF，
     每个有效回合只提出一个简洁、面向学习者的问题，并根据我的上一答复调整难度和路径。像真人老师一样先接住我刚说的话，再画出下一笔，
     解释一个连接，最后只问一个观察或重建问题。默认按“具体例子→可见关系→口头规则→符号”推进，不要因为我算对一个数字就突然跳到公式。
@@ -9,6 +9,7 @@ interface:
     空间、流程、几何，以及微积分中的运动、曲线、斜率、极限、导数、面积关系默认及时建立视觉锚点。板书要逐步累积，不要一次给完整答案。
     图后附等价文字替代，再只问一个更具体的问题。视觉密集主题每 1-2 个有效问题做一次视觉检查；只有图能提供额外结构、只服务一个问题且已获授权时才生图，生成前简短解释视觉配置，不要每轮都生图。
     我说停止、直接讲或只要总结时，立即退出提问模式；当我明确要求学习网页时，生成不依赖外部 skill、CDN 或默认部署的单文件 HTML 学习容器。
+    根据理解目标选择 STE 启发的自然中文短句、图解、HTML 实验或按需解释视频；80% STE 不是合规分数。视频使用原创逐步动画、旁白、字幕和文字稿，实际渲染验收后才称为成片。
   examples:
     - "用一次一问的方式带我理解机会成本。"
     - "根据这份 PDF 的第二章教我，问题要引用页码，不要补写作者观点。"
@@ -31,6 +32,7 @@ compatibility:
       - "one-question-at-a-time tutoring"
       - "adaptive concept exploration"
       - "self-contained interactive learning webpage"
+      - "explicit qiaomu-learning explanation video request"
     excluded_intents:
       - "direct explanation or summary"
       - "direct solving or answer delivery"
@@ -49,6 +51,8 @@ compatibility:
     complex_visual_tool: "when a step has two or more interacting abstract layers such as angle-to-wave-to-number, vectors, matrices, attention, or architecture, call authorized Codex built-in image generation for the main visual; if the learner says ASCII is too abstract or explicitly asks for Codex image generation, generation is mandatory for the next visible reply"
     visual_scaffolding: "auto-switch the current step on explicit abstraction, confusion, boredom, or diagram requests; proactively anchor motion, change, curves, slope, limits, derivatives, area, spatial, process, and geometry steps; for visually dense topics, run a visual checkpoint every 1-2 active questions or at a new visual cognitive step; use Codex built-in image generation only when the checkpoint confirms material structural gain, one-question scope, authorization, and verifiability; give a brief visual configuration interpretation before generation; prefer deterministic sketches as a precision check; never imply image-every-turn"
     visual_prefetch: "when the next visual step is high-confidence and independent PDF parsing, text organization, or structural checking can run in parallel, prefetch at most one speculative draft; hide it until branch confirmation, re-verify before use, and discard it on path changes, authorization changes, failure, or accuracy concerns"
+    visual_expression_router: "route the smallest view by information shape: rules/algorithms to pseudocode, calls to a call tree, components/states to a component tree, file responsibilities to a shallow file tree, interactions/causality/data flow to Mermaid, local changes to diff, dense controllable concepts to focused single-file HTML, and only multi-layer spatial mappings beyond deterministic views to authorized image generation"
+    visual_expression_contract: "show one main view for one current cognitive target, keep only relevant nodes/arrows/states/boundaries, progressively reveal one new stroke or relation, provide equivalent text, and end with one observation/prediction/explanation/transfer question; never use visual decoration or a large overview to replace teaching"
     webpage_mode: "activate only on an explicit learning webpage/site/workshop request or an explicit request to turn the current lesson into a webpage; keep ordinary tutoring in dialogue mode; choose the smallest concept lab, topic workspace, or course review book; default to one responsive self-contained HTML file with inline CSS/JS, no CDN, external runtime, telemetry, or default deployment; preserve one current cognitive step and one learner-facing question"
     webpage_contract: "webpage is an interactive blackboard, not a second tutor; expose only deterministic branches, label source/analogy/background/unknown, provide keyboard and mobile access, text alternatives, local-only progress disclosure and clear-data control when storage is used, and return open natural-language answers to the dialogue for real adaptation"
     preferred_language: "zh-CN"
@@ -63,11 +67,12 @@ compatibility:
     page_read: "optional; only a user-authorized page when the host provides access"
     image_understanding: "optional for user-provided screenshots or PDF pages"
     image_generation: "optional; authorized Codex built-in image generation only, checked every 1-2 active questions for visually dense topics but never required by the interval alone"
-    network: "not required by default; optional only for authorized page access through the host"
+    network: "not required by default; optional for authorized page access or requested video services with existing authorization"
     file_write: "optional; only for sanitized feedback candidates or explicitly requested local skill updates; never write raw private learner content"
     webpage_file_write: "optional; only when the learner explicitly requests a webpage artifact; default output is a single local HTML file with no external dependencies; do not deploy or upload without a separate explicit request"
-    subprocess: "none required at runtime; local package validation may run python3 scripts/validate_skill.py ."
-    secrets: "forbidden; never request, store, print, or publish credentials"
+    video_creation: "optional; explicit video request authorizes necessary local animation, audio, subtitle, and render files; external services follow existing authorization; verify actual rendered output"
+    subprocess: "not required for ordinary dialogue; requested HTML/video creation may use available local tools; package validation may run python3 scripts/validate_skill.py ."
+    secrets: "read only from authorized host credentials or environment for requested services; never request pasted keys, store, print, or publish credentials"
   degradation:
     no_image_generation: "provide an equivalent text or ASCII scaffold and continue with exactly one stepped-down question"
     image_generation_declined: "keep the entire learning flow text-only without asking again"
@@ -98,6 +103,8 @@ gates:
     - "text-only-fallback"
     - "self-contained-webpage-contract"
     - "webpage-local-accessibility-and-no-external-runtime"
+    - "smallest-view-information-shape-routing"
+    - "progressive-visual-reveal-and-text-alternative"
   governed:
     - "secret-scan"
     - "public-claim-review"

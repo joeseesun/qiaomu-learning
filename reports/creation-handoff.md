@@ -1,4 +1,20 @@
+## v2.3.0 understanding-artifact update — 2026-10-04
+
+- Source: user-supplied philosophy of understanding model output through controlled prose, diagrams, interactive HTML, and customized explanation videos.
+- Added goal-based artifact selection and disposable learning experiments; retained one cognitive target, learner control, and mastery evidence.
+- STE is English-specific; Chinese uses inspired clarity principles, and “80%” is a style preference, not a compliance score. Official STE overview and FAQ were checked.
+- Video path covers original progressive animation, narration, captions/transcript, authorized credentials, actual render/playback checks, and honest fallback. No video was requested or rendered during this skill update.
+- Existing v2.2.0 visual-expression work is preserved as the foundation. Canonical personal skill source: `/Users/joe/Nutstore Files/.agents/skills/qiaomu-learning`.
+
 # Creation Handoff
+
+## v2.2.0 visual-expression improvement
+
+- Reference skill studied: `humanlayer/skills` → `plugins/show-me/skills/show-me/SKILL.md`, installed in an isolated temporary directory with `npx skills add humanlayer/skills --skill show-me`.
+- Keep: smallest useful view, information-shape routing, concise prose, component/call/file trees, Mermaid, diff, and focused HTML for dense interactive visuals.
+- Adapt: convert `show-me`'s developer-facing diagrams into learner-facing views with progressive reveal, text alternatives, answer-leak checks, and one observation/transfer question.
+- Reject: broad “show the whole system” diagrams and visual output without a learning target; generated images remain a last resort after deterministic views.
+- Original contribution: a teacher loop that treats pseudocode, trees, Mermaid, diff, focused HTML, and verified images as cumulative blackboard frames rather than presentation artifacts.
 
 ## Result
 

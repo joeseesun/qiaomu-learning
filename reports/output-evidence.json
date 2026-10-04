@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "skill": "qiaomu-learning",
-  "contract_version": "2.1.0",
-  "recorded_at": "2026-08-12",
+  "contract_version": "2.3.0",
+  "recorded_at": "2026-10-04",
   "scope": "Deterministic package, fixture, and contract checks only. This record does not represent provider execution, blinded human judgment, or measured learner outcomes.",
   "recorded_checks": [
     {
@@ -145,5 +145,6 @@
       "claim_boundary": "Do not claim the skill improves grades, retention, transfer, or outcomes versus teachers, courses, or other tools."
     }
   ],
-  "interpretation": "A pass means the checked files encode the stated v2.0.1 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit."
+  "interpretation": "A pass means the checked files encode the stated v2.0.1 contract and the recorded deterministic fixtures satisfy their mechanical assertions. It does not prove that every future model response will comply or that learners will benefit.",
+  "revision_note": "v2.3.0 package validation and 23 existing contract tests rerun. Understanding-artifact routing reviewed against four scenarios in references/understanding-artifacts.md; this is instruction review, not a provider video execution."
 }

@@ -1,5 +1,23 @@
 # Prior-Art Research
 
+## 2026-08-13 visual-expression research
+
+### Candidate
+
+- `humanlayer/skills` → `plugins/show-me/skills/show-me/SKILL.md`
+- Retrieved through the user-provided command: `npx skills add humanlayer/skills --skill show-me`
+- Isolated retrieval result: skill installed successfully; the source package reported a safe assessment, zero Socket alerts, and low Snyk risk. These are source-tool signals, not a claim that the mechanism improves learning.
+
+### Keep / adapt / reject
+
+- **Keep**: choose the smallest view; use pseudocode for logic, call trees for runtime order, component/file trees for structure, Mermaid for flow, diff for change, and focused HTML for dense UI or concept views.
+- **Adapt**: add qiaomu-learning's single cognitive target, progressive reveal, equivalent text, learner observation question, and source/answer boundary.
+- **Reject**: treating a visual as a general-purpose overview or using HTML/image generation when a deterministic sketch or tree is enough.
+
+### Evidence boundary
+
+This is a mechanism study from one skill file. No provider-backed comparison or human learner outcome evidence was available; those dimensions remain `missing evidence`.
+
 - Skill: `qiaomu-learning` 2.1.0 local development revision
 - Mode: Governed（面向公开复用）
 - Researched at: 2026-08-10
