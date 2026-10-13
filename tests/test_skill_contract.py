@@ -47,7 +47,7 @@ class SkillContractTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(0, result.returncode, result.stderr)
-        self.assertIn("PASS qiaomu-learning v2.3.0", result.stdout)
+        self.assertIn("PASS qiaomu-learning v2.4.0", result.stdout)
 
     def test_trigger_eval_is_bilingual_and_boundary_focused(self) -> None:
         cases = self.triggers["cases"]
@@ -160,7 +160,7 @@ class SkillContractTests(unittest.TestCase):
             "mastery_gate",
             "mastery_confirmed",
         }
-        self.assertEqual("2.3.0", self.outputs["contract_version"])
+        self.assertEqual("2.4.0", self.outputs["contract_version"])
         self.assertGreaterEqual(len(self.outputs["cases"]), 10)
         self.assertTrue(required.issubset(self.by_category))
 

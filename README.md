@@ -1,7 +1,9 @@
 # qiaomu-learning
 
-**中文优先** · [English](#english) · [安装](#安装) · [验证](#验证) · v2.3.0
+**中文优先** · [English](#english) · [安装](#安装) · [验证](#验证) · v2.4.0
 
+> **v2.4.0**：新增“实物机制”视图——抽象机制用流程图讲过仍想象不出时，换成一台会动的真实机器来解释，需要交互图时调用 `anatomy`。
+>
 > **v2.3.0**：按理解目标选择清晰文字、图解、互动 HTML 或定制解释视频。新增 STE 启发的写作原则、一次性学习实验和视频制作验收流程；保留一次一问的学习节奏。
 
 把一个主题、一段文字、网页、截图或 PDF 变成一场可随时退出的苏格拉底式学习对话：每个有效回合只向学习者提出一个简洁问题，并根据回答调整下一步。它会接住学习者的原话，像真人老师一样温和纠错，并通过逐帧黑板把推理画出来。学习者明确要求时，还能把路线封装成一个不依赖外部运行时的互动 HTML 学习容器。
@@ -256,7 +258,7 @@ python3 scripts/validate_skill.py .
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-The v2.3.0 package passes local validation and 23 existing contract tests. These checks verify packaging and recorded fixtures, not live model compliance or rendered teaching-video quality.
+The v2.4.0 package passes local validation and 23 existing contract tests. These checks verify packaging and recorded fixtures, not live model compliance or rendered teaching-video quality.
 
 Version v2.3.0 adds goal-based selection of STE-inspired text, diagrams, disposable HTML experiments, and on-request original explanation videos. Video guidance requires actual rendering, audio/caption checks, and honest fallback; it does not establish provider compatibility or measured learning gains.
 
@@ -267,3 +269,9 @@ The skill does not claim provider-wide compatibility, identical image availabili
 ## License
 
 MIT License. See [LICENSE](LICENSE). Maintained by [向阳乔木](https://github.com/joeseesun/).
+
+## 上游致谢 / Upstream credit
+
+https://github.com/anthropics/claude-for-legal; https://github.com/github/awesome-copilot; https://github.com/GarethManning/education-agent-skills; https://github.com/joeseesun/qiaomu-course-designer; https://github.com/humanlayer/skills
+
+实物机制视图的思路借鉴自 https://github.com/wheresryan22/anatomy （MIT）。

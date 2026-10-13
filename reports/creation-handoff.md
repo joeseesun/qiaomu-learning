@@ -1,3 +1,9 @@
+## v2.4.0 mechanism-object view — 2026-10-13
+
+- Added the Mechanism object view to `references/visual-expression.md` and a route in `SKILL.md`: when a mechanism stays abstract after a flow diagram, explain it with a real, recognisable machine whose motion is the concept, calling `anatomy` for interactive figures.
+- Reference studied: `wheresryan22/anatomy` (MIT), "the object is the explanation" rule; adapted, not copied. Highlight is a design advantage (hypothesis); no learner-outcome evidence.
+- Validation: `scripts/validate_skill.py` PASS and 23 contract tests rerun.
+
 ## v2.3.0 understanding-artifact update — 2026-10-04
 
 - Source: user-supplied philosophy of understanding model output through controlled prose, diagrams, interactive HTML, and customized explanation videos.
